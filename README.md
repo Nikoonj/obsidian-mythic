@@ -1,10 +1,10 @@
 # obsidian-mythic
-
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
 ## Appearance
 - **Dark theme variants**: Choose between
     - **Obsidian** (Default Cupertino)
     - **Mythic** (Default Mythic)
+    - **Dark Grey** (Balanced Dark Mode)
     - **Pure Black** (AMOLED Mode)
 - **Inactive Tab Background**: Adds a background color to inactive tabs for better visibility.
 - **Fullscreen Theme Variant**: Choose which theme style to automatically apply when entering fullscreen mode.
