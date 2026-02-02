@@ -706,6 +706,11 @@ body.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left {
   justify-content: center
 }
 
+.workspace-ribbon.mod-left.is-collapsed {
+  margin-right: 5px !important;
+  margin-left: 5px !important;
+}
+
 .workspace-ribbon.mod-left .sidebar-toggle-button .clickable-icon {
   pointer-events: auto;
   z-index: 1
@@ -715,7 +720,8 @@ body.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left {
   gap: 4px;
   transition: var(--anim-duration-moderate);
   z-index: 1;
-  color: var(--icon-color)
+  color: var(--icon-color);
+  padding-top: 10px
 }
 
 .workspace-ribbon.mod-left .sidebar-toggle-button .clickable-icon,
@@ -725,8 +731,7 @@ body.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left {
 
 .workspace-ribbon.mod-left .sidebar-toggle-button .clickable-icon:hover,
 .workspace-ribbon.mod-left .side-dock-actions .side-dock-ribbon-action:hover {
-  box-shadow: none !important;
-  background-color: rgba(0, 0, 0, 0) !important;
+  box-shadow: var(--raised-shadow) !important;
   color: var(--text-normal)
 }
 
@@ -1612,7 +1617,10 @@ body.is-mobile {
 body.is-mobile.theme-dark {
   --color-base-00: #1e1e1e;
   --color-base-10: #242424;
-  --color-base-20: #262626
+  --color-base-20: #262626;
+  --text-muted: #b3b3b3 !important;
+  --text-faint: #999999 !important;
+  --icon-color: #cccccc !important
 }
 
 body.is-mobile .app-container {
@@ -2326,7 +2334,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br>Version: 4.0.1 <br> Author: Nikoonj <br> Updated: 1st February 2026"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.0.2 <br> Author: Nikoonj <br> Updated: 2nd February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2338,44 +2346,49 @@ settings:
 	-
 		id: readme
 		description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
-    <h2> Appearance and Animations </h2> <br>
+    <h2> Appearance </h2> <br>
     <ul>
-    <li><b>Enable Animations (BETA)</b>: Enables fluid animations</li>
     <li><b>Dark theme variants</b>: Choose between 
     <ul>
     <li><b>Obsidian</b> (Default Cupertino)</li>
     <li><b>Mythic</b> (Default Mythic)</li>
-    <li><b>Dark Grey</b> (Balanced Dark Mode)</li>
     <li><b>Pure Black</b> (AMOLED Mode)</li>
-    </ul></li>
+    </ul></li><br>
+    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
     <li><b>Fullscreen Theme Variant</b>: Choose which theme style to automatically apply when entering fullscreen mode.</li>
-    </ul>
-    <br> <h2> Sidebar </h2> <br>
-    <ul>
-    <li><b>Show sidebar guidelines</b>: Toggles the visibility of indentation guides in the file explorer.</li>
-    <li><b>Smooth sidebar hover</b>: Enables the smooth fade effect when hovering over files/folders.</li>
+
+    <li><b>Enable Animations (BETA)</b>: Enables fluid animations.</li>
+    <li><b>Lighter Headers</b>: Makes header colors lighter to ensure legibility when using dark accent colors.</li>
     <li><b>Enable folder highlight</b>: Highlights selected folders with a teal/blue accent color.</li>
     </ul>
-    <br> <h2> UI Elements </h2> <br>
+
+    <br> <h2> Workspace Layout </h2> <br>
     <ul>
-    <li><b>Enable Obsidian settings icon</b>: Replaces the settings cog with an Obsidian logo icon button.</li>
-    <li><b>Show circle background</b>: Adds a circular dark background behind the Obsidian logo icon.</li>
     <li><b>Compact pinned tabs</b>: Reduces the width of pinned tabs and hides their title.</li>
-    <li><b>Black/White icons</b>: Options to force icons to be monochrome in Light or Dark mode.</li>
-    <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black (light mode) or white (dark mode).</li>
-    <li><b>Larger Settings Icons</b>: Increases the size of settings menu icons and text.</li>
-    <li><b>Lighter Headers</b>: Makes headers in the editor lighter for darker accent colours.</li>
-    </ul>
-    <br> <h2> Ribbon </h2> <br>
-    <ul>
+    <li><b>Show sidebar guidelines</b>: Toggles the visibility of indentation guides in the file explorer.</li>
+    <li><b>Smooth sidebar hover</b>: Enables the smooth fade effect when hovering over files/folders.</li>
     <li><b>Center ribbon when sidebar closed</b>: Centers the ribbon icons vertically when the sidebar is collapsed.</li>
     <li><b>Center ribbon when sidebar open</b>: Centers the ribbon icons vertically when the sidebar is open.</li>
     </ul>
-    <br> <h2> Additional Patches in Version 4 </h2> <br>
+    <br> <h2> Icons </h2> <br>
+    <ul>
+    <li><b>Enable Obsidian settings icon</b>: Replaces the settings cog with an Obsidian logo icon button.</li>
+    <li><b>Show circle background</b>: Adds a circular dark background behind the Obsidian logo icon.</li>
+    <li><b>Black icons in Light Mode</b>: Forces tab and sidebar icons to be pure black in light mode.</li>
+    <li><b>White icons in Dark Mode</b>: Forces tab and sidebar icons to be pure white in dark mode.</li>
+    <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black (light mode) or white (dark mode).</li>
+    <li><b>Larger Settings Icons</b>: Increases the size of settings menu icons and text.</li>
+    </ul>
+    <br> <h2> Patches & Fixes in Version 4 </h2> <br>
     <ul>
     <li><b>Mobile Mode Switcher</b>: A position patch for the mode switcher button on phones.</li>
     <li><b>Overflow Fix</b>: Globally prevents horizontal scrolling on mobile via .cm-scroller.</li>
     <li><b>macOS UI</b>: Fixes a background issue with the right sidebar toggle button.</li>
+    <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
+    <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
+    <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
+    <li><b>Fixed Animations</b>: Refined animations for tabs and buttons.</li>
+    <li><b>New in 4.0.2</b>: Inactive Tab Background</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2395,21 +2408,15 @@ settings:
         type: info-text
         markdown: true
     -
-        id: Design-header
-        title: Design
+        id: appearance-settings-header
+        title: Appearance
         type: heading
         level: 2
     -
-        id: Design-desc
-        description: "Mythic offers different styles of dark themes and smooth animations."
+        id: appearance-desc
+        description: "Customize the visual look, colors, and animations of the theme."
         type: info-text
         markdown: true
-    -
-        id: enhanced-animations
-        title: Enables Animations (BETA)
-        description: Enables fluid and bouncier animations.
-        type: class-toggle
-        default: true
     -
         id: dark-theme-variant
         title: Dark theme variant
@@ -2451,11 +2458,42 @@ settings:
                 label: Pure Black
                 value: fs-pure-black
     -
-        id: sidebar-settings-header
-        title: Sidebar
+        id: inactive-tab-background
+        title: Inactive Tab Background
+        description: Background color over inactive tabs.
+        type: class-toggle
+        default: false
+    -
+        id: enhanced-animations
+        title: Enables Animations (BETA)
+        description: Enables fluid and bouncier animations.
+        type: class-toggle
+        default: true
+    -
+        id: light-accents
+        title: Lighter Headers
+        description: "Makes header colors lighter to ensure legibility when using dark accent colors."
+        type: class-toggle
+        default: false
+    -
+        id: folder-highlight
+        title: Enable folder highlight
+        description: Highlights selected folders with a teal/blue accent color.
+        type: class-toggle
+        default: true
+
+    -
+        id: workspace-settings-header
+        title: Workspace Layout
         type: heading
         level: 2
         collapsed: false
+    -
+        id: compact-pinned-tabs
+        title: Compact pinned tabs
+        description: Reduces the width of pinned tabs and hides their title.
+        type: class-toggle
+        default: true
     -
         id: sidebar-guidelines
         title: Show sidebar guidelines
@@ -2468,17 +2506,28 @@ settings:
         type: class-toggle
         default: true
     -
-        id: folder-highlight
-        title: Enable folder highlight
-        description: Highlights selected folders with a teal/blue accent color.
+        id: center-collapsed-ribbon
+        title: Center ribbon when sidebar closed
+        description: Centers the ribbon icons vertically when the sidebar is collapsed.
+        type: class-toggle
+        default: true
+    -
+        id: center-open-ribbon
+        title: Center ribbon when sidebar open
+        description: Centers the ribbon icons vertically when the sidebar is open.
         type: class-toggle
         default: false
     -
-        id: ui-settings-header
-        title: UI Elements
+        id: icons-settings-header
+        title: Icons
         type: heading
         level: 2
         collapsed: false
+    -
+        id: icon-desc-initial
+        description: "<h2> Settings icon </h2> Customiation for the look of the Settings icon."
+        type: info-text
+        markdown: true
     -
         id: obsidian-settings-icon
         title: Enable Obsidian settings icon
@@ -2492,11 +2541,10 @@ settings:
         type: class-toggle
         default: false
     -
-        id: compact-pinned-tabs
-        title: Compact pinned tabs
-        description: Reduces the width of pinned tabs and hides their title.
-        type: class-toggle
-        default: true
+        id: icon-desc
+        description: "<h2> Iconize Plugin Settings </h2> ( ! ) This section requires the Iconize plugin.</div>"
+        type: info-text
+        markdown: true
     -
         id: monochrome-icons-light
         title: Black icons in Light Mode
@@ -2510,6 +2558,11 @@ settings:
         type: class-toggle
         default: false
     -
+        id: icon-desc
+        description: "<h2> Settings Panels icons </h2> Customization for the look of the settings panels icons."
+        type: info-text
+        markdown: true
+    -
         id: monochrome-settings-icons
         title: Monochrome Settings Icons
         description: Forces settings menu icons to be black (light mode) or white (dark mode).
@@ -2519,30 +2572,6 @@ settings:
         id: larger-settings-icons
         title: Larger Settings Icons
         description: Makes settings menu icons and text larger.
-        type: class-toggle
-        default: false
-    -
-        id: light-accents
-        title: Lighter Headers
-        description: "Makes header colors lighter to ensure legibility when using dark accent colors."
-        type: class-toggle
-        default: true
-    -
-        id: ribbon-settings-header
-        title: Ribbon
-        type: heading
-        level: 2
-        collapsed: false
-    -
-        id: center-collapsed-ribbon
-        title: Center ribbon when sidebar closed
-        description: Centers the ribbon icons vertically when the sidebar is collapsed.
-        type: class-toggle
-        default: true
-    -
-        id: center-open-ribbon
-        title: Center ribbon when sidebar open
-        description: Centers the ribbon icons vertically when the sidebar is open.
         type: class-toggle
         default: false
 */
@@ -3828,7 +3857,18 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container .sidebar-toggle-button {
   min-height: calc(var(--header-height) - 4px);
   max-height: calc(var(--header-height) - 4px);
-  margin-left: 72px;
+}
+
+/* Center Sidebar Tabs & Fix Layout */
+.workspace-split.mod-left-split .workspace-tab-header-container-inner {
+  justify-content: center !important;
+  width: 100% !important;
+  background-color: transparent !important;
+  outline: none !important;
+}
+
+body.is-fullscreen .workspace-split.mod-left-split .workspace-tab-header-container-inner {
+  margin-left: 33px !important;
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split>.workspace-leaf-resize-handle {
@@ -8652,7 +8692,7 @@ body.minimal-theme .workspace::before {
 .theme-dark .HyperMD-header .cm-header-5,
 .theme-dark .HyperMD-header .cm-header-6 {
   color: var(--interactive-accent) !important;
-  font-weight: 450 !important
+  font-weight: 450 !important 
 }
 
 /* Typography → Light Headers → Live Preview (Dark Mode) */
@@ -8683,7 +8723,7 @@ body.light-accents.theme-dark .markdown-preview-view h3,
 body.light-accents.theme-dark .markdown-preview-view h4,
 body.light-accents.theme-dark .markdown-preview-view h5,
 body.light-accents.theme-dark .markdown-preview-view h6 {
-  color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 75%))) !important
+  color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 75%))) !important 
 }
 
 /* Typography → Spacing → Live Preview */
@@ -8697,7 +8737,7 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .markdown-preview-view ol li,
 .markdown-preview-view ul li,
 .mod-cm6 .HyperMD-list-line.cm-line {
-  padding: 1.5px
+  padding: 1.5px 
 }
 
 /* Typography → Lists → Indentation */
@@ -8708,7 +8748,7 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .markdown-preview-view ol ul {
   border-left: 1px solid var(--background-modifier-border);
   margin-left: 15px;
-  padding-left: 10px
+  padding-left: 10px 
 }
 
 /* Typography → Sidebar → Guidelines */
@@ -8729,7 +8769,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 /* Typography → Lists → Live Preview Alignment */
 .markdown-source-view.mod-cm6 .cm-indent {
-  text-indent: 20px !important
+  text-indent: 20px !important 
 }
 
 /* Typography → Highlight */
@@ -8747,18 +8787,18 @@ body.sidebar-guidelines .nav-folder-children:hover {
 /* Tables → Live Preview & Reading View → Positioning */
 .markdown-rendered table,
 .markdown-source-view.mod-cm6 .cm-table-widget {
-  padding-top: 0px !important
+  padding-top: 0px !important 
 }
 
 /* Tables → Headers → Styling */
 .markdown-rendered table th,
 .markdown-source-view.mod-cm6 .cm-table-widget th {
+  padding: 4px;
   border-top: 1px dashed var(--background-modifier-border) !important;
   border-left: 1px dashed var(--background-modifier-border) !important;
-  border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-  background-color: var(--background-secondary);
-  padding: 4px
+  border-bottom-left-radius: 0 !important;
+  background-color: var(--background-secondary) 
 }
 
 .markdown-rendered table th:last-child,
@@ -8777,34 +8817,39 @@ body.sidebar-guidelines .nav-folder-children:hover {
    -------------------- */
 /* Animations → Variables */
 .enhanced-animations {
-  --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1.1);
+  --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1);
+  --Mythic-animation-spring: cubic-bezier(0.3, 1.5, 0.6, 1) 
 }
 
 /* Animations → Keyframes */
 @keyframes hoverButton {
   from {transform: scale(1);}
-  to {transform: scale(1.02);}
+  to {transform: scale(1.05);}
 }
 
 /* Animations → Button Press */
 @keyframes buttonPress {
   from {transform: scale(1);}
-  40% {transform: scale(0.92);}
+  40% {transform: scale(0.85);}
   to {transform: scale(1);}
 }
 
 /* Animations → UI → Hover States */
-.enhanced-animations .clickable-icon:hover,
+.enhanced-animations .clickable-icon:hover:not(.sidebar-toggle-button .clickable-icon, .input-right-decorator),
 .enhanced-animations .nav-action-button:hover,
 .enhanced-animations button:hover,
+.enhanced-animations .workspace-tab-header:hover {
+  animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards !important;
+}
+/* Animations → UI → Button Background */
+.enhanced-animations .clickable-icon:hover,
 .enhanced-animations .workspace-tab-header-inner:hover {
-  background-color: var(--interactive-normal);
-  animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards;
+  background-color: var(--interactive-normal) !important;
 }
 
 /* Animations → UI → Tab Press */
 .enhanced-animations .workspace-tab-header:active {
-  animation: buttonPress 0.2s ease-out;
+  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-spring) !important;
 }
 
 .enhanced-animations .workspace-tab-header:active .workspace-tab-header-inner {
@@ -8816,10 +8861,10 @@ body.sidebar-guidelines .nav-folder-children:hover {
   z-index: -1;
   background-color: var(--background-primary);
   border-radius: 15px;
-  padding-left: 10px;
+  padding-left: 10px; 
   margin-left: 2px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards
+  box-shadow: var(--shadow-tab);
+  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards 
 }
 
 /* --------------------
@@ -8830,7 +8875,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 .smooth-hover .nav-folder-title.is-active {
   background: rgba(var(--mono-rgb-100), 0.1) !important;
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15)) !important;
-  border-radius: 15px !important
+  border-radius: 15px !important 
 }
 
 /* Smooth Hover */
@@ -8855,14 +8900,14 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 /* Sidebar → Folder Highlight → Text Color */
 .folder-highlight:not(.is-mobile) .nav-folder:not(.is-collapsed) .nav-folder-title .nav-folder-title-content {
-  color: var(--interactive-accent) !important
+  color: var(--interactive-accent) 
 }
 
 /* Sidebar → Folder Highlight → Icon Color */
 .folder-highlight .nav-folder:not(.is-collapsed):not(.is-mobile) .nav-folder-title svg,
 .folder-highlight .nav-folder:not(.is-collapsed):not(.is-mobile) .nav-folder-title .collapse-icon {
-  color: var(--interactive-accent) !important;
-  stroke: var(--interactive-accent) !important
+  color: var(--interactive-accent); 
+  stroke: var(--interactive-accent) 
 }
 
 /* --------------------
@@ -8874,8 +8919,8 @@ body.sidebar-guidelines .nav-folder-children:hover {
 .theme-light.monochrome-icons-light .nav-file-icon svg,
 .theme-light.monochrome-icons-light .nav-folder-icon svg,
 .theme-light.monochrome-icons-light .iconize-icon {
-  filter: brightness(0) !important;
-  color: black !important
+  filter: brightness(0) !important; 
+  color: black !important 
 }
 
 /* Icons → Monochrome → Dark Mode */
@@ -8893,13 +8938,13 @@ body.sidebar-guidelines .nav-folder-children:hover {
 }
 
 .theme-light.monochrome-settings-icons .modal.mod-settings .vertical-tab-nav-item-icon svg {
-  filter: brightness(0) !important;
+  filter: brightness(0) !important; 
   color: black !important
 }
 
 /* Monochrome Settings Icons (Dark) */
 .theme-dark:not(.is-mobile).monochrome-settings-icons .modal.mod-settings .vertical-tab-nav-item-icon {
-  background: var(--background-primary) !important
+  background: var(--background-primary) !important 
 }
 
 .theme-dark.is-mobile.monochrome-settings-icons .modal.mod-settings .vertical-tab-nav-item-icon {
@@ -8908,7 +8953,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 .theme-dark.monochrome-settings-icons .modal.mod-settings .vertical-tab-nav-item-icon svg {
   filter: brightness(0) invert(1) !important;
-  color: white !important
+  color: white !important 
 }
 
 .obsidian-settings-icon .workspace-drawer-vault-actions .clickable-icon:last-child::after {
@@ -8928,7 +8973,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 .obsidian-settings-icon-circle .workspace-drawer-vault-actions .clickable-icon:last-child::after {
   width: 22px;
-  height: 22px
+  height: 22px 
 }
 
 /* User Interface → Settings Icon → Circle → Light Mode */
@@ -8940,21 +8985,21 @@ body.sidebar-guidelines .nav-folder-children:hover {
 /* Settings Icon */
 .workspace-drawer-vault-actions .clickable-icon:last-child {
   background-color: rgba(from var(--background-primary) r g b/75%) !important;
-  box-shadow: var(--shadow-tab) !important
+  box-shadow: var(--shadow-tab) !important 
 }
 
 /* Larger Settings Internal Icons */
 .larger-settings-icons:not(.mod-windows:not(.windows-off):not(.is-mobile)) .modal.mod-settings .vertical-tab-nav-item .vertical-tab-nav-item-icon {
   padding: 8px;
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
 .larger-settings-icons:not(.is-mobile) .monochrome-settings-icons .modal.mod-settings .vertical-tab-nav-item-icon svg {
-  scale: 1.175;
+  scale: 1.175; 
 }
 
 .larger-settings-icons:not(.is-mobile) .vertical-tab-nav-item-title {
-  font-size: 1.05em;
+  font-size: 13px;
 }
 
 /* --------------------
@@ -8963,7 +9008,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 /* User Interface → Compact Tabs */
 .compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
-  max-width: 60px !important
+  max-width: 60px !important 
 }
 
 /* User Interface → Compact Tabs → Hide Title */
@@ -8973,7 +9018,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 
 /* Tabs → Centered → macOS */
 body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  padding-left: 20px !important;
+  padding-left: 20px !important; 
   padding-right: 20px !important
 }
 
@@ -8984,8 +9029,36 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
 /* Icons → Monochrome → Disable Toggle */
 .theme-dark .setting-item[data-id="monochrome-icons-light"],
 .theme-light .setting-item[data-id="monochrome-icons-dark"] {
-  pointer-events: none;
+  pointer-events: none
+}
+.theme-dark .setting-item[data-id="monochrome-icons-light"] .setting-item-info,
+.theme-dark .setting-item[data-id="monochrome-icons-light"] .setting-item-control,
+.theme-light .setting-item[data-id="monochrome-icons-dark"] .setting-item-info,
+.theme-light .setting-item[data-id="monochrome-icons-dark"] .setting-item-control {
   opacity: 0.5
+}
+
+/* --------------------
+   USER INTERFACE (Border)
+   -------------------- */
+
+body.theme-dark {
+  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, white);
+}
+
+body.theme-light {
+  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, black);
+}
+
+.style-settings-container .setting-item[data-id="icon-desc"] {
+  border-top: 1px solid var(--setting-item-background);
+  border-bottom: 1px solid var(--setting-item-background);
+  background-color: var(--setting-item-background) !important;
+}
+
+.style-settings-container .setting-item[data-id="icon-desc-initial"] {
+  border-bottom: 1px solid var(--setting-item-background); 
+  background-color: var(--setting-item-background) !important;
 }
 
 /* --------------------
@@ -8996,9 +9069,9 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
 .center-collapsed-ribbon .workspace-ribbon.mod-left.is-collapsed .side-dock-actions {
   position: absolute !important;
   top: 50% !important;
-  transform: translateY(-72%) !important;
+  transform: translateY(-72%) !important; 
   align-items: center;
-  transition: none !important
+  transition: none !important 
 }
 
 /* Center ribbon when sidebar is open */
@@ -9008,7 +9081,7 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
 }
 
 .workspace-ribbon.mod-left .side-dock-actions {
-  transition: none
+  transition: none 
 }
 
 /* ---------------------
@@ -9178,11 +9251,24 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
    MOBILE (Extra Patches)
    -------------------- */
 /* Mode switcher button - Position Patch */
-body.is-phone:not(.mode-switcher-off) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
-  translate: 0 -5px;
+.is-phone:not(.mode-switcher-off) .view-actions :nth-last-child(2) {
+  translate: 0 -5px !important;
+}
+.is-phone.is-keyboard-open:not(.mode-switcher-off) .view-actions :nth-last-child(2) {
+  translate: 0 0px !important;
 }
 
 /* Overflow Patch for mobile */
-body.is-mobile .cm-scroller {
+body.is-mobile .cm-scroller,
+body.is-mobile .pdf-container {
   overflow-x: hidden !important;
+}
+
+/* ---------------------
+   APPEARANCE (Inactive Tabs)
+   -------------------- */
+
+.inactive-tab-background .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
+  background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
+  box-shadow: var(--shadow-tab) !important;
 }
