@@ -34,4 +34,4 @@
 - **Ribbon Spacing**: Added padding to fix button clipping.
 - **Mobile Visibility**: Increased text and icon contrast on mobile in dark mode.
 - **Fixed Animations**: Refined animations for tabs and buttons.
-- **New in 4.0.2**: Inactive Tab Background
+- **New in 4.1.0**: Inactive Tab Background
