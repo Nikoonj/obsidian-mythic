@@ -8,6 +8,8 @@
     - **Pure Black** (AMOLED Mode)
 - **Inactive Tab Background**: Adds a background color to inactive tabs for better visibility.
 - **Fullscreen Theme Variant**: Choose which theme style to automatically apply when entering fullscreen mode.
+- **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
+    - **Smart Background**: Automatically darkens the background when sidebars are closed for focus.
 - **Enable Animations (BETA)**: Enables fluid animations.
 - **Lighter Headers**: Makes header colors lighter to ensure legibility when using dark accent colors.
 - **Enable folder highlight**: Highlights selected folders with a teal/blue accent color.
