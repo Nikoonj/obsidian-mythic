@@ -2334,7 +2334,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.1.0 <br> Author: Nikoonj <br> Updated: 5th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.0 <br> Author: Nikoonj <br> Updated: 8th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2348,22 +2348,28 @@ settings:
 		description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <h2> Appearance </h2> <br>
     <ul>
+    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
     <li><b>Dark theme variants</b>: Choose between 
     <ul>
     <li><b>Obsidian</b> (Default Cupertino)</li>
     <li><b>Mythic</b> (Default Mythic)</li>
+    <li><b>Dark Grey</b> (Balanced Dark Mode)</li>
     <li><b>Pure Black</b> (AMOLED Mode)</li>
     </ul></li><br>
-    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
     <li><b>Fullscreen Theme Variant</b>: Choose which theme style to automatically apply when entering fullscreen mode.</li>
     <li><b>Transparent Editor</b>: Makes the editor background transparent showing your wallpaper.
     <ul><li><b>Smart Background</b>: Automatically darkens the background when sidebars are closed for focus.</li></ul></li><br>
-
     <li><b>Enable Animations (BETA)</b>: Enables fluid animations.</li>
     <li><b>Lighter Headers</b>: Makes header colors lighter to ensure legibility when using dark accent colors.</li>
     <li><b>Enable folder highlight</b>: Highlights selected folders with a teal/blue accent color.</li>
     </ul>
-
+    <br> <h2> Shadow Glass Styling </h2> <br>
+    <ul>
+    <li><b>Shadow Glass Inputs</b>: Adds subtle shadow and specular rim to text fields.</li>
+    <li><b>Active Button Glow</b>: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.</li>
+    <li><b>Shadow Glass Headers</b>: Adds shadow and rounded corners to the header bar in Transparent Editor mode. (Requires Transparent Editor)</li>
+    <li><b>Shadow Glass Markdown (BETA)</b>: Adds shadow glass styling to quotes and callouts.</li>
+    </ul>
     <br> <h2> Workspace Layout </h2> <br>
     <ul>
     <li><b>Compact pinned tabs</b>: Reduces the width of pinned tabs and hides their title.</li>
@@ -2388,9 +2394,8 @@ settings:
     <li><b>macOS UI</b>: Fixes a background issue with the right sidebar toggle button.</li>
     <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
     <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
-    <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
-    <li><b>Fixed Animations</b>: Refined animations for tabs and buttons.</li>
-    <li><b>New in 4.0.2</b>: Inactive Tab Background</li>
+    <li><b>Color Palette</b>: Tuned the dark mode palette with cooler, less saturated tones.</li>
+    <li><b>New in 4.2.0</b>: Shadow Glass Styling, Inactive Tab Background, Transparent Editor</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2464,7 +2469,7 @@ settings:
         title: Transparent editor
         description: Makes the editor background transparent while keeping the header bar visible.
         type: class-toggle
-        default: false
+        default: true
     -
         id: inactive-tab-background
         title: Inactive Tab Background
@@ -2489,7 +2494,35 @@ settings:
         description: Highlights selected folders with a teal/blue accent color.
         type: class-toggle
         default: true
-
+    -
+        id: shadow-glass-heading
+        title: Shadow Glass Styling
+        type: heading
+        level: 2
+    -
+        id: shadow-glass
+        title: Shadow Glass Inputs
+        description: Adds subtle shadow and specular rim to text fields.
+        type: class-toggle
+        default: true
+    -
+        id: shadow-glass-buttons
+        title: Active Button Glow
+        description: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.
+        type: class-toggle
+        default: true
+    -
+        id: shadow-glass-headers
+        title: Shadow Glass Headers
+        description: Adds shadow and rounded corners to the header bar in Transparent Editor mode.
+        type: class-toggle
+        default: true
+    -
+        id: shadow-glass-markdown
+        title: Shadow Glass Markdown (BETA)
+        description: Adds shadow glass styling to quotes, code blocks, and callouts.
+        type: class-toggle
+        default: true
     -
         id: workspace-settings-header
         title: Workspace Layout
@@ -2582,6 +2615,7 @@ settings:
         description: Makes settings menu icons and text larger.
         type: class-toggle
         default: false
+
 */
 
 .view-content .style-settings-container .style-settings-container .setting-item {
@@ -9046,6 +9080,78 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
   opacity: 0.5
 }
 
+/* Shadow Glass → Disable Headers Toggle if Transparent Editor is off */
+body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] {
+  pointer-events: none
+}
+body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
+body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-control {
+  opacity: 0.5 
+}
+
+
+/* ---------------------
+   SHADOW GLASS
+   -------------------- */
+
+/* Inputs */
+.shadow-glass input[type='search'],
+.shadow-glass input[type='number'],
+.shadow-glass .search-input-container input[type='text'] {
+  margin: 4px 0;
+  box-shadow: var(--shadow-tab);
+  border: none;
+  border-radius: 100vh;
+  padding: 16px 10px  
+}
+
+/* Shadow Glass → Sidebar Toggle Button Active State in PDF*/
+.shadow-glass-buttons .pdf-toolbar .clickable-icon.is-active,
+.shadow-glass-buttons .view-actions button:nth-last-child(2) {
+  box-shadow: var(--shadow-tab) !important;
+  background-color: rgba(from var(--interactive-accent) r g b / 0.05) !important;
+  scale: 1.05;
+  color: var(--interactive-accent) !important
+}
+
+/* Header Bar */
+.shadow-glass-headers.transparent-editor:not(.is-mobile) .view-header {
+  border-radius: 15px !important;
+  box-shadow: var(--shadow-tab) !important;
+  background-color: rgba(from var(--background-primary-alt) r g b / 0.95) !important;
+}
+
+/* ---------------------
+   SHADOW GLASS for Markdown (BETA)
+   -------------------- */
+
+/* Markdown Elements (Callouts) */
+.shadow-glass-markdown :is(.markdown-preview-view blockquote, .callout) {
+  box-shadow: var(--shadow-tab) !important;
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+/* Shadow Glass → Markdown (Quotes) */
+.shadow-glass-markdown .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+  border: none !important;
+  box-shadow: var(--shadow-tab) !important;
+  border-radius: 12px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  translate: 10px;
+  margin-right: 10px !important;
+}
+
+/* Shadow Glass → Markdown (Quotes) → Before */
+.shadow-glass-markdown .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
+  margin-left: -10px !important;
+  border-left: 2px solid var(--background-primary) !important;
+}
+
+/* Add for Code Blocks */
+
+
 /* --------------------
    USER INTERFACE (Border)
    -------------------- */
@@ -9099,41 +9205,45 @@ body.theme-light {
 /* Mythic Mode (Windowed and Fullscreen) */
 body:not(.is-mobile).theme-dark.mythic-mode:not(.is-fullscreen),
 body:not(.is-mobile).theme-dark.fs-mythic.is-fullscreen {
+
   /* Backgrounds */
-  --background-primary: rgb(45, 45, 45);
-  --background-primary-alt: rgb(35, 35, 36);
-  --background-secondary: rgb(25, 25, 26);
-  --background-secondary-alt: rgb(40, 40, 42);
-  --background-modifier-border: rgb(60, 60, 62);
-  --background-modifier-form-field: rgb(45, 45, 46);
+  --background-primary: rgb(45, 45, 48);
+  --background-primary-alt: rgb(35, 35, 37);
+  --background-secondary: rgb(25, 25, 27);
+  --background-secondary-alt: rgb(40, 40, 43);
+  --background-modifier-border: rgb(60, 60, 64);
+  --background-modifier-form-field: rgb(45, 45, 47);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
+
   /* Base color scale */
-  --color-base-00: rgb(35, 35, 36);
+  --color-base-00: rgb(35, 35, 37);
   --workspace-leaf-background: rgba(35, 35, 36, 0.75);
-  --color-base-10: rgb(40, 40, 41);
-  --color-base-20: rgb(45, 45, 46);
-  --color-base-25: rgb(50, 50, 52);
-  --color-base-30: rgb(55, 55, 57);
-  --color-base-35: rgb(60, 60, 62);
-  --color-base-40: rgb(70, 70, 72);
-  --color-base-50: rgb(80, 80, 82);
+  --color-base-10: rgb(40, 40, 43);
+  --color-base-20: rgb(45, 45, 48);
+  --color-base-25: rgb(50, 50, 54);
+  --color-base-30: rgb(55, 55, 59);
+  --color-base-35: rgb(60, 60, 63);
+  --color-base-40: rgb(70, 70, 74);
+  --color-base-50: rgb(80, 80, 85);
+
   /* UI elements */
-  --titlebar-background: rgb(25, 25, 26);
-  --titlebar-background-focused: rgb(25, 25, 26);
+  --titlebar-background: rgb(25, 25, 27);
+  --titlebar-background-focused: rgb(25, 25, 27);
   --ribbon-background: transparent;
-  --modal-background: rgb(25, 25, 26);
-  --prompt-background: rgb(25, 25, 26);
+  --modal-background: rgb(25, 25, 27);
+  --prompt-background: rgb(25, 25, 27);
   --interactive-normal: rgba(255, 255, 255, 0.06);
   --interactive-hover: rgba(255, 255, 255, 0.1);
-  --tab-background-active: rgb(35, 35, 36);
-  --nav-item-background-active: rgb(35, 35, 36);
-  --divider-color: rgb(50, 50, 52);
+  --tab-background-active: rgb(35, 35, 37);
+  --nav-item-background-active: rgb(35, 35, 37);
+  --divider-color: rgb(50, 50, 53);
   --raised-shadow: inset 1px 1.5px 1px -1px rgba(255, 255, 255, 0.2), inset -1px -1.5px 1px -1px rgba(255, 255, 255, 0.15), inset 0 4px 16px rgba(255, 255, 255, 0.025);
   --raised-blur: blur(8px);
+
   /* Text */
-  --text-faint: #777777;
-  --text-muted: #999999;
+  --text-faint: rgb(125, 125, 128);
+  --text-muted: rgb(153, 153, 156);
 }
 
 /* ---------------------
@@ -9143,41 +9253,45 @@ body:not(.is-mobile).theme-dark.fs-mythic.is-fullscreen {
 /* Dark grey Mode (Windowed and Fullscreen) */
 body:not(.is-mobile).theme-dark.dark-grey-mode:not(.is-fullscreen),
 body:not(.is-mobile).theme-dark.fs-dark-grey.is-fullscreen {
+
   /* Backgrounds */
-  --background-primary: rgb(35, 35, 35);
-  --background-primary-alt: rgb(25, 25, 26);
-  --background-secondary: rgb(15, 15, 16);
-  --background-secondary-alt: rgb(30, 30, 31);
-  --background-modifier-border: rgb(50, 50, 52);
-  --background-modifier-form-field: rgb(35, 35, 36);
+  --background-primary: rgb(37, 37, 39);
+  --background-primary-alt: rgb(27, 27, 29);
+  --background-secondary: rgb(17, 17, 19);
+  --background-secondary-alt: rgb(32, 32, 35);
+  --background-modifier-border: rgb(52, 52, 56);
+  --background-modifier-form-field: rgb(37, 37, 39);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
+
   /* Base color scale */
-  --color-base-00: rgb(25, 25, 26);
-  --workspace-leaf-background: rgba(25, 25, 26, 0.75);
-  --color-base-10: rgb(30, 30, 31);
-  --color-base-20: rgb(35, 35, 36);
-  --color-base-25: rgb(40, 40, 42);
-  --color-base-30: rgb(45, 45, 47);
-  --color-base-35: rgb(50, 50, 52);
-  --color-base-40: rgb(60, 60, 62);
-  --color-base-50: rgb(80, 80, 82);
+  --color-base-00: rgb(27, 27, 29);
+  --workspace-leaf-background: rgba(27, 27, 28, 0.75);
+  --color-base-10: rgb(32, 32, 35);
+  --color-base-20: rgb(37, 37, 39);
+  --color-base-25: rgb(42, 42, 45);
+  --color-base-30: rgb(47, 47, 51);
+  --color-base-35: rgb(52, 52, 56);
+  --color-base-40: rgb(62, 62, 66);
+  --color-base-50: rgb(82, 82, 87);
+
   /* UI elements */
-  --titlebar-background: rgb(25, 25, 26);
-  --titlebar-background-focused: rgb(25, 25, 26);
+  --titlebar-background: rgb(27, 27, 29);
+  --titlebar-background-focused: rgb(27, 27, 29);
   --ribbon-background: transparent;
-  --modal-background: rgb(25, 25, 26);
-  --prompt-background: rgb(25, 25, 26);
+  --modal-background: rgb(27, 27, 29);
+  --prompt-background: rgb(27, 27, 29);
   --interactive-normal: rgba(255, 255, 255, 0.06);
   --interactive-hover: rgba(255, 255, 255, 0.1);
-  --tab-background-active: rgb(35, 35, 36);
-  --nav-item-background-active: rgb(35, 35, 36);
-  --divider-color: rgb(50, 50, 52);
+  --tab-background-active: rgb(37, 37, 39);
+  --nav-item-background-active: rgb(37, 37, 39);
+  --divider-color: rgb(52, 52, 56);
   --raised-shadow: inset 1px 1.5px 1px -1px rgba(255, 255, 255, 0.2), inset -1px -1.5px 1px -1px rgba(255, 255, 255, 0.15), inset 0 4px 16px rgba(255, 255, 255, 0.025);
   --raised-blur: blur(8px);
+
   /* Text */
-  --text-faint: #777777;
-  --text-muted: #999999;
+  --text-faint: rgb(127, 127, 128);
+  --text-muted: rgb(155, 155, 156);
 }
 
 /* ---------------------
@@ -9188,44 +9302,44 @@ body:not(.is-mobile).theme-dark.fs-dark-grey.is-fullscreen {
 body:not(.is-mobile).theme-dark.pure-black-mode:not(.is-fullscreen),
 body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
   /* Backgrounds */
-  --background-primary: rgb(25, 25, 25);
-  --background-primary-alt: rgb(17, 17, 18);
-  --background-secondary: rgb(1, 1, 2);
-  --background-secondary-alt: rgb(20, 20, 20);
-  --background-modifier-border: rgb(40, 40, 40);
-  --background-modifier-form-field: rgb(25, 25, 25);
+  --background-primary: rgb(25, 25, 27);
+  --background-primary-alt: rgb(17, 17, 19);
+  --background-secondary: rgb(1, 1, 3);
+  --background-secondary-alt: rgb(20, 20, 22);
+  --background-modifier-border: rgb(40, 40, 44);
+  --background-modifier-form-field: rgb(25, 25, 27);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
   /* Base color scale */
-  --color-base-00: rgb(17, 17, 18);
+  --color-base-00: rgb(17, 17, 19);
   --workspace-leaf-background: rgba(17, 17, 18, 0.75);
-  --color-base-10: rgb(20, 20, 20);
-  --color-base-20: rgb(25, 25, 25);
-  --color-base-25: rgb(30, 30, 30);
-  --color-base-30: rgb(35, 35, 35);
-  --color-base-35: rgb(40, 40, 40);
-  --color-base-40: rgb(50, 50, 50);
-  --color-base-50: rgb(70, 70, 70);
+  --color-base-10: rgb(20, 20, 23);
+  --color-base-20: rgb(25, 25, 27);
+  --color-base-25: rgb(30, 30, 33);
+  --color-base-30: rgb(35, 35, 38);
+  --color-base-35: rgb(40, 40, 44);
+  --color-base-40: rgb(50, 50, 54);
+  --color-base-50: rgb(70, 70, 75);
   /* UI elements */
-  --titlebar-background: rgb(17, 17, 18);
-  --titlebar-background-focused: rgb(17, 17, 18);
+  --titlebar-background: rgb(17, 17, 19);
+  --titlebar-background-focused: rgb(17, 17, 19);
   --ribbon-background: transparent;
-  --modal-background: rgb(17, 17, 18);
-  --prompt-background: rgb(17, 17, 18);
+  --modal-background: rgb(17, 17, 19);
+  --prompt-background: rgb(17, 17, 19);
   --interactive-normal: rgba(255, 255, 255, 0.06);
   --interactive-hover: rgba(255, 255, 255, 0.1);
-  --tab-background-active: rgb(25, 25, 25);
-  --nav-item-background-active: rgb(25, 25, 25);
-  --divider-color: rgb(40, 40, 40);
+  --tab-background-active: rgb(25, 25, 27);
+  --nav-item-background-active: rgb(25, 25, 27);
+  --divider-color: rgb(40, 40, 44);
   /* Icons */
-  --icon-color: #aaaaaa;
-  --icon-color-hover: #e0f5f4;
-  --icon-color-active: #cccccc;
-  --icon-color-focused: #cccccc;
+  --icon-color: rgb(170, 170, 172);
+  --icon-color-hover: rgb(224, 245, 246);
+  --icon-color-active: rgb(204, 204, 206);
+  --icon-color-focused: rgb(204, 204, 206);
   /* Text */
-  --text-faint: #777777;
-  --text-muted: #999999;
-  --text-normal: #d4d4d4;
+  --text-faint: rgb(119, 119, 122);
+  --text-muted: rgb(153, 153, 156);
+  --text-normal: rgb(212, 212, 215);
 }
 
 .mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
