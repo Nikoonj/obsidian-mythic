@@ -2320,21 +2320,13 @@ settings:
 
 /*!
 /* @settings
-name: About
-id: about
-collapsed: false
-settings:
-
-*/
-
-/* @settings
 name: Mythic
 id: mythic
 collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.0 <br> Author: Nikoonj <br> Updated: 7th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.1 <br> Author: Nikoonj <br> Updated: 9th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2347,8 +2339,6 @@ settings:
 		id: readme
 		description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <h2> Appearance </h2> <br>
-    <ul>
-    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
     <li><b>Dark theme variants</b>: Choose between 
     <ul>
     <li><b>Obsidian</b> (Default Cupertino)</li>
@@ -2356,6 +2346,7 @@ settings:
     <li><b>Dark Grey</b> (Balanced Dark Mode)</li>
     <li><b>Pure Black</b> (AMOLED Mode)</li>
     </ul></li><br>
+    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
     <li><b>Fullscreen Theme Variant</b>: Choose which theme style to automatically apply when entering fullscreen mode.</li>
     <li><b>Transparent Editor</b>: Makes the editor background transparent showing your wallpaper.
     <ul><li><b>Smart Background</b>: Automatically darkens the background when sidebars are closed for focus.</li></ul></li><br>
@@ -2395,7 +2386,7 @@ settings:
     <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
     <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
     <li><b>Color Palette</b>: Tuned the dark mode palette with cooler, less saturated tones.</li>
-    <li><b>New in 4.2.0</b>: Shadow Glass Styling, Inactive Tab Background, Transparent Editor</li>
+    <li><b>New in 4.2.1</b>: Style Settings now contains icons for each section. Improved Categorization.</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2420,8 +2411,8 @@ settings:
         type: heading
         level: 2
     -
-        id: appearance-desc
-        description: "Customize the visual look, colors, and animations of the theme."
+        id: description-initial
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-palette-icon lucide-palette'><path d='M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></svg> <div class='settings-header-text-container'><h2> Appearance </h2> Change the colour palette the theme uses. </div>"
         type: info-text
         markdown: true
     -
@@ -2465,21 +2456,25 @@ settings:
                 label: Pure Black
                 value: fs-pure-black
     -
-        id: transparent-editor
-        title: Transparent editor
-        description: Makes the editor background transparent while keeping the header bar visible.
-        type: class-toggle
-        default: true
-    -
-        id: inactive-tab-background
-        title: Inactive Tab Background
-        description: Background color over inactive tabs.
-        type: class-toggle
-        default: false
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-spline-pointer-icon lucide-spline-pointer'><path d='M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z'/><path d='M5 17A12 12 0 0 1 17 5'/><circle cx='19' cy='5' r='2'/><circle cx='5' cy='19' r='2'/></svg> <div class='settings-header-text-container'><h2> Animations </h2> Enable Animations for a fluid experience.</div>"
+        type: info-text
+        markdown: true
     -
         id: enhanced-animations
         title: Enables Animations (BETA)
         description: Enables fluid and bouncier animations.
+        type: class-toggle
+        default: true
+    -
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paintbrush-icon lucide-paintbrush'><path d='m14.622 17.897-10.68-2.913'/><path d='M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z'/><path d='M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15'/></svg> <div class='settings-header-text-container'><h2> Design </h2> Customise the core design of the theme.</div>"
+        type: info-text
+        markdown: true
+    -
+        id: transparent-editor
+        title: Transparent editor
+        description: Makes the editor background transparent while keeping the header bar visible.
         type: class-toggle
         default: true
     -
@@ -2489,16 +2484,10 @@ settings:
         type: class-toggle
         default: false
     -
-        id: folder-highlight
-        title: Enable folder highlight
-        description: Highlights selected folders with a teal/blue accent color.
-        type: class-toggle
-        default: true
-    -
-        id: shadow-glass-heading
-        title: Shadow Glass Styling
-        type: heading
-        level: 2
+        id: description-initial
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-scan-icon lucide-scan'><path d='M3 7V5a2 2 0 0 1 2-2h2'/><path d='M17 3h2a2 2 0 0 1 2 2v2'/><path d='M21 17v2a2 2 0 0 1-2 2h-2'/><path d='M7 21H5a2 2 0 0 1-2-2v-2'/></svg> <div class='settings-header-text-container'><h2> Shadow Glass </h2> Use Shadows to create refractive containers </div>"
+        type: info-text
+        markdown: true
     -
         id: shadow-glass
         title: Shadow Glass Inputs
@@ -2530,9 +2519,31 @@ settings:
         level: 2
         collapsed: false
     -
+        id: description-initial
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-panel-top-icon lucide-panel-top'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M3 9h18'/></svg> <div class='settings-header-text-container'><h2> Tabs </h2> Customization for the look of the tabs.</div>"
+        type: info-text
+        markdown: true
+    -
         id: compact-pinned-tabs
         title: Compact pinned tabs
         description: Reduces the width of pinned tabs and hides their title.
+        type: class-toggle
+        default: true
+    -
+        id: inactive-tab-background
+        title: Inactive Tab Background
+        description: Background color over inactive tabs.
+        type: class-toggle
+        default: false
+    -
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-panel-left-icon lucide-panel-left'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M9 3v18'/></svg> <div class='settings-header-text-container'><h2> Sidebar </h2> Customization for the look of the sidebar.</div>"
+        type: info-text
+        markdown: true
+    -
+        id: folder-highlight
+        title: Enable folder highlight
+        description: Highlights selected folders with a teal/blue accent color.
         type: class-toggle
         default: true
     -
@@ -2546,6 +2557,11 @@ settings:
         description: Enables the smooth fade effect when hovering over files/folders.
         type: class-toggle
         default: true
+    -
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-panels-top-left-icon lucide-panels-top-left'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M3 9h18'/><path d='M9 21V9'/></svg> <div class='settings-header-text-container'><h2> Ribbon </h2> Customization for the look of the ribbon.</div>"
+        type: info-text
+        markdown: true
     -
         id: center-collapsed-ribbon
         title: Center ribbon when sidebar closed
@@ -2565,8 +2581,8 @@ settings:
         level: 2
         collapsed: false
     -
-        id: icon-desc-initial
-        description: "<h2> Settings icon </h2> Customiation for the look of the Settings icon."
+        id: description-initial
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-settings-icon lucide-settings'><path d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/><circle cx='12' cy='12' r='3'/></svg> <div class='settings-header-text-container'><h2> Settings icon </h2> Customization for the look of the Settings icon.</div>"
         type: info-text
         markdown: true
     -
@@ -2582,8 +2598,8 @@ settings:
         type: class-toggle
         default: false
     -
-        id: icon-desc
-        description: "<h2> Iconize Plugin Settings </h2> ( ! ) This section requires the Iconize plugin.</div>"
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-shapes-icon lucide-shapes'><path d='M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z'/><rect x='3' y='14' width='7' height='7' rx='1'/><circle cx='17.5' cy='17.5' r='3.5'/></svg> <div class='settings-header-text-container'><h2> Iconize Plugin Settings </h2> ( ! ) This section requires the Iconize plugin.</div></div>"
         type: info-text
         markdown: true
     -
@@ -2599,8 +2615,8 @@ settings:
         type: class-toggle
         default: false
     -
-        id: icon-desc
-        description: "<h2> Settings Panels icons </h2> Customization for the look of the settings panels icons."
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-layout-list-icon lucide-layout-list'><rect width='7' height='7' x='3' y='3' rx='1'/><rect width='7' height='7' x='3' y='14' rx='1'/><path d='M14 4h7'/><path d='M14 9h7'/><path d='M14 15h7'/><path d='M14 20h7'/></svg> <div class='settings-header-text-container'><h2> Settings Panels icons </h2> Customization for the look of the settings panels icons.</div>"
         type: info-text
         markdown: true
     -
@@ -3868,9 +3884,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.mod-mac
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.hover-ribbon) .workspace-ribbon.mod-left:not(.is-collapsed) {
   padding-left: 16px;
-  /* To increase the container size in the middle (content box),
-     we must increase the total width because box-sizing is border-box.
-     Content Width = --ribbon-width - padding-left */
   --ribbon-width: 60px;
 }
 
@@ -3899,6 +3912,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container .sidebar-toggle-button {
   min-height: calc(var(--header-height) - 4px);
   max-height: calc(var(--header-height) - 4px);
+  overflow: visible !important
 }
 
 /* Center Sidebar Tabs & Fix Layout */
@@ -3907,6 +3921,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
   width: 100% !important;
   background-color: transparent !important;
   outline: none !important;
+  overflow: visible !important
 }
 
 body.is-fullscreen .workspace-split.mod-left-split .workspace-tab-header-container-inner {
@@ -9126,14 +9141,14 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
    -------------------- */
 
 /* Markdown Elements (Callouts) */
-.shadow-glass-markdown :is(.markdown-preview-view blockquote, .callout) {
+.shadow-glass-markdown:not(.is-mobile) :is(.markdown-preview-view blockquote, .callout) {
   box-shadow: var(--shadow-tab) !important;
   border-radius: 12px !important;
   border: none !important;
 }
 
 /* Shadow Glass → Markdown (Quotes) */
-.shadow-glass-markdown .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.shadow-glass-markdown:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   border: none !important;
   box-shadow: var(--shadow-tab) !important;
   border-radius: 12px !important;
@@ -9144,7 +9159,7 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
 }
 
 /* Shadow Glass → Markdown (Quotes) → Before */
-.shadow-glass-markdown .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
+.shadow-glass-markdown:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
   margin-left: -10px !important;
   border-left: 2px solid var(--background-primary) !important;
 }
@@ -9157,20 +9172,20 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
    -------------------- */
 
 body.theme-dark {
-  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, white);
+  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, rgb(240,245,240));
 }
 
 body.theme-light {
   --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, black);
 }
 
-.style-settings-container .setting-item[data-id="icon-desc"] {
+.style-settings-container .setting-item[data-id="description"] {
   border-top: 1px solid var(--setting-item-background);
   border-bottom: 1px solid var(--setting-item-background);
   background-color: var(--setting-item-background) !important;
 }
 
-.style-settings-container .setting-item[data-id="icon-desc-initial"] {
+.style-settings-container .setting-item[data-id="description-initial"] {
   border-bottom: 1px solid var(--setting-item-background); 
   background-color: var(--setting-item-background) !important;
 }
@@ -9431,4 +9446,29 @@ body.is-mobile .pdf-container {
 .inactive-tab-background .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
+}
+
+/* ---------------------
+   STYLE SETTINGS (Icons)
+   -------------------- */
+
+/* Flex container for the description to align Icon and Text block */
+.setting-item-description:has(.settings-header-icon) {
+  display: flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+.settings-header-icon {
+  margin-left: 2px;
+  translate: 0 6px;
+  scale: 1.25;
+  margin-right: 15px;
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.settings-header-text-container h2 {
+  line-height: 1.2 !important;
 }
