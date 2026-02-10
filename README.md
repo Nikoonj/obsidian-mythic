@@ -41,4 +41,4 @@
 - **Mobile Visibility**: Increased text and icon contrast on mobile in dark mode.
 - **Fixed Animations**: Refined animations for tabs and buttons.
 - **Color Palette**: Tuned the dark mode palette with cooler, less saturated tones.
-- **New in 4.2.1**: Style Settings now contains icons for each section. Improved Categorization.
+- **New in 4.2.2**: Added Low power mode and fixed issues regarding closing of tabs
