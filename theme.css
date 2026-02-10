@@ -2326,7 +2326,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.1 <br> Author: Nikoonj <br> Updated: 9th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.2 <br> Author: Nikoonj <br> Updated: 11th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2386,7 +2386,7 @@ settings:
     <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
     <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
     <li><b>Color Palette</b>: Tuned the dark mode palette with cooler, less saturated tones.</li>
-    <li><b>New in 4.2.1</b>: Style Settings now contains icons for each section. Improved Categorization.</li>
+    <li><b>New in 4.2.2</b>: Added Low power mode and fixed issues regarding closing of tabs.</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2466,6 +2466,12 @@ settings:
         description: Enables fluid and bouncier animations.
         type: class-toggle
         default: true
+    -
+        id: low-power
+        title: Low Power Mode
+        description: Disables some animations and features.
+        type: class-toggle
+        default: false
     -
         id: description
         description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paintbrush-icon lucide-paintbrush'><path d='m14.622 17.897-10.68-2.913'/><path d='M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z'/><path d='M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15'/></svg> <div class='settings-header-text-container'><h2> Design </h2> Customise the core design of the theme.</div>"
@@ -8814,7 +8820,7 @@ body.sidebar-guidelines .nav-folder-children {
   transition: all 0.2s ease-in-out
 }
 
-body.sidebar-guidelines .nav-folder-children:hover {
+body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
   border-left-color: color-mix(in srgb, var(--interactive-accent), transparent 25%)
 }
 
@@ -8872,6 +8878,7 @@ body.sidebar-guidelines .nav-folder-children:hover {
 /* --------------------
    ANIMATIONS
    -------------------- */
+
 /* Animations → Variables */
 .enhanced-animations {
   --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1);
@@ -8887,15 +8894,15 @@ body.sidebar-guidelines .nav-folder-children:hover {
 /* Animations → Button Press */
 @keyframes buttonPress {
   from {transform: scale(1);}
-  40% {transform: scale(0.85);}
+  40% {transform: scale(0.90);}
   to {transform: scale(1);}
 }
 
 /* Animations → UI → Hover States */
-.enhanced-animations .clickable-icon:hover:not(.sidebar-toggle-button .clickable-icon, .input-right-decorator),
-.enhanced-animations .nav-action-button:hover,
-.enhanced-animations button:hover,
-.enhanced-animations .workspace-tab-header:hover {
+.enhanced-animations:not(.low-power) .clickable-icon:hover:not(.sidebar-toggle-button .clickable-icon, .input-right-decorator),
+.enhanced-animations:not(.low-power) .nav-action-button:hover,
+.enhanced-animations:not(.low-power) button:hover,
+.enhanced-animations:not(.low-power) .workspace-tab-header:hover {
   animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards !important;
 }
 /* Animations → UI → Button Background */
@@ -8905,10 +8912,11 @@ body.sidebar-guidelines .nav-folder-children:hover {
 }
 
 /* Animations → UI → Tab Press */
-.enhanced-animations .workspace-tab-header:active {
+.enhanced-animations .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active {
   animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-spring) !important;
 }
 
+/* Animations → UI → Fix Sidebar button */
 .enhanced-animations .workspace-tab-header:active .workspace-tab-header-inner {
   animation: none
 }
@@ -8936,15 +8944,15 @@ body.sidebar-guidelines .nav-folder-children:hover {
 }
 
 /* Smooth Hover */
-.smooth-hover .nav-file-title,
-.smooth-hover .nav-folder-title {
+.smooth-hover:not(.low-power) .nav-file-title,
+.smooth-hover:not(.low-power) .nav-folder-title {
   background-color: transparent !important;
   transition: background-color 0.35s ease-out !important;
   border-radius: 15px
 }
 
-.smooth-hover .nav-file-title:hover,
-.smooth-hover .nav-folder-title:hover {
+.smooth-hover:not(.low-power) .nav-file-title:hover,
+.smooth-hover:not(.low-power) .nav-folder-title:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   transition: background-color 0.1s ease-out !important
 }
