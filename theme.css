@@ -2326,7 +2326,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.2 <br> Author: Nikoonj <br> Updated: 11th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.3 <br> Author: Nikoonj <br> Updated: 13th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2386,7 +2386,7 @@ settings:
     <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
     <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
     <li><b>Color Palette</b>: Tuned the dark mode palette with cooler, less saturated tones.</li>
-    <li><b>New in 4.2.2</b>: Added Low power mode and fixed issues regarding closing of tabs.</li>
+    <li><b>New in 4.2.3</b>: Added Dynamic Animation strength. Animations will have the same intensity regardless of the number of tabs open. </li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2464,6 +2464,12 @@ settings:
         id: enhanced-animations
         title: Enables Animations (BETA)
         description: Enables fluid and bouncier animations.
+        type: class-toggle
+        default: true
+    -
+        id: dynamic-tab-animation
+        title: Dynamic Tab Animation
+        description: Animations will feel have the same intensity regardless of the number of tabs open.
         type: class-toggle
         default: true
     -
@@ -8878,7 +8884,6 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
 /* --------------------
    ANIMATIONS
    -------------------- */
-
 /* Animations → Variables */
 .enhanced-animations {
   --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1);
@@ -8894,8 +8899,14 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
 /* Animations → Button Press */
 @keyframes buttonPress {
   from {transform: scale(1);}
-  40% {transform: scale(0.90);}
+  40% {transform: scale(var(--tab-press-scale, 0.95));}
   to {transform: scale(1);}
+}
+
+/* Animations → Dynamic Tab Scaling */
+.dynamic-tab-animation:not(.low-power-mode).workspace-tab-header:nth-last-child(n+7),
+.dynamic-tab-animation:not(.low-power-mode).workspace-tab-header:nth-last-child(n+7) ~ .workspace-tab-header {
+  --tab-press-scale: 0.85;
 }
 
 /* Animations → UI → Hover States */
@@ -9031,7 +9042,6 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
 .obsidian-settings-icon-circle .workspace-drawer-vault-actions .clickable-icon:last-child {
   width: 40px;
   height: 40px;
-  aspect-ratio: 1 / 1 !important;
   background-color: rgba(from var(--background-primary-alt) r g b / 0.75);
   border-radius: 100vh
 }
@@ -9071,12 +9081,12 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
    USER INTERFACE (Tabs)
    -------------------- */
 
-/* User Interface → Compact Tabs */
+/* User Interface → Compact Tabs (Community Code • Forums) */
 .compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
   max-width: 60px !important 
 }
 
-/* User Interface → Compact Tabs → Hide Title */
+/* User Interface → Compact Tabs → Hide Title (Community Code • Forums) */
 .compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) .workspace-tab-header-inner-title {
   display: none
 }
@@ -9091,7 +9101,7 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
    USER INTERFACE (Disabled Style Setting)
    -------------------- */
 
-/* Icons → Monochrome → Disable Toggle */
+/* Icons → Monochrome → Disable Toggle (Community Code • Cupertino Archive) */
 .theme-dark .setting-item[data-id="monochrome-icons-light"],
 .theme-light .setting-item[data-id="monochrome-icons-dark"] {
   pointer-events: none
@@ -9103,7 +9113,7 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
   opacity: 0.5
 }
 
-/* Shadow Glass → Disable Headers Toggle if Transparent Editor is off */
+/* Shadow Glass → Disable Headers Toggle if Transparent Editor is off (Community Code • Cupertino Archive) */
 body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] {
   pointer-events: none
 }
@@ -9111,7 +9121,6 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
 body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-control {
   opacity: 0.5 
 }
-
 
 /* ---------------------
    SHADOW GLASS
@@ -9149,14 +9158,14 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
    -------------------- */
 
 /* Markdown Elements (Callouts) */
-.shadow-glass-markdown:not(.is-mobile) :is(.markdown-preview-view blockquote, .callout) {
+.shadow-glass-markdown:not(.is-mobile, .low-power-mode) :is(.markdown-preview-view blockquote, .callout) {
   box-shadow: var(--shadow-tab) !important;
   border-radius: 12px !important;
   border: none !important;
 }
 
 /* Shadow Glass → Markdown (Quotes) */
-.shadow-glass-markdown:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
+.shadow-glass-markdown:not(.is-mobile, .low-power-mode) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   border: none !important;
   box-shadow: var(--shadow-tab) !important;
   border-radius: 12px !important;
@@ -9167,7 +9176,7 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
 }
 
 /* Shadow Glass → Markdown (Quotes) → Before */
-.shadow-glass-markdown:not(.is-mobile) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
+.shadow-glass-markdown:not(.is-mobile, .low-power-mode) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
   margin-left: -10px !important;
   border-left: 2px solid var(--background-primary) !important;
 }
@@ -9451,7 +9460,7 @@ body.is-mobile .pdf-container {
    APPEARANCE (Inactive Tabs)
    -------------------- */
 
-.inactive-tab-background .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
+.inactive-tab-background:not(.low-power-mode) .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
 }
