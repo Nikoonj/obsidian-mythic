@@ -1,44 +1,49 @@
 # obsidian-mythic
 
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
+
+# What's New in 4.3.0 (Beta 1)
+### **Features, Patches and Fixes**
+- **Mobile UI Rework**: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets
 ## Appearance
+### **Theme**
 - **Dark theme variants**: Choose between
     - **Obsidian** (Default Cupertino)
     - **Mythic** (Default Mythic)
     - **Dark Grey** (Balanced Dark Mode)
     - **Pure Black** (AMOLED Mode)
-- **Inactive Tab Background**: Adds a background color to inactive tabs for better visibility.
 - **Fullscreen Theme Variant**: Choose which theme style to automatically apply when entering fullscreen mode.
+### **Animations**
+- **Enhanced Animations (BETA)**: Enables fluid animations.
+	- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
+- **Low Power Mode**: Disables some animations and features.
+### **Design**
 - **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
     - **Smart Background**: Automatically darkens the background when sidebars are closed for focus.
-- **Enable Animations (BETA)**: Enables fluid animations.
 - **Lighter Headers**: Makes header colors lighter to ensure legibility when using dark accent colors.
-- **Enable folder highlight**: Highlights selected folders with a teal/blue accent color.
-## Shadow Glass Styling
+### **Shadow Glass**
 - **Shadow Glass Inputs**: Adds subtle shadow and specular rim to text fields.
 - **Active Button Glow**: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.
 - **Shadow Glass Headers**: Adds shadow and rounded corners to the header bar in Transparent Editor mode. (Requires Transparent Editor)
 - **Shadow Glass Markdown (BETA)**: Adds shadow glass styling to quotes and callouts.
 ## Workspace Layout
-- **Compact pinned tabs**: Reduces the width of pinned tabs and hides their title.
+### **Tabs**
+- **Compact Pinned Tabs**: Reduces width and hides title.
+- **Inactive Tab Background**: Adds a background color to inactive tabs for better visibility.
+### **Sidebar**
+- **Folder Highlight**: Highlights selected folders with accent color.
 - **Show sidebar guidelines**: Toggles the visibility of indentation guides in the file explorer.
-- **Smooth sidebar hover**: Enables the smooth fade effect when hovering over files/folders.
-- **Center ribbon when sidebar closed**: Centers the ribbon icons vertically when the sidebar is collapsed.
-- **Center ribbon when sidebar open**: Centers the ribbon icons vertically when the sidebar is open.
+- **Show sidebar guidelines**: Toggles the visibility of indentation guides in the file explorer.
+### **Ribbon**
+- **Center Collapsed Ribbon**: Vertically centers icons when sidebar is closed.
+- **Center Open Ribbon**: Vertically centers icons when sidebar is open.
 ## Icons
-- **Enable Obsidian settings icon**: Replaces the settings cog with an Obsidian logo icon button.
-- **Show circle background**: Adds a circular dark background behind the Obsidian logo icon.
+### **Settings Icon**
+- **Enable Obsidian Settings Icon**: Replaces cog with Obsidian logo.
+- **Show Circle Background**: Circular dark background for icon.
+### **Iconize**
 - **Black icons in Light Mode**: Forces tab and sidebar icons to be pure black in light mode.
 - **White icons in Dark Mode**: Forces tab and sidebar icons to be pure white in dark mode.
-- **Monochrome Settings Icons**: Forces settings menu icons to be black (light mode) or white (dark mode).
-- **Larger Settings Icons**: Increases the size of settings menu icons and text.
----
-## Patches & Fixes in Version 4
-- **Mobile Mode Switcher**: A position patch for the mode switcher button on phones.
-- **Overflow Fix**: Globally prevents horizontal scrolling on mobile via .cm-scroller.
-- **macOS UI**: Fixes a background issue with the right sidebar toggle button.
-- **Ribbon Spacing**: Added padding to fix button clipping.
-- **Mobile Visibility**: Increased text and icon contrast on mobile in dark mode.
-- **Fixed Animations**: Refined animations for tabs and buttons.
-- **Color Palette**: Tuned the dark mode palette with cooler, less saturated tones.
-- **New in 4.2.3**: Added Dynamic Animation strength. Animations will have the same intensity regardless of the number of tabs open.
+### **Settings Panels**
+- **Monochrome Settings Icons**: Forces settings menu icons to be black/white.
+- **Larger Settings Icons**: Makes settings menu icons and text larger.
