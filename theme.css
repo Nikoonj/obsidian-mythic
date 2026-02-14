@@ -1729,8 +1729,12 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-tab-he
   font-weight: var(--font-normal)
 }
 
+/* Files, Search, Tag, Bookmarks List */
 body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer-tab-select .workspace-tab-header-inner {
-  background-color: rgba(0, 0, 0, 0)
+  background-color: rgba(0, 0, 0, 0);
+  padding: 12px;
+  border-radius: 18px;
+  scale: 0.95;
 }
 
 body.is-mobile .workspace-drawer .nav-header {
@@ -2135,7 +2139,9 @@ body.is-tablet .workspace-split.mod-root .workspace-split {
 }
 
 body.is-tablet .workspace-drawer .workspace-drawer-ribbon .side-dock-actions {
-  padding-block: 12px
+  padding-block: 12px;
+  scale: 0.85;
+  margin-top: -8px;
 }
 
 body.is-tablet .workspace-drawer .workspace-drawer-header-left {
@@ -2326,7 +2332,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.2.3 <br> Author: Nikoonj <br> Updated: 13th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 (Beta 1) <br> Author: Nikoonj <br> Updated: 15th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2337,56 +2343,75 @@ settings:
 		level: 1
 	-
 		id: readme
-		description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
-    <h2> Appearance </h2> <br>
-    <li><b>Dark theme variants</b>: Choose between 
+        description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
+    <br><br>
+    <h2> What's New in 4.3.0 (Beta 1)</h2> <br>
+    <b>Features</b>
     <ul>
-    <li><b>Obsidian</b> (Default Cupertino)</li>
-    <li><b>Mythic</b> (Default Mythic)</li>
-    <li><b>Dark Grey</b> (Balanced Dark Mode)</li>
-    <li><b>Pure Black</b> (AMOLED Mode)</li>
-    </ul></li><br>
-    <li><b>Inactive Tab Background</b>: Adds a background color to inactive tabs for better visibility.</li>
-    <li><b>Fullscreen Theme Variant</b>: Choose which theme style to automatically apply when entering fullscreen mode.</li>
-    <li><b>Transparent Editor</b>: Makes the editor background transparent showing your wallpaper.
-    <ul><li><b>Smart Background</b>: Automatically darkens the background when sidebars are closed for focus.</li></ul></li><br>
-    <li><b>Enable Animations (BETA)</b>: Enables fluid animations.</li>
-    <li><b>Lighter Headers</b>: Makes header colors lighter to ensure legibility when using dark accent colors.</li>
-    <li><b>Enable folder highlight</b>: Highlights selected folders with a teal/blue accent color.</li>
+    <li><b>Mobile UI Rework</b>: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets</li>
     </ul>
-    <br> <h2> Shadow Glass Styling </h2> <br>
+    <br>
+    <b>Patches and Fixes</b>
     <ul>
-    <li><b>Shadow Glass Inputs</b>: Adds subtle shadow and specular rim to text fields.</li>
-    <li><b>Active Button Glow</b>: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.</li>
-    <li><b>Shadow Glass Headers</b>: Adds shadow and rounded corners to the header bar in Transparent Editor mode. (Requires Transparent Editor)</li>
-    <li><b>Shadow Glass Markdown (BETA)</b>: Adds shadow glass styling to quotes and callouts.</li>
+    <li><b>Low Power Mode</b>: Added a yellow indicator for the switch.</li>
+    <li><b>Style Settings UI</b>: Better icon designs and alignment.</li>
+    <li><b>Code Optimization</b>: Restructured and optimized code for better performance and maintenance.</li>
+    </ul>
+    <br> <h2> Appearance </h2> <br>
+    <br><b>Theme</b>
+    <ul>
+    <li><b>Dark Theme Variants</b>: Choose between Obsidian, Mythic, Dark Grey, and Pure Black.</li>
+    <li><b>Fullscreen Theme Variant</b>: Choose style for fullscreen mode.</li>
+    </ul>
+    <br><b>Animations</b>
+    <ul>
+    <li><b>Enhanced Animations (BETA)</b>: Enables fluid and bouncier animations.</li>
+    <li><b>Dynamic Tab Animation</b>: Consistent intensity regardless of tab count.</li>
+    <li><b>Low Power Mode</b>: Disables some animations and features.</li>
+    </ul>
+    <br><b>Design</b>
+    <ul>
+    <li><b>Transparent Editor</b>: Makes editor background transparent.</li>
+    <li><b>Lighter Headers</b>: Ensures legibility on dark accents.</li>
+    </ul>
+    <br><b>Shadow Glass</b>
+    <ul>
+    <li><b>Shadow Glass Inputs</b>: Subtle shadow and specular rim.</li>
+    <li><b>Active Button Glow</b>: Accent glow for active buttons.</li>
+    <li><b>Shadow Glass Headers</b>: Rounded corners and shadow for headers.</li>
+    <li><b>Shadow Glass Markdown (BETA)</b>: Styles quotes and callouts.</li>
     </ul>
     <br> <h2> Workspace Layout </h2> <br>
+    <b>Tabs</b>
     <ul>
-    <li><b>Compact pinned tabs</b>: Reduces the width of pinned tabs and hides their title.</li>
-    <li><b>Show sidebar guidelines</b>: Toggles the visibility of indentation guides in the file explorer.</li>
-    <li><b>Smooth sidebar hover</b>: Enables the smooth fade effect when hovering over files/folders.</li>
-    <li><b>Center ribbon when sidebar closed</b>: Centers the ribbon icons vertically when the sidebar is collapsed.</li>
-    <li><b>Center ribbon when sidebar open</b>: Centers the ribbon icons vertically when the sidebar is open.</li>
+    <li><b>Compact Pinned Tabs</b>: Reduces width and hides title.</li>
+    <li><b>Inactive Tab Background</b>: Background color for inactive tabs.</li>
+    </ul>
+    <br><b>Sidebar</b>
+    <ul>
+    <li><b>Folder Highlight</b>: Highlights selected folders with accent color.</li>
+    <li><b>Sidebar Guidelines</b>: Shows indentation guides.</li>
+    <li><b>Smooth Hover</b>: Smooth fade effect on hover.</li>
+    </ul>
+    <br><b>Ribbon</b>
+    <ul>
+    <li><b>Center Collapsed Ribbon</b>: Vertically centers icons when sidebar is closed.</li>
+    <li><b>Center Open Ribbon</b>: Vertically centers icons when sidebar is open.</li>
     </ul>
     <br> <h2> Icons </h2> <br>
+    <b>Settings Icon</b>
     <ul>
-    <li><b>Enable Obsidian settings icon</b>: Replaces the settings cog with an Obsidian logo icon button.</li>
-    <li><b>Show circle background</b>: Adds a circular dark background behind the Obsidian logo icon.</li>
-    <li><b>Black icons in Light Mode</b>: Forces tab and sidebar icons to be pure black in light mode.</li>
-    <li><b>White icons in Dark Mode</b>: Forces tab and sidebar icons to be pure white in dark mode.</li>
-    <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black (light mode) or white (dark mode).</li>
-    <li><b>Larger Settings Icons</b>: Increases the size of settings menu icons and text.</li>
+    <li><b>Enable Obsidian Settings Icon</b>: Replaces cog with Obsidian logo.</li>
+    <li><b>Show Circle Background</b>: Circular dark background for icon.</li>
     </ul>
-    <br> <h2> Patches & Fixes in Version 4 </h2> <br>
+    <br><b>Iconize</b>
     <ul>
-    <li><b>Mobile Mode Switcher</b>: A position patch for the mode switcher button on phones.</li>
-    <li><b>Overflow Fix</b>: Globally prevents horizontal scrolling on mobile via .cm-scroller.</li>
-    <li><b>macOS UI</b>: Fixes a background issue with the right sidebar toggle button.</li>
-    <li><b>Ribbon Spacing</b>: Added padding to fix button clipping.</li>
-    <li><b>Mobile Visibility</b>: Increased text and icon contrast on mobile in dark mode.</li>
-    <li><b>Color Palette</b>: Tuned the dark mode palette with cooler, less saturated tones.</li>
-    <li><b>New in 4.2.3</b>: Added Dynamic Animation strength. Animations will have the same intensity regardless of the number of tabs open. </li>
+    <li><b>Monochrome Icons</b>: Force black/white icons in Light/Dark mode.</li>
+    </ul>
+    <br><b>Settings Panels</b>
+    <ul>
+    <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black/white.</li>
+    <li><b>Larger Settings Icons</b>: Makes settings menu icons and text larger.</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2643,7 +2668,6 @@ settings:
         description: Makes settings menu icons and text larger.
         type: class-toggle
         default: false
-
 */
 
 .view-content .style-settings-container .style-settings-container .setting-item {
@@ -3896,6 +3920,9 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.mod-mac
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.hover-ribbon) .workspace-ribbon.mod-left:not(.is-collapsed) {
   padding-left: 16px;
+  /* To increase the container size in the middle (content box),
+     we must increase the total width because box-sizing is border-box.
+     Content Width = --ribbon-width - padding-left */
   --ribbon-width: 60px;
 }
 
@@ -4643,15 +4670,22 @@ body:is(.mod-macos, .adaptive-mode-off).is-tablet .suggestion-container {
 }
 
 @keyframes modalInCupertino {
-  from {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
     opacity: 1;
-    filter: none;
-    transform: scale(0.99)
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal {
-  animation: modalInCupertino var(--anim-duration-moderate) var(--anim-motion-baseline) forwards
+  animation: modalInCupertino 250ms var(--anim-motion-baseline) both
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal:not(.mod-sidebar-layout) .modal-title {
@@ -8304,16 +8338,47 @@ body:is(.mod-macos, .adaptive-mode-off).theme-dark:not(.is-mobile) {
   --background-primary: #1e1e1e
 }
 
+/* Mobile Theme */
 body:is(.mod-macos, .adaptive-mode-off).theme-dark.is-mobile {
-  --background-primary: #000;
-  --background-primary-alt: #1c1c1e;
-  --background-secondary: #1c1c1e;
-  --background-secondary-alt: #2c2c2e;
-  --interactive-normal: rgba(118, 118, 128, 24%);
-  --interactive-hover: rgba(120, 120, 120, 36%);
-  --text-normal: #fff;
-  --text-muted: rgba(235, 235, 245, 60%);
-  --text-faint: rgba(235, 235, 245, 30%)
+  /* Backgrounds */
+  --background-primary: rgb(19, 19, 21); /* Background */
+  --background-primary-alt: rgb(17, 17, 19); 
+  --background-secondary: rgb(1, 1, 3);
+  --background-secondary-alt: rgb(13, 13, 14);
+  --background-modifier-border: rgb(40, 40, 44);
+  --background-modifier-form-field: rgb(25, 25, 27);
+  --background-modifier-hover: rgba(255, 255, 255, 0.08);
+  --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
+  /* Base color scale */
+  --color-base-00: rgb(10, 10, 11);
+  --workspace-leaf-background: rgba(5, 5, 5, 0.75);
+  --color-base-10: rgb(20, 20, 23);
+  --color-base-20: rgb(25, 25, 27);
+  --color-base-25: rgb(30, 30, 33);
+  --color-base-30: rgb(35, 35, 38);
+  --color-base-35: rgb(40, 40, 44);
+  --color-base-40: rgb(50, 50, 54);
+  --color-base-50: rgb(70, 70, 75);
+  /* UI elements */
+  --titlebar-background: rgb(17, 17, 19);
+  --titlebar-background-focused: rgb(17, 17, 19);
+  --ribbon-background: transparent;
+  --modal-background: rgb(17, 17, 19);
+  --prompt-background: rgb(17, 17, 19);
+  --interactive-normal: rgba(255, 255, 255, 0.06);
+  --interactive-hover: rgba(255, 255, 255, 0.1);
+  --tab-background-active: rgb(25, 25, 27);
+  --nav-item-background-active: rgb(25, 25, 27);
+  --divider-color: rgb(40, 40, 44);
+  /* Icons */
+  --icon-color: rgb(170, 170, 172);
+  --icon-color-hover: rgb(224, 245, 246);
+  --icon-color-active: rgb(204, 204, 206);
+  --icon-color-focused: rgb(204, 204, 206);
+  /* Text */
+  --text-faint: rgb(119, 119, 122);
+  --text-muted: rgb(153, 153, 156);
+  --text-normal: rgb(212, 212, 215);
 }
 
 body.is-android:not(.adaptive-mode-off).theme-light {
@@ -8748,7 +8813,9 @@ body.minimal-theme .workspace::before {
   box-shadow: var(--shadow-l)
 }
 
-/* Mythic */
+/* -----------------------------------------------------------------------------------
+                                      MYTHIC PATCHES
+   ----------------------------------------------------------------------------------- */
 
 /* -----------------------
    TYPOGRAPHY
@@ -8818,16 +8885,6 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   border-left: 1px solid var(--background-modifier-border);
   margin-left: 15px;
   padding-left: 10px 
-}
-
-/* Typography → Sidebar → Guidelines */
-body.sidebar-guidelines .nav-folder-children {
-  border-left: 1px solid var(--background-modifier-border);
-  transition: all 0.2s ease-in-out
-}
-
-body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
-  border-left-color: color-mix(in srgb, var(--interactive-accent), transparent 25%)
 }
 
 /* Typography → Lists → Reading View Override */
@@ -8951,12 +9008,13 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
 .smooth-hover .nav-folder-title.is-active {
   background: rgba(var(--mono-rgb-100), 0.1) !important;
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15)) !important;
-  border-radius: 15px !important 
+  border-radius: 15px !important;
+  box-shadow: var(--shadow-tab);
 }
 
 /* Smooth Hover */
-.smooth-hover:not(.low-power) .nav-file-title,
-.smooth-hover:not(.low-power) .nav-folder-title {
+.smooth-hover .nav-file-title,
+.smooth-hover .nav-folder-title {
   background-color: transparent !important;
   transition: background-color 0.35s ease-out !important;
   border-radius: 15px
@@ -8984,6 +9042,59 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
 .folder-highlight .nav-folder:not(.is-collapsed):not(.is-mobile) .nav-folder-title .collapse-icon {
   color: var(--interactive-accent); 
   stroke: var(--interactive-accent) 
+}
+
+/* Sidebar → Guidelines */
+body.sidebar-guidelines .nav-folder-children {
+  border-left: 1px solid var(--background-modifier-border);
+  transition: all 0.2s ease-in-out
+}
+
+body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
+  border-left-color: color-mix(in srgb, var(--interactive-accent), transparent 25%)
+}
+
+/* --------------------
+   USER INTERFACE (Tabs)
+   -------------------- */
+
+/* User Interface → Compact Tabs (Community Code • Forums) */
+.compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
+  max-width: 60px !important 
+}
+
+/* User Interface → Compact Tabs → Hide Title (Community Code • Forums) */
+.compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) .workspace-tab-header-inner-title {
+  display: none
+}
+
+/* Tabs → Centered → macOS */
+body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
+  padding-left: 20px !important; 
+  padding-right: 20px !important
+}
+
+/* --------------------
+   USER INTERFACE (Ribbon)
+   -------------------- */
+
+/* Center ribbon when sidebar is collapsed */
+.center-collapsed-ribbon .workspace-ribbon.mod-left.is-collapsed .side-dock-actions {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-72%) !important; 
+  align-items: center;
+  transition: none !important 
+}
+
+/* Center ribbon when sidebar is open */
+.center-open-ribbon .workspace-ribbon.mod-left:not(.is-collapsed) {
+  transform: translateY(28%) !important;
+  align-items: center;
+}
+
+.workspace-ribbon.mod-left .side-dock-actions {
+  transition: none 
 }
 
 /* --------------------
@@ -9077,24 +9188,39 @@ body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
   font-size: 13px;
 }
 
-/* --------------------
-   USER INTERFACE (Tabs)
+/* Style Settings: Low Power Mode Yellow Switch */
+.style-settings-container .setting-item[data-id="low-power"] .checkbox-container.is-enabled {
+  background-color: var(--color-yellow);
+}
+
+/* ---------------------
+   USER INTERFACE (Style Settings Icons)
    -------------------- */
 
-/* User Interface → Compact Tabs (Community Code • Forums) */
-.compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) {
-  max-width: 60px !important 
+/* Flex container for the description to align Icon and Text block */
+.setting-item-description:has(.settings-header-icon) {
+  display: flex !important;
+  align-items: center !important;
+  overflow: visible !important;
 }
 
-/* User Interface → Compact Tabs → Hide Title (Community Code • Forums) */
-.compact-pinned-tabs .workspace-tab-header:has(.mod-pinned) .workspace-tab-header-inner-title {
-  display: none
+.settings-header-icon {
+  margin-left: 2px;
+  translate: 0 6px;
+  scale: 1.45;
+  margin-right: 17px;
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+  color: rgba(from var(--interactive-accent) r g b / 0.75);
+  background-color: rgba(from var(--interactive-accent) r g b / 0.05);
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-tab), rgba(from var(--interactive-accent) r g b / 0.2) 0px 0px 7px 0px;
 }
 
-/* Tabs → Centered → macOS */
-body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  padding-left: 20px !important; 
-  padding-right: 20px !important
+.settings-header-text-container h2 {
+  line-height: 1.2 !important;
 }
 
 /* --------------------
@@ -9120,6 +9246,29 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] {
 body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
 body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-control {
   opacity: 0.5 
+}
+
+/* --------------------
+   USER INTERFACE (Border)
+   -------------------- */
+
+body.theme-dark {
+  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, rgb(240,245,240));
+}
+
+body.theme-light {
+  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, black);
+}
+
+.style-settings-container .setting-item[data-id="description"] {
+  border-top: 1px solid var(--setting-item-background);
+  border-bottom: 1px solid var(--setting-item-background);
+  background-color: var(--setting-item-background) !important;
+}
+
+.style-settings-container .setting-item[data-id="description-initial"] {
+  border-bottom: 1px solid var(--setting-item-background); 
+  background-color: var(--setting-item-background) !important;
 }
 
 /* ---------------------
@@ -9181,54 +9330,7 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .set
   border-left: 2px solid var(--background-primary) !important;
 }
 
-/* Add for Code Blocks */
-
-
-/* --------------------
-   USER INTERFACE (Border)
-   -------------------- */
-
-body.theme-dark {
-  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, rgb(240,245,240));
-}
-
-body.theme-light {
-  --setting-item-background: color-mix(in srgb, var(--background-primary-alt) 97.5%, black);
-}
-
-.style-settings-container .setting-item[data-id="description"] {
-  border-top: 1px solid var(--setting-item-background);
-  border-bottom: 1px solid var(--setting-item-background);
-  background-color: var(--setting-item-background) !important;
-}
-
-.style-settings-container .setting-item[data-id="description-initial"] {
-  border-bottom: 1px solid var(--setting-item-background); 
-  background-color: var(--setting-item-background) !important;
-}
-
-/* --------------------
-   USER INTERFACE (Ribbon)
-   -------------------- */
-
-/* Center ribbon when sidebar is collapsed */
-.center-collapsed-ribbon .workspace-ribbon.mod-left.is-collapsed .side-dock-actions {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-72%) !important; 
-  align-items: center;
-  transition: none !important 
-}
-
-/* Center ribbon when sidebar is open */
-.center-open-ribbon .workspace-ribbon.mod-left:not(.is-collapsed) {
-  transform: translateY(28%) !important;
-  align-items: center;
-}
-
-.workspace-ribbon.mod-left .side-dock-actions {
-  transition: none 
-}
+/* Code Blocks Shadow Glass is not yet ready */
 
 /* ---------------------
    APPEARANCE (Mythic Mode)
@@ -9387,7 +9489,7 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
 }
 
 /* ---------------------
-   APPEARANCE (Re-enable Blur)
+   OTHER PATCHES
    -------------------- */
 .menu,
 .suggestion-container,
@@ -9402,9 +9504,9 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
 }
 
 /* ---------------------
-   MOBILE (Extra Patches)
+   MOBILE AND TABLET (Patches)
    -------------------- */
-/* Mode switcher button - Position Patch */
+/* Mobile → Mode Switcher Button Patch */
 .is-phone:not(.mode-switcher-off) .view-actions :nth-last-child(2) {
   translate: 0 -5px !important;
 }
@@ -9412,14 +9514,27 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
   translate: 0 0px !important;
 }
 
-/* Overflow Patch for mobile */
+/* Mobile → Overflow Patch */
 body.is-mobile .cm-scroller,
 body.is-mobile .pdf-container {
   overflow-x: hidden !important;
 }
 
+/* Tablet → Sidebar Width Patch */
+body.is-tablet {
+  --mobile-left-sidebar-width: 435px; 
+  --mobile-right-sidebar-width: 360px;
+  --mobile-left-sidebar-width-pinned: 435px; 
+  --mobile-right-sidebar-width-pinned: 360px; 
+}
+
+/* Tablet → Sidebar Background Patch */
+body.is-tablet .workspace-drawer.is-pinned {
+  background-color: var(--workspace-tab-background) !important
+}
+
 /* ---------------------
-   APPEARANCE (Transparent Editor) 
+   TRANSPARENT EDITOR
    -------------------- */
    
 /* Transparent Editor → Background */
@@ -9457,35 +9572,10 @@ body.is-mobile .pdf-container {
 }
 
 /* ---------------------
-   APPEARANCE (Inactive Tabs)
+   INACTIVE TABS
    -------------------- */
 
 .inactive-tab-background:not(.low-power-mode) .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
-}
-
-/* ---------------------
-   STYLE SETTINGS (Icons)
-   -------------------- */
-
-/* Flex container for the description to align Icon and Text block */
-.setting-item-description:has(.settings-header-icon) {
-  display: flex !important;
-  align-items: center !important;
-  overflow: visible !important;
-}
-
-.settings-header-icon {
-  margin-left: 2px;
-  translate: 0 6px;
-  scale: 1.25;
-  margin-right: 15px;
-  height: 24px;
-  width: 24px;
-  flex-shrink: 0;
-}
-
-.settings-header-text-container h2 {
-  line-height: 1.2 !important;
 }
