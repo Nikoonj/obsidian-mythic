@@ -2332,7 +2332,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 (Beta 1) <br> Author: Nikoonj <br> Updated: 15th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 <br> Author: Nikoonj <br> Updated: 17th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2345,17 +2345,11 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.0 (Beta 1)</h2> <br>
-    <b>Features</b>
+    <h2> What's New in 4.3.0 (Beta 2)</h2> <br>
+    <b>Features, Patches and Fixes</b>
     <ul>
     <li><b>Mobile UI Rework</b>: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets</li>
-    </ul>
-    <br>
-    <b>Patches and Fixes</b>
-    <ul>
-    <li><b>Low Power Mode</b>: Added a yellow indicator for the switch.</li>
     <li><b>Style Settings UI</b>: Better icon designs and alignment.</li>
-    <li><b>Code Optimization</b>: Restructured and optimized code for better performance and maintenance.</li>
     </ul>
     <br> <h2> Appearance </h2> <br>
     <br><b>Theme</b>
@@ -4670,22 +4664,15 @@ body:is(.mod-macos, .adaptive-mode-off).is-tablet .suggestion-container {
 }
 
 @keyframes modalInCupertino {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  60% {
+  from {
     opacity: 1;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+    filter: none;
+    transform: scale(0.99)
   }
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal {
-  animation: modalInCupertino 250ms var(--anim-motion-baseline) both
+  animation: modalInCupertino var(--anim-duration-moderate) var(--anim-motion-baseline) forwards
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal:not(.mod-sidebar-layout) .modal-title {
@@ -9307,17 +9294,37 @@ body.theme-light {
    -------------------- */
 
 /* Markdown Elements (Callouts) */
+.theme-dark, .theme-light {
+  --Shadow-Markdown-Radius: 18px
+}
+
+/* Markdown Elements (Callouts) */
 .shadow-glass-markdown:not(.is-mobile, .low-power-mode) :is(.markdown-preview-view blockquote, .callout) {
   box-shadow: var(--shadow-tab) !important;
-  border-radius: 12px !important;
+  border-radius: var(--Shadow-Markdown-Radius) !important;
   border: none !important;
+}
+
+
+/* Shadow Glass → Markdown (Callouts → Quotes) → Inner (2nd) */
+.markdown-rendered blockquote {
+  box-shadow: var(--shadow-tab) !important;
+  border-radius: var(--Shadow-Markdown-Radius) !important;
+  border: none !important;
+  background-color: rgba(from var(--background-primary-alt) r g b / 0.785);
+}
+
+/* Shadow Glass → Markdown (Callouts → Quotes) → Inner (>3rd) */
+.markdown-rendered blockquote>blockquote {
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
 
 /* Shadow Glass → Markdown (Quotes) */
 .shadow-glass-markdown:not(.is-mobile, .low-power-mode) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
   border: none !important;
   box-shadow: var(--shadow-tab) !important;
-  border-radius: 12px !important;
+  border-radius: var(--Shadow-Markdown-Radius) !important;
   padding-top: 12px !important;
   padding-bottom: 12px !important;
   translate: 10px;
