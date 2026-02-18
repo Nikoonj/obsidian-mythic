@@ -1,11 +1,12 @@
 # obsidian-mythic
 
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
-
-# What's New in 4.3.0 (Beta 2)
+# What's New in 4.3.0 (Release Candidate 1)
 ### **Features, Patches and Fixes**
 - **Mobile UI Rework**: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets
+- **Liquid Glass Animations**: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).
 - **Style Settings UI**: Better icon designs and alignment.
+- **Smart Low Power Mode**: Disables specific high-intensity animations and features & dims features that are not available.
 ## Appearance
 ### **Theme**
 - **Dark theme variants**: Choose between
@@ -17,7 +18,8 @@
 ### **Animations**
 - **Enhanced Animations (BETA)**: Enables fluid animations.
 	- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
-- **Low Power Mode**: Disables some animations and features.
+- **Liquid Glass Animations: **
+- **Low Power Mode**: Disables specific high-intensity animations and features.
 ### **Design**
 - **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
     - **Smart Background**: Automatically darkens the background when sidebars are closed for focus.
@@ -47,4 +49,3 @@
 - **White icons in Dark Mode**: Forces tab and sidebar icons to be pure white in dark mode.
 ### **Settings Panels**
 - **Monochrome Settings Icons**: Forces settings menu icons to be black/white.
-- **Larger Settings Icons**: Makes settings menu icons and text larger.
