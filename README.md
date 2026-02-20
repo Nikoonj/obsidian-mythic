@@ -6,7 +6,8 @@
 - **Mobile UI Rework**: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets
 - **Liquid Glass Animations**: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).
 - **Style Settings UI**: Better icon designs and alignment.
-- **Smart Low Power Mode**: Disables specific high-intensity animations and features & dims features that are not available.
+- **Code Optimization**: Restructured and optimized code for better performance and maintenance.
+- **Smart Low Power Mode**: Dims features that are not available in low power mode
 ## Appearance
 ### **Theme**
 - **Dark theme variants**: Choose between
@@ -18,7 +19,7 @@
 ### **Animations**
 - **Enhanced Animations (BETA)**: Enables fluid animations.
 	- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
-- **Liquid Glass Animations: **
+- **Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).
 - **Low Power Mode**: Disables specific high-intensity animations and features.
 ### **Design**
 - **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
