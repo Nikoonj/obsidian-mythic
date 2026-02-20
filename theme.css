@@ -2332,7 +2332,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 <br> Author: Nikoonj <br> Updated: 18th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 <br> Author: Nikoonj <br> Updated: 21st February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2351,6 +2351,7 @@ settings:
     <li><b>Mobile UI Rework</b>: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets</li>
     <li><b>Liquid Glass Animations</b>: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).</li>
     <li><b>Style Settings UI</b>: Better icon designs and alignment.</li>
+    <li><b>Code Optimization</b>: Restructured and optimized code for better performance and maintenance.</li>
     <li><b>Smart Low Power Mode</b>: Disables specific high-intensity animations and features & dims features that are not available.</li>
     </ul>
     <br> <h2> Appearance </h2> <br>
@@ -8934,15 +8935,20 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 }
 
 /* --------------------
-   ANIMATIONS
+   ANIMATIONS (Variables and Keyframes)
    -------------------- */
 
 /* (!) Used generator for curves */
-/* Animations → Variables */
 .enhanced-animations {
   --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1);
   --Mythic-animation-spring: cubic-bezier(0.3, 1.5, 0.6, 1);
   --Mythic-animation-liquid: cubic-bezier(0.25, 1.6, 0.5, 1); 
+}
+
+/* Animations → Dynamic Tab Scaling */
+.dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7),
+.dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7) ~ .workspace-tab-header {
+  --tab-press-scale: 0.85;
 }
 
 /* Animations → Keyframes */
@@ -8965,40 +8971,67 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   to { transform: scale(1); }
 }
 
-/* Animations → Dynamic Tab Scaling */
-.dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7),
-.dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7) ~ .workspace-tab-header {
-  --tab-press-scale: 0.85;
+/* --------------------
+   ANIMATIONS (Logic → Enhanced Animations)
+   -------------------- */
+
+/* Animations → Buttons, Nav Actions, and Icons */
+.enhanced-animations:not(.low-power) button:hover,
+.enhanced-animations:not(.low-power) .nav-action-button:hover,
+.enhanced-animations:not(.low-power) .clickable-icon:hover:not(.sidebar-toggle-button .clickable-icon, .input-right-decorator) {
+  animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards !important;
 }
 
-/* Animations → UI → Hover States */
-.enhanced-animations:not(.low-power, .Liquid-glass-animations) .clickable-icon:hover:not(.sidebar-toggle-button .clickable-icon, .input-right-decorator),
-.enhanced-animations:not(.low-power, .Liquid-glass-animations) .nav-action-button:hover,
-.enhanced-animations:not(.low-power, .Liquid-glass-animations) button:hover,
+/* Animations → Button Background */
+.enhanced-animations:not(.low-power) button:hover,
+.enhanced-animations:not(.low-power) .nav-action-button:hover {
+  background-color: var(--background-primary) !important;
+}
+
+/* Animations → Tab Hover Effect */
 .enhanced-animations:not(.low-power, .Liquid-glass-animations) .workspace-tab-header:hover {
   animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards !important;
 }
 
-/* Animations → UI → Button Background */
+/* Animations → Icon and Tab Background */
 .enhanced-animations .clickable-icon:hover,
 .enhanced-animations .workspace-tab-header-inner:hover {
   background-color: var(--interactive-normal) !important;
 }
 
-/* Animations → UI → Tab Press (Liquid Glass) */
+/* Animations → Tab Press Effect (Disabled for Liquid Glass) */
+.enhanced-animations:not(.Liquid-glass-animations) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active {
+  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-spring) !important;
+}
+
+/* Animations → Sidebar Toggle Fix */
+.enhanced-animations .workspace-tab-header:active .workspace-tab-header-inner {
+  animation: none;
+}
+
+/* Animations → Inline Title Hover Effect */
+.enhanced-animations:not(.is-mobile) .inline-title:not([data-level]):hover:not(:focus-within)::before {
+  z-index: -1;
+  background-color: var(--background-primary);
+  border-radius: 15px;
+  margin-right: -5px;
+  margin-left: -33.5px;
+  box-shadow: var(--shadow-tab);
+  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards;
+}
+
+/* --------------------
+   ANIMATIONS (Logic → Liquid Glass Tabs Animations)
+   -------------------- */
+
+/* Animations → Liquid Glass Tab Press */
 .Liquid-glass-animations:not(.low-power) .workspace-tab-header {
   transition: transform var(--anim-duration-moderate) var(--Mythic-animation-liquid) !important;
 }
 
 .Liquid-glass-animations:not(.low-power) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active {
-  animation: none !important;
   transform: scale(1.15) !important;
   background-color: var(--background-secondary) !important;
-}
-
-.Liquid-glass-animations:not(.low-power) .clickable-icon:hover,
-.Liquid-glass-animations:not(.low-power) .workspace-tab-header-inner:hover {
-  background-color: black;
 }
 
 .Liquid-glass-animations:not(.low-power) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active::after {
@@ -9007,27 +9040,6 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   filter: blur(5px);
   mix-blend-mode: overlay;
   transition: ease-in-out 0.2s;
-}
-
-/* Animations → UI → Tab Press */
-.enhanced-animations:not(.Liquid-glass-animations) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active {
-  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-spring) !important;
-}
-
-/* Animations → UI → Fix Sidebar button */
-.enhanced-animations .workspace-tab-header:active .workspace-tab-header-inner {
-  animation: none
-}
-
-/* Animations → Inline Title Hover */
-.enhanced-animations:not(.is-mobile) .inline-title:not([data-level]):hover:not(:focus-within)::before {
-  z-index: -1;
-  background-color: var(--background-primary);
-  border-radius: 15px;
-  padding-left: 10px; 
-  margin-left: 2px;
-  box-shadow: var(--shadow-tab);
-  animation: buttonPress var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards 
 }
 
 /* --------------------
@@ -9367,7 +9379,6 @@ body.theme-light {
   border-radius: var(--Shadow-Markdown-Radius) !important;
   border: none !important;
 }
-
 
 /* Shadow Glass → Markdown (Callouts → Quotes) → Inner (2nd) */
 .markdown-rendered blockquote {
