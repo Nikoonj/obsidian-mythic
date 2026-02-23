@@ -2332,7 +2332,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.0 <br> Author: Nikoonj <br> Updated: 21st February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.1 <br> Author: Nikoonj <br> Updated: 23rd February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2345,14 +2345,15 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.0 (Release Candidate 1) </h2> <br>
+    <h2> What's New in 4.3.1 </h2> <br>
     <b>Features, Patches and Fixes</b>
     <ul>
-    <li><b>Mobile UI Rework</b>: Reworked color and design for a cleaner mobile experience, Fixed sidebar widths for tablets</li>
-    <li><b>Liquid Glass Animations</b>: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).</li>
-    <li><b>Style Settings UI</b>: Better icon designs and alignment.</li>
-    <li><b>Code Optimization</b>: Restructured and optimized code for better performance and maintenance.</li>
-    <li><b>Smart Low Power Mode</b>: Disables specific high-intensity animations and features & dims features that are not available.</li>
+    <li><b>New Quote Style</b>: Single quotes are now cards, and big blocks are fixed.</li>
+    <li><b>Better Text</b>: Headers and text have better spacing and weight.</li>
+    <li><b>Updated Lists</b>: The lines in lists line up with the bullets now.</li>
+    <li><b>Unified Look</b>: Reading View now looks much closer to Live Preview.</li>
+    <li><b>Fixed Tables</b>: Tables look correct in Live Preview again.</li>
+    <li><b>Code Optimization</b>: Restructured and optimized code for better maintenance.</li>
     </ul>
     <br> <h2> Appearance </h2> <br>
     <br><b>Theme</b>
@@ -8813,6 +8814,11 @@ body.minimal-theme .workspace::before {
                                       MYTHIC PATCHES
    ----------------------------------------------------------------------------------- */
 
+
+.theme-dark .markdown-preview-view h1, .theme-dark .markdown-preview-view h2, .theme-dark .markdown-preview-view h3, .theme-dark .markdown-preview-view h4, .theme-dark .markdown-preview-view h5, .theme-dark .markdown-preview-view h6 {
+  font-weight: 400 !important;
+}
+
 /* -----------------------
    TYPOGRAPHY
    ----------------------- */
@@ -8825,6 +8831,12 @@ body.minimal-theme .workspace::before {
 .theme-dark .HyperMD-header .cm-header-6 {
   color: var(--interactive-accent) !important;
   font-weight: 450 !important 
+}
+
+
+/* Typography → Scoped Bold in Headers */
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6) :is(b, strong) {
+  font-weight: 525 !important;
 }
 
 /* Typography → Light Headers → Live Preview (Dark Mode) */
@@ -8859,17 +8871,26 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 }
 
 /* Typography → Spacing → Live Preview */
-.markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
-  padding-bottom: 5px;
+.cm-s-obsidian .cm-line.HyperMD-header {
+  padding: 0 !important;
+  padding-top: 10px !important  ;
+}
+
+.cm-s-obsidian .cm-line.HyperMD-header + .cm-line.HyperMD-header {
+  padding-top: 4px !important;
 }
 
 /* Typography → Lists → Padding */
 .markdown-source-view ol li,
 .markdown-source-view ul li,
 .markdown-preview-view ol li,
-.markdown-preview-view ul li,
-.mod-cm6 .HyperMD-list-line.cm-line {
-  padding: 1.5px 
+.markdown-preview-view ul li {
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+}
+
+.cm-s-obsidian .cm-line.HyperMD-header + .cm-line:not(.HyperMD-header):not(:has(>br:only-child)) {
+  padding-top: 10px;
 }
 
 /* Typography → Lists → Indentation */
@@ -8879,19 +8900,17 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .markdown-preview-view ul ol,
 .markdown-preview-view ol ul {
   border-left: 1px solid var(--background-modifier-border);
-  margin-left: 15px;
+  margin-left: 14px;
   padding-left: 10px 
-}
-
-/* Typography → Lists → Reading View Override */
-.markdown-rendered ul,
-.markdown-rendered ol {
-  padding-inline-start: 22px;
 }
 
 /* Typography → Lists → Live Preview Alignment */
 .markdown-source-view.mod-cm6 .cm-indent {
-  text-indent: 20px !important 
+  text-indent: 10px !important 
+}
+
+.mod-cm6 .HyperMD-list-line.cm-line {
+  margin-left: 20px !important;
 }
 
 /* Typography → Highlight */
@@ -8901,6 +8920,41 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .markdown-rendered mark {
   background-color: hsla(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 25%)), 0.30) !important;
   color: var(--text-normal) !important
+}
+
+/* -----------------------
+   TYPOGRAPHY (Read View)
+   ----------------------- */
+
+/* Typography → Inline Title */
+.inline-title:not([data-level]) {
+  margin-bottom: 10px;
+}
+
+/* Typography → Headers */
+.markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 2px;
+  margin-top: 4px !important;
+}
+
+/* Typography → Markdown Text */
+.markdown-rendered p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.markdown-rendered ul > li {
+  margin-inline-start: 2ch !important;
+}
+
+.markdown-rendered ul {
+  margin-top: 6px;
+}
+
+/* Typography → Lists → Reading View Override */
+.markdown-rendered ul,
+.markdown-rendered ol {
+  padding-inline-start: 22px;
 }
 
 /* --------------------
@@ -8915,12 +8969,15 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 /* Tables → Headers → Styling */
 .markdown-rendered table th,
 .markdown-source-view.mod-cm6 .cm-table-widget th {
-  padding: 4px;
   border-top: 1px dashed var(--background-modifier-border) !important;
   border-left: 1px dashed var(--background-modifier-border) !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   background-color: var(--background-secondary) 
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget th {
+  padding: 4px;
 }
 
 .markdown-rendered table th:last-child,
@@ -9195,7 +9252,6 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
 .obsidian-settings-icon-circle .workspace-drawer-vault-actions .clickable-icon:last-child {
   width: 40px;
   height: 40px;
-  background-color: rgba(from var(--background-primary-alt) r g b / 0.75);
   border-radius: 100vh
 }
 
@@ -9369,46 +9425,71 @@ body.theme-light {
 /* ---------------------
    SHADOW GLASS for Markdown (BETA)
    -------------------- */
+
 .theme-dark, .theme-light {
   --Shadow-Markdown-Radius: 18px
 }
 
 /* Markdown Elements (Callouts) */
-.shadow-glass-markdown:not(.is-mobile, .low-power-mode) :is(.markdown-preview-view blockquote, .callout) {
+.shadow-glass-markdown:not(.low-power-mode) :is(.markdown-preview-view blockquote, .callout) {
   box-shadow: var(--shadow-tab) !important;
   border-radius: var(--Shadow-Markdown-Radius) !important;
-  border: none !important;
+  border: none !important
 }
 
 /* Shadow Glass → Markdown (Callouts → Quotes) → Inner (2nd) */
-.markdown-rendered blockquote {
+.shadow-glass-markdown .markdown-rendered blockquote {
   box-shadow: var(--shadow-tab) !important;
   border-radius: var(--Shadow-Markdown-Radius) !important;
   border: none !important;
-  background-color: rgba(from var(--background-primary-alt) r g b / 0.785);
+  background-color: rgba(from var(--background-primary-alt) r g b / 0.785)
 }
 
 /* Shadow Glass → Markdown (Callouts → Quotes) → Inner (>3rd) */
-.markdown-rendered blockquote>blockquote {
-  background-color: transparent !important;
+.shadow-glass-markdown:not(.low-power-mode) .markdown-rendered blockquote>blockquote {
   box-shadow: none !important;
+}
+
+/* Single Line Quote (Not Multi-layer) */
+.shadow-glass-markdown:not(.low-power-mode) .HyperMD-quote:first-child:has(+ *:not(.HyperMD-quote)), 
+.shadow-glass-markdown:not(.low-power-mode) .cm-sizer>div>div>*:not(.HyperMD-quote)+.HyperMD-quote:has(+ *:not(.HyperMD-quote)) {
+  border: none !important;
+  border-radius: var(--Shadow-Markdown-Radius) !important;
+  box-shadow: var(--shadow-tab) !important;
+  padding-bottom: 12px !important;
+  padding-top: 12px !important;
+  margin-top: 12px !important;
+}
+
+.shadow-glass-markdown:not(.low-power-mode) .HyperMD-quote:first-child,
+.shadow-glass-markdown:not(.low-power-mode) .cm-sizer>div>div>*:not(.HyperMD-quote)+.HyperMD-quote {
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-bottom: transparent !important;
+  border-start-start-radius: var(--Shadow-Markdown-Radius);
+  border-start-end-radius: var(--Shadow-Markdown-Radius);
+}
+
+.shadow-glass-markdown:not(.low-power-mode) .HyperMD-quote:last-child,
+.shadow-glass-markdown:not(.low-power-mode) .cm-sizer>div>div>.HyperMD-quote:has(+*:not(.HyperMD-quote)) {
+  padding-bottom: 12px !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  border-top: transparent !important;
+  border-end-start-radius: var(--Shadow-Markdown-Radius);
+  border-end-end-radius: var(--Shadow-Markdown-Radius);
 }
 
 /* Shadow Glass → Markdown (Quotes) */
 .shadow-glass-markdown:not(.is-mobile, .low-power-mode) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote {
-  border: none !important;
-  box-shadow: var(--shadow-tab) !important;
-  border-radius: var(--Shadow-Markdown-Radius) !important;
-  padding-top: 12px !important;
-  padding-bottom: 12px !important;
   translate: 10px;
-  margin-right: 10px !important;
+  margin-right: 10px !important
 }
 
-/* Shadow Glass → Markdown (Quotes) → Before */
+/* Shadow Glass → Markdown (Quotes) → Line */
 .shadow-glass-markdown:not(.is-mobile, .low-power-mode) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
   margin-left: -10px !important;
-  border-left: 2px solid var(--background-primary) !important;
+  border-left: 2px solid var(--background-primary) !important
 }
 
 /* Code Blocks Shadow Glass is not yet ready */
@@ -9570,21 +9651,6 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
 }
 
 /* ---------------------
-   OTHER PATCHES
-   -------------------- */
-.menu,
-.suggestion-container,
-.hover-popover,
-.modal:not(.mod-settings):not(.mod-community-modal):not(.mod-plugin-settings) {
-  backdrop-filter: blur(8px);
-  background-color: rgba(from var(--background-secondary) r g b / 0.75) !important
-}
-
-.is-translucent :is(.menu, .suggestion-container, .hover-popover) {
-  background-color: var(--background-primary) !important
-}
-
-/* ---------------------
    MOBILE AND TABLET (Patches)
    -------------------- */
 /* Mobile → Mode Switcher Button Patch */
@@ -9612,6 +9678,21 @@ body.is-tablet {
 /* Tablet → Sidebar Background Patch */
 body.is-tablet .workspace-drawer.is-pinned {
   background-color: var(--workspace-tab-background) !important
+}
+
+/* ---------------------
+   OTHER PATCHES
+   -------------------- */
+.menu,
+.suggestion-container,
+.hover-popover,
+.modal:not(.mod-settings):not(.mod-community-modal):not(.mod-plugin-settings) {
+  backdrop-filter: blur(8px);
+  background-color: rgba(from var(--background-secondary) r g b / 0.75) !important
+}
+
+.is-translucent :is(.menu, .suggestion-container, .hover-popover) {
+  background-color: var(--background-primary) !important
 }
 
 /* ---------------------
@@ -9660,3 +9741,4 @@ body.is-tablet .workspace-drawer.is-pinned {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
 }
+
