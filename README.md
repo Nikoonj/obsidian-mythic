@@ -1,13 +1,10 @@
 # obsidian-mythic
 
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
-# What's New in 4.3.1
+# What's New in 4.3.2
 ### **Features, Patches and Fixes**
-- **New Quote Style**: Single quotes are now cards, and big blocks are fixed.
-- **Better Text**: Headers and text have better spacing and weight.
-- **Updated Lists**: The lines in lists line up with the bullets now.
-- **Unified Look**: Reading View now looks much closer to Live Preview.
-- **Fixed Tables**: Tables look correct in Live Preview again.
+- **Separate Settings**: Updated the User Interface for Style Settings on mobile.
+- **Dim Toggles**: Settings which are not compatible with the devices are dimmed.
 - **Code Optimization**: Restructured and optimized code for better maintenance.
 ## Appearance
 ### **Theme**
