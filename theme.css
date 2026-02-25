@@ -1729,14 +1729,6 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-tab-he
   font-weight: var(--font-normal)
 }
 
-/* Files, Search, Tag, Bookmarks List */
-body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer-tab-select .workspace-tab-header-inner {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 12px;
-  border-radius: 18px;
-  scale: 0.95;
-}
-
 body.is-mobile .workspace-drawer .nav-header {
   padding: 0
 }
@@ -2332,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.1 <br> Author: Nikoonj <br> Updated: 23rd February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.2 <br> Author: Nikoonj <br> Updated: 25th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2345,15 +2337,13 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.1 </h2> <br>
+    <h2> What's New in 4.3.2 </h2> <br>
     <b>Features, Patches and Fixes</b>
     <ul>
-    <li><b>New Quote Style</b>: Single quotes are now cards, and big blocks are fixed.</li>
-    <li><b>Better Text</b>: Headers and text have better spacing and weight.</li>
-    <li><b>Updated Lists</b>: The lines in lists line up with the bullets now.</li>
-    <li><b>Unified Look</b>: Reading View now looks much closer to Live Preview.</li>
-    <li><b>Fixed Tables</b>: Tables look correct in Live Preview again.</li>
+    <li><b>Separate Settings</b>: Updated the User Interface for Style Settings on mobile.</li>
+    <li><b>Dim Toggles</b>: Settings which are not compatible with the devices are dimmed.</li>
     <li><b>Code Optimization</b>: Restructured and optimized code for better maintenance.</li>
+    <li><b>Sidebar Hover States</b>: Removed smooth hover and sidebar guidelines hover effects on mobile to prevent stuck highlight states.</li>
     </ul>
     <br> <h2> Appearance </h2> <br>
     <br><b>Theme</b>
@@ -3924,9 +3914,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.mod-mac
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.hover-ribbon) .workspace-ribbon.mod-left:not(.is-collapsed) {
   padding-left: 16px;
-  /* To increase the container size in the middle (content box),
-     we must increase the total width because box-sizing is border-box.
-     Content Width = --ribbon-width - padding-left */
   --ribbon-width: 60px;
 }
 
@@ -8990,14 +8977,13 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .markdown-source-view.mod-cm6 .cm-table-widget td {
   border-radius: 0 !important;
 }
-
 /* --------------------
    ANIMATIONS (Variables and Keyframes)
    -------------------- */
 
 /* (!) Used generator for curves */
 .enhanced-animations {
-  --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1);
+  --Mythic-animation-curve: cubic-bezier(0.32, 0.72, 0, 1); 
   --Mythic-animation-spring: cubic-bezier(0.3, 1.5, 0.6, 1);
   --Mythic-animation-liquid: cubic-bezier(0.25, 1.6, 0.5, 1); 
 }
@@ -9106,9 +9092,13 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .smooth-hover .nav-file-title.is-active,
 .smooth-hover .nav-folder-title.is-active {
   background: rgba(var(--mono-rgb-100), 0.1) !important;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15)) !important;
+  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.075) !important;
   border-radius: 15px !important;
-  box-shadow: var(--shadow-tab);
+}
+
+.smooth-hover.is-mobile .nav-file-title.is-active,
+.smooth-hover.is-mobile .nav-folder-title.is-active {
+  border-radius: 18px !important;
 }
 
 /* Smooth Hover */
@@ -9119,8 +9109,8 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   border-radius: 15px
 }
 
-.smooth-hover:not(.low-power) .nav-file-title:hover,
-.smooth-hover:not(.low-power) .nav-folder-title:hover {
+.smooth-hover:not(.low-power, .is-mobile) .nav-file-title:hover,
+.smooth-hover:not(.low-power, .is-mobile) .nav-folder-title:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   transition: ease-out background-color 0.1s !important
 }
@@ -9149,7 +9139,7 @@ body.sidebar-guidelines .nav-folder-children {
   transition: ease-in-out all 0.2s 
 }
 
-body.sidebar-guidelines:not(.low-power) .nav-folder-children:hover {
+body.sidebar-guidelines:not(.low-power, .is-mobile) .nav-folder-children:hover {
   border-left-color: color-mix(in srgb, var(--interactive-accent), transparent 27.5%)
 }
 
@@ -9368,6 +9358,75 @@ body:is(.low-power) .setting-item[data-id="Liquid-glass-animations"] .setting-it
   opacity: 0.5 
 }
 
+/* Disabled on Mobile (Community Code • Cupertino Archive) */
+.is-mobile .setting-item[data-id="dark-theme-variant"],
+.is-mobile .setting-item[data-id="fullscreen-theme-variant"],
+.is-phone .setting-item[data-id="transparent-editor"],
+.is-mobile .setting-item[data-id="shadow-glass-buttons"],
+.is-phone .setting-item[data-id="shadow-glass"],
+.is-phone .setting-item[data-id="shadow-glass-headers"],
+.is-phone .setting-item[data-id="shadow-glass-markdown"],
+.is-mobile .setting-item[data-id="smooth-hover"],
+.is-mobile .setting-item[data-id="center-collapsed-ribbon"],
+.is-mobile .setting-item[data-id="center-open-ribbon"],
+.is-mobile .setting-item[data-id="obsidian-settings-icon"],
+.is-phone .setting-item[data-id="monochrome-settings-icons"],
+.is-phone .setting-item[data-id="larger-settings-icons"],
+.is-phone .setting-item[data-id="dynamic-tab-animation"],
+.is-mobile .setting-item[data-id="enhanced-animations"],
+.is-mobile .setting-item[data-id="Liquid-glass-animations"] {
+  pointer-events: none;
+}
+
+.is-mobile .setting-item[data-id="dark-theme-variant"] .setting-item-info,
+.is-mobile .setting-item[data-id="dark-theme-variant"] .setting-item-control,
+.is-mobile .setting-item[data-id="fullscreen-theme-variant"] .setting-item-info,
+.is-mobile .setting-item[data-id="fullscreen-theme-variant"] .setting-item-control,
+.is-phone .setting-item[data-id="transparent-editor"] .setting-item-info,
+.is-phone .setting-item[data-id="transparent-editor"] .setting-item-control,
+.is-mobile .setting-item[data-id="shadow-glass-buttons"] .setting-item-info,
+.is-mobile .setting-item[data-id="shadow-glass-buttons"] .setting-item-control,
+.is-phone .setting-item[data-id="shadow-glass"] .setting-item-info,
+.is-phone .setting-item[data-id="shadow-glass"] .setting-item-control,
+.is-phone .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
+.is-phone .setting-item[data-id="shadow-glass-headers"] .setting-item-control,
+.is-phone .setting-item[data-id="shadow-glass-markdown"] .setting-item-info,
+.is-phone .setting-item[data-id="shadow-glass-markdown"] .setting-item-control,
+.is-mobile .setting-item[data-id="smooth-hover"] .setting-item-info,
+.is-mobile .setting-item[data-id="smooth-hover"] .setting-item-control,
+.is-mobile .setting-item[data-id="center-collapsed-ribbon"] .setting-item-info,
+.is-mobile .setting-item[data-id="center-collapsed-ribbon"] .setting-item-control,
+.is-mobile .setting-item[data-id="center-open-ribbon"] .setting-item-info,
+.is-mobile .setting-item[data-id="center-open-ribbon"] .setting-item-control,
+.is-mobile .setting-item[data-id="obsidian-settings-icon"] .setting-item-info,
+.is-mobile .setting-item[data-id="obsidian-settings-icon"] .setting-item-control,
+.is-phone .setting-item[data-id="monochrome-settings-icons"] .setting-item-info,
+.is-phone .setting-item[data-id="monochrome-settings-icons"] .setting-item-control,
+.is-phone .setting-item[data-id="larger-settings-icons"] .setting-item-info,
+.is-phone .setting-item[data-id="larger-settings-icons"] .setting-item-control,
+.is-phone .setting-item[data-id="dynamic-tab-animation"] .setting-item-info,
+.is-phone .setting-item[data-id="dynamic-tab-animation"] .setting-item-control,
+.is-phone .setting-item[data-id="enhanced-animations"] .setting-item-info,
+.is-phone .setting-item[data-id="enhanced-animations"] .setting-item-control,
+.is-mobile .setting-item[data-id="Liquid-glass-animations"] .setting-item-info,
+.is-mobile .setting-item[data-id="Liquid-glass-animations"] .setting-item-control {
+  opacity: 0.5;
+}
+
+/* ---------------------
+   USER INTERFACE (Style Setting Mobile)
+   -------------------- */
+
+.is-phone .style-settings-heading[data-level="0"] + .style-settings-container,
+.is-phone .style-settings-container {
+  padding: 0 !important;
+}
+
+.is-phone .setting-item[data-id="mythic-header"],
+.is-phone .setting-item[data-id="general-desc"] {
+  display: none !important;
+}
+
 /* --------------------
    USER INTERFACE (Border)
    -------------------- */
@@ -9448,6 +9507,7 @@ body.theme-light {
 /* Shadow Glass → Markdown (Callouts → Quotes) → Inner (>3rd) */
 .shadow-glass-markdown:not(.low-power-mode) .markdown-rendered blockquote>blockquote {
   box-shadow: none !important;
+  background-color: transparent !important
 }
 
 /* Single Line Quote (Not Multi-layer) */
@@ -9680,6 +9740,16 @@ body.is-tablet .workspace-drawer.is-pinned {
   background-color: var(--workspace-tab-background) !important
 }
 
+/* Files, Search, Tag, Bookmarks List */
+body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer-tab-select .workspace-tab-header-inner {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 12px;
+  border-radius: 18px;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
 /* ---------------------
    OTHER PATCHES
    -------------------- */
@@ -9741,4 +9811,3 @@ body.is-tablet .workspace-drawer.is-pinned {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
 }
-
