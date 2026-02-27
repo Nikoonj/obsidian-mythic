@@ -2324,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.2 <br> Author: Nikoonj <br> Updated: 25th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.3 <br> Author: Nikoonj <br> Updated: 27th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2337,66 +2337,62 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.2 </h2> <br>
-    <b>Features, Patches and Fixes</b>
+    <h2> What's New in 4.3.3 </h2>
+    <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>Separate Settings</b>: Updated the User Interface for Style Settings on mobile.</li>
-    <li><b>Dim Toggles</b>: Settings which are not compatible with the devices are dimmed.</li>
-    <li><b>Code Optimization</b>: Restructured and optimized code for better maintenance.</li>
-    <li><b>Sidebar Hover States</b>: Removed smooth hover and sidebar guidelines hover effects on mobile to prevent stuck highlight states.</li>
+    <li><b>Refined Table Headers</b>: Fixed transparency issues to ensure headers are always clear and consistent.</li>
+    <li><b>Simplified Table Logic</b>: Refactored the code for a cleaner, more optimized implementation.</li>
+    <li><b>Rounder Tables</b>: Applied a soft, rounded finish to all table corners.</li>
+    <li><b>Improved README</b>: New internal README design in Style Settings for better readability.</li>
     </ul>
-    <br> <h2> Appearance </h2> <br>
-    <br><b>Theme</b>
+    <br><b><hr></b><br>
+    <h2> Appearance </h2>
+    <b>Theme, Animations, Design and Shadow Glass</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Dark Theme Variants</b>: Choose between Obsidian, Mythic, Dark Grey, and Pure Black.</li>
     <li><b>Fullscreen Theme Variant</b>: Choose style for fullscreen mode.</li>
     </ul>
-    <br><b>Animations</b>
     <ul>
     <li><b>Enhanced Animations (BETA)</b>: Enables fluid and bouncier animations.</li>
     <li><b>Dynamic Tab Animation</b>: Consistent intensity regardless of tab count.</li>
     <li><b>Low Power Mode</b>: Disables some animations and features.</li>
     </ul>
-    <br><b>Design</b>
     <ul>
     <li><b>Transparent Editor</b>: Makes editor background transparent.</li>
     <li><b>Lighter Headers</b>: Ensures legibility on dark accents.</li>
     </ul>
-    <br><b>Shadow Glass</b>
     <ul>
     <li><b>Shadow Glass Inputs</b>: Subtle shadow and specular rim.</li>
     <li><b>Active Button Glow</b>: Accent glow for active buttons.</li>
     <li><b>Shadow Glass Headers</b>: Rounded corners and shadow for headers.</li>
-    <li><b>Shadow Glass Markdown (BETA)</b>: Styles quotes and callouts.</li>
+    <li><b>Shadow Glass Markdown (BETA)</b>: Styles quotes, code blocks, and callouts.</li>
     </ul>
-    <br> <h2> Workspace Layout </h2> <br>
-    <b>Tabs</b>
+    <br><b><hr></b><br>
+    <h2> Workspace Layout </h2>
+    <b>Tabs, Sidebar and Ribbon</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Compact Pinned Tabs</b>: Reduces width and hides title.</li>
     <li><b>Inactive Tab Background</b>: Background color for inactive tabs.</li>
     </ul>
-    <br><b>Sidebar</b>
     <ul>
     <li><b>Folder Highlight</b>: Highlights selected folders with accent color.</li>
     <li><b>Sidebar Guidelines</b>: Shows indentation guides.</li>
     <li><b>Smooth Hover</b>: Smooth fade effect on hover.</li>
     </ul>
-    <br><b>Ribbon</b>
     <ul>
     <li><b>Center Collapsed Ribbon</b>: Vertically centers icons when sidebar is closed.</li>
     <li><b>Center Open Ribbon</b>: Vertically centers icons when sidebar is open.</li>
     </ul>
-    <br> <h2> Icons </h2> <br>
-    <b>Settings Icon</b>
+    <br><b><hr></b><br>
+    <h2> Icons </h2>
+    <b>Settings Icon, Iconize and Settings Panels</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Enable Obsidian Settings Icon</b>: Replaces cog with Obsidian logo.</li>
     <li><b>Show Circle Background</b>: Circular dark background for icon.</li>
     </ul>
-    <br><b>Iconize</b>
     <ul>
     <li><b>Monochrome Icons</b>: Force black/white icons in Light/Dark mode.</li>
     </ul>
-    <br><b>Settings Panels</b>
     <ul>
     <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black/white.</li>
     <li><b>Larger Settings Icons</b>: Makes settings menu icons and text larger.</li>
@@ -8944,6 +8940,7 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   padding-inline-start: 22px;
 }
 
+
 /* --------------------
    TABLES
    -------------------- */
@@ -8953,30 +8950,48 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   padding-top: 0px !important 
 }
 
-/* Tables → Headers → Styling */
-.markdown-rendered table th,
-.markdown-source-view.mod-cm6 .cm-table-widget th {
+/* Tables → Live Preview */
+.cm-table-widget table>:is(thead, tbody)>tr:first-child>:is(th, td):first-child,
+.cm-table-widget table>:is(thead, tbody)>tr:first-child>:is(th, td):last-child {
+  border-top-left-radius: unset  ;
+  border-top-right-radius: unset 
+}
+
+.cm-table-widget table>thead:not(:only-child)>tr>th {
+  background-color: var(--background-secondary) !important ;
   border-top: 1px dashed var(--background-modifier-border) !important;
   border-left: 1px dashed var(--background-modifier-border) !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  background-color: var(--background-secondary) 
+  border-top-right-radius: 10.5px !important;
+  border-top-left-radius: 10.5px !important;
+  padding: 2.5px;
 }
 
-.markdown-source-view.mod-cm6 .cm-table-widget th {
-  padding: 4px;
+/* Tables → Reading View */
+.el-table table>thead:not(:only-child)>tr>th {
+  background-color: var(--background-secondary) !important ;
+  border-top: 1px dashed var(--background-modifier-border) !important;
+  border-left: 1px dashed var(--background-modifier-border) !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 10.5px !important;
+  border-top-left-radius: 10.5px !important;
+  padding: 9.5px;
 }
 
+ .markdown-rendered tbody tr > td:first-child,
+ .cm-html-embed tbody tr > td:last-child, .markdown-rendered tbody tr > td:last-child {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+ }
+
+/* Tables → Last Cell Border */
 .markdown-rendered table th:last-child,
 .markdown-source-view.mod-cm6 .cm-table-widget th:last-child {
   border-right: 1px dashed var(--background-modifier-border) !important
 }
 
-/* Tables → Body → Styling */
-.markdown-rendered table td,
-.markdown-source-view.mod-cm6 .cm-table-widget td {
-  border-radius: 0 !important;
-}
 /* --------------------
    ANIMATIONS (Variables and Keyframes)
    -------------------- */
