@@ -896,7 +896,7 @@ body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explore
 
 .menu,
 .suggestion-container {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   border-radius: var(--menu-radius);
   padding: 0
 }
@@ -905,7 +905,7 @@ body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explore
 .menu .suggestion-item,
 .suggestion-container .menu-item,
 .suggestion-container .suggestion-item {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   padding: calc(6px*var(--density-modifier)) 8px;
   border-radius: calc(var(--menu-radius) - var(--menu-padding));
   margin-bottom: 0
@@ -1018,7 +1018,7 @@ body {
 }
 
 body .modal {
-  -electron-corner-smoothing: var(--corner-smoothing)
+  corner-shape: var(--corner-smoothing)
 }
 
 body .modal:not(.mod-sidebar-layout) {
@@ -1121,7 +1121,7 @@ body {
 }
 
 body .prompt {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   background-color: var(--background-secondary);
   animation: modalIn var(--anim-duration-moderate) var(--anim-motion-baseline) forwards
 }
@@ -2324,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.3 <br> Author: Nikoonj <br> Updated: 27th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.4 <br> Author: Nikoonj <br> Updated: 1st March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2337,13 +2337,12 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.3 </h2>
+    <h2> What's New in 4.3.4 </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>Refined Table Headers</b>: Fixed transparency issues to ensure headers are always clear and consistent.</li>
-    <li><b>Simplified Table Logic</b>: Refactored the code for a cleaner, more optimized implementation.</li>
-    <li><b>Rounder Tables</b>: Applied a soft, rounded finish to all table corners.</li>
-    <li><b>Improved README</b>: New internal README design in Style Settings for better readability.</li>
+    <li><b>Refactor Folder Highlight</b>: Refactored the code for a cleaner, more optimized implementation.</li>
+    <li><b>Open Folder Highlights</b>: Added toggle to have highlights only for open folders.</li>
+    <li><b>More Highlights</b>: Added highlights to the bookmarks and outlines section.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Appearance </h2>
@@ -2571,6 +2570,12 @@ settings:
         id: folder-highlight
         title: Enable folder highlight
         description: Highlights selected folders with a teal/blue accent color.
+        type: class-toggle
+        default: true
+    -
+        id: folder-highlight-collapsed
+        title: Collapsed folder highlight
+        description: Disable folder highlight for collapsed folders
         type: class-toggle
         default: true
     -
@@ -2814,11 +2819,11 @@ print {
   }
 
   .markdown-rendered pre {
-    -electron-corner-smoothing: var(--corner-smoothing)
+    corner-shape: var(--corner-smoothing)
   }
 
   .markdown-rendered code {
-    -electron-corner-smoothing: var(--corner-smoothing);
+    corner-shape: var(--corner-smoothing);
     padding: 2px 4px
   }
 
@@ -2862,7 +2867,7 @@ print {
   }
 
   .markdown-embed {
-    -electron-corner-smoothing: var(--corner-smoothing)
+    corner-shape: var(--corner-smoothing)
   }
 
   .markdown-embed:not(.image-embed, .canvas-node-content) {
@@ -2952,7 +2957,7 @@ print {
   iframe,
   video,
   .file-embed {
-    -electron-corner-smoothing: var(--corner-smoothing);
+    corner-shape: var(--corner-smoothing);
     border-radius: var(--media-radius)
   }
 
@@ -3186,7 +3191,7 @@ print {
 
   .markdown-rendered blockquote,
   .HyperMD-quote {
-    -electron-corner-smoothing: var(--corner-smoothing);
+    corner-shape: var(--corner-smoothing);
     font-size: var(--blockquote-size)
   }
 
@@ -3272,7 +3277,7 @@ print {
   }
 
   .callout:not([data-callout=note-toolbar]) {
-    -electron-corner-smoothing: var(--corner-smoothing);
+    corner-shape: var(--corner-smoothing);
     font-size: var(--callout-size)
   }
 
@@ -3404,7 +3409,7 @@ print {
   .block-language-dataviewjs table td,
   .block-language-datacorejsx table th,
   .block-language-datacorejsx table td {
-    -electron-corner-smoothing: var(--corner-smoothing)
+    corner-shape: var(--corner-smoothing)
   }
 
   blockquote table>thead:only-child,
@@ -3923,7 +3928,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock {
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   display: flex;
   z-index: var(--layer-sidedock);
   margin: 8px 0 8px 8px;
@@ -4069,7 +4074,7 @@ body:is(.mod-macos, .adaptive-mode-off, .mythic-mode, .pure-black-mode, .fs-myth
 }
 
 body:is(.mod-macos, .adaptive-mode-off, .mythic-mode, .pure-black-mode, .fs-mythic, .fs-pure-black):not(.is-phone):is(.mod-macos, .adaptive-mode-off, .mythic-mode, .pure-black-mode, .fs-mythic, .fs-pure-black) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   border-radius: 100vh;
   transition: opacity var(--anim-duration-moderate), filter var(--anim-duration-moderate), background-color 0s
 }
@@ -4131,7 +4136,7 @@ button,
 .clickable-icon,
 select,
 .dropdown {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline), background-color var(--anim-duration-fast)
 }
 
@@ -4146,7 +4151,7 @@ button:where(:not(.clickable-icon, .ant-switch, .workspace-leaf-content:not([dat
 }
 
 body.obsidian-app .checkbox-container {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   transition: var(--anim-duration-moderate);
   box-shadow: none
 }
@@ -4160,7 +4165,7 @@ body.obsidian-app .checkbox-container::after {
 }
 
 body.obsidian-app .checkbox-container:active:after {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   box-shadow: none;
   width: calc(var(--toggle-thumb-width) + var(--toggle-border-width));
   height: var(--toggle-thumb-height);
@@ -4172,7 +4177,7 @@ body.obsidian-app .checkbox-container.is-enabled:active:after {
 }
 
 input[type=range]::-webkit-slider-thumb {
-  -electron-corner-smoothing: var(--corner-smoothing);
+  corner-shape: var(--corner-smoothing);
   box-shadow: none
 }
 
@@ -8795,16 +8800,16 @@ body.minimal-theme .workspace::before {
 
 /* -----------------------------------------------------------------------------------
                                       MYTHIC PATCHES
-   ----------------------------------------------------------------------------------- */
+   ----------------------------------------------------------------------------------- */ 
 
+/* -----------------------
+   TYPOGRAPHY
+   ----------------------- */
 
 .theme-dark .markdown-preview-view h1, .theme-dark .markdown-preview-view h2, .theme-dark .markdown-preview-view h3, .theme-dark .markdown-preview-view h4, .theme-dark .markdown-preview-view h5, .theme-dark .markdown-preview-view h6 {
   font-weight: 400 !important;
 }
 
-/* -----------------------
-   TYPOGRAPHY
-   ----------------------- */
 /* Typography → Headers → Live Preview (Dark Mode) */
 .theme-dark .HyperMD-header .cm-header-1,
 .theme-dark .HyperMD-header .cm-header-2,
@@ -8815,7 +8820,6 @@ body.minimal-theme .workspace::before {
   color: var(--interactive-accent) !important;
   font-weight: 450 !important 
 }
-
 
 /* Typography → Scoped Bold in Headers */
 .markdown-rendered :is(h1, h2, h3, h4, h5, h6) :is(b, strong) {
@@ -8940,10 +8944,10 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   padding-inline-start: 22px;
 }
 
-
 /* --------------------
    TABLES
    -------------------- */
+
 /* Tables → Live Preview & Reading View → Positioning */
 .markdown-rendered table,
 .markdown-source-view.mod-cm6 .cm-table-widget {
@@ -9007,7 +9011,7 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 .dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7),
 .dynamic-tab-animation:not(.low-power-mode, .Liquid-glass-animations).workspace-tab-header:nth-last-child(n+7) ~ .workspace-tab-header {
   --tab-press-scale: 0.85;
-}
+} 
 
 /* Animations → Keyframes */
 @keyframes hoverButton {
@@ -9104,48 +9108,67 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
    USER INTERFACE (Sidebar)
    -------------------- */
 
-.smooth-hover .nav-file-title.is-active,
-.smooth-hover .nav-folder-title.is-active {
-  background: rgba(var(--mono-rgb-100), 0.1) !important;
-  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.075) !important;
-  border-radius: 15px !important;
-}
-
-.smooth-hover.is-mobile .nav-file-title.is-active,
-.smooth-hover.is-mobile .nav-folder-title.is-active {
-  border-radius: 18px !important;
-}
-
-/* Smooth Hover */
-.smooth-hover .nav-file-title,
-.smooth-hover .nav-folder-title {
+/* Sidebar → Smooth Hover → Transition */
+.smooth-hover .tree-item-self {
   background-color: transparent !important;
   transition: ease-out background-color 0.35s !important;
   border-radius: 15px
 }
 
-.smooth-hover:not(.low-power, .is-mobile) .nav-file-title:hover,
-.smooth-hover:not(.low-power, .is-mobile) .nav-folder-title:hover {
+/* Sidebar → Smooth Hover → Transition Hover */
+.smooth-hover:not(.low-power, .is-mobile) .tree-item-self:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   transition: ease-out background-color 0.1s !important
 }
 
+/* Sidebar → Smooth Hover → Desktop Selector */
+.smooth-hover .tree-item-self.is-active {
+  background: rgba(var(--mono-rgb-100), 0.1) !important;
+  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.075) !important;
+  border-radius: 15px !important;
+}
+
+/* Sidebar → Smooth Hover → Mobile Selector */
+.smooth-hover.is-mobile .tree-item-self.is-active {
+  border-radius: 18px !important;
+}
+
 /* Sidebar → Folder Highlight */
-.folder-highlight:not(.is-mobile) .nav-folder:not(.is-collapsed) .nav-folder-title {
+.folder-highlight:not(.is-mobile) .tree-item-self.mod-collapsible {
   background-color: hsla(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 25%)), 0.125) !important;
   border-radius: 100vh !important;
+  transition: background-color ease-in 0.2s !important;
 }
 
 /* Sidebar → Folder Highlight → Text Color */
-.folder-highlight:not(.is-mobile) .nav-folder:not(.is-collapsed) .nav-folder-title .nav-folder-title-content {
-  color: var(--interactive-accent) 
+.folder-highlight:not(.is-mobile) .nav-folder-title-content,
+.folder-highlight:not(.is-mobile) .tree-item-self.mod-collapsible .tree-item-inner {
+  color: var(--interactive-accent);  
+  transition: all ease-in 0.2s !important;
 }
 
 /* Sidebar → Folder Highlight → Icon Color */
-.folder-highlight .nav-folder:not(.is-collapsed):not(.is-mobile) .nav-folder-title svg,
-.folder-highlight .nav-folder:not(.is-collapsed):not(.is-mobile) .nav-folder-title .collapse-icon {
+.folder-highlight .collapse-icon,
+.folder-highlight .tree-item-self.mod-collapsible svg {
   color: var(--interactive-accent); 
-  stroke: var(--interactive-accent) 
+  stroke: var(--interactive-accent) ;
+}
+
+/* Sidebar → Folder Highlight → Collapsed */
+.folder-highlight-collapsed.folder-highlight .tree-item.is-collapsed > .tree-item-self.mod-collapsible {
+  background-color: unset !important;
+  transition: background-color ease-in-out 0.2s !important;
+}
+
+.folder-highlight-collapsed.folder-highlight .tree-item.is-collapsed > .tree-item-self.mod-collapsible .nav-folder-title-content {
+  color: var(--nav-item-color) !important;
+  transition: all ease-in-out 0.2s !important;
+}
+
+.folder-highlight-collapsed.folder-highlight .tree-item.is-collapsed > .tree-item-self.mod-collapsible .collapse-icon,
+.folder-highlight-collapsed.folder-highlight .tree-item.is-collapsed > .tree-item-self.mod-collapsible svg {
+  color: var(--nav-item-color) !important;
+  stroke: var(--nav-item-color) !important;
 }
 
 /* Sidebar → Guidelines */
