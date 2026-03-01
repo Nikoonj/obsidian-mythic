@@ -2324,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.4 <br> Author: Nikoonj <br> Updated: 1st March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.5 <br> Author: Nikoonj <br> Updated: 2nd March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2337,12 +2337,13 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.4 </h2>
+    <h2> What's New in 4.3.5 </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>Refactor Folder Highlight</b>: Refactored the code for a cleaner, more optimized implementation.</li>
-    <li><b>Open Folder Highlights</b>: Added toggle to have highlights only for open folders.</li>
-    <li><b>More Highlights</b>: Added highlights to the bookmarks and outlines section.</li>
+    <li><b>Darker Header Colors</b>: Makes header colors darker to ensure legibility when using light accent colors.</li>
+    <li><b>Sidebar Issues</b>: Fixed selector and hover color issues in light mode.</li>
+    <li><b>Additional Highlights Issues</b>: Fixed Highlight radius issues in the outline panel.</li>
+    <li><b>Heading Color Issues</b>: Fixed issues with missing heading color in light mode.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Appearance </h2>
@@ -2507,6 +2508,12 @@ settings:
         id: light-accents
         title: Lighter Headers
         description: "Makes header colors lighter to ensure legibility when using dark accent colors."
+        type: class-toggle
+        default: false
+    -
+        id: dark-accents
+        title: Darker Headers
+        description: "Makes header colors darker to ensure legibility when using light accent colors."
         type: class-toggle
         default: false
     -
@@ -8811,12 +8818,12 @@ body.minimal-theme .workspace::before {
 }
 
 /* Typography → Headers → Live Preview (Dark Mode) */
-.theme-dark .HyperMD-header .cm-header-1,
-.theme-dark .HyperMD-header .cm-header-2,
-.theme-dark .HyperMD-header .cm-header-3,
-.theme-dark .HyperMD-header .cm-header-4,
-.theme-dark .HyperMD-header .cm-header-5,
-.theme-dark .HyperMD-header .cm-header-6 {
+.HyperMD-header .cm-header-1,
+.HyperMD-header .cm-header-2,
+.HyperMD-header .cm-header-3,
+.HyperMD-header .cm-header-4,
+.HyperMD-header .cm-header-5,
+.HyperMD-header .cm-header-6 {
   color: var(--interactive-accent) !important;
   font-weight: 450 !important 
 }
@@ -8827,34 +8834,54 @@ body.minimal-theme .workspace::before {
 }
 
 /* Typography → Light Headers → Live Preview (Dark Mode) */
-body.light-accents.theme-dark .HyperMD-header .cm-header-1,
-body.light-accents.theme-dark .HyperMD-header .cm-header-2,
-body.light-accents.theme-dark .HyperMD-header .cm-header-3,
-body.light-accents.theme-dark .HyperMD-header .cm-header-4,
-body.light-accents.theme-dark .HyperMD-header .cm-header-5,
-body.light-accents.theme-dark .HyperMD-header .cm-header-6 {
+body.light-accents .HyperMD-header .cm-header-1,
+body.light-accents .HyperMD-header .cm-header-2,
+body.light-accents .HyperMD-header .cm-header-3,
+body.light-accents .HyperMD-header .cm-header-4,
+body.light-accents .HyperMD-header .cm-header-5,
+body.light-accents .HyperMD-header .cm-header-6 {
   color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 75%))) !important
 }
 
+/* Typography → Dark Headers → Live Preview */
+body.dark-accents .HyperMD-header .cm-header-1,
+body.dark-accents .HyperMD-header .cm-header-2,
+body.dark-accents .HyperMD-header .cm-header-3,
+body.dark-accents .HyperMD-header .cm-header-4,
+body.dark-accents .HyperMD-header .cm-header-5,
+body.dark-accents .HyperMD-header .cm-header-6 {
+  color: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%))) !important
+}
+
 /* Typography → Headers → Reading View (Dark Mode) */
-.theme-dark .markdown-preview-view h1,
-.theme-dark .markdown-preview-view h2,
-.theme-dark .markdown-preview-view h3,
-.theme-dark .markdown-preview-view h4,
-.theme-dark .markdown-preview-view h5,
-.theme-dark .markdown-preview-view h6 {
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
   color: var(--interactive-accent) !important;
   font-weight: 450 !important
 }
 
 /* Typography → Light Headers → Reading View (Dark Mode) */
-body.light-accents.theme-dark .markdown-preview-view h1,
-body.light-accents.theme-dark .markdown-preview-view h2,
-body.light-accents.theme-dark .markdown-preview-view h3,
-body.light-accents.theme-dark .markdown-preview-view h4,
-body.light-accents.theme-dark .markdown-preview-view h5,
-body.light-accents.theme-dark .markdown-preview-view h6 {
+body.light-accents .markdown-preview-view h1,
+body.light-accents .markdown-preview-view h2,
+body.light-accents .markdown-preview-view h3,
+body.light-accents .markdown-preview-view h4,
+body.light-accents .markdown-preview-view h5,
+body.light-accents .markdown-preview-view h6 {
   color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 75%))) !important 
+}
+
+/* Typography → Dark Headers → Reading View */
+body.dark-accents .markdown-preview-view h1,
+body.dark-accents .markdown-preview-view h2,
+body.dark-accents .markdown-preview-view h3,
+body.dark-accents .markdown-preview-view h4,
+body.dark-accents .markdown-preview-view h5,
+body.dark-accents .markdown-preview-view h6 {
+  color: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%))) !important 
 }
 
 /* Typography → Spacing → Live Preview */
@@ -9121,11 +9148,23 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
   transition: ease-out background-color 0.1s !important
 }
 
+/* Sidebar → Smooth Hover → Transition Hover Light Mode */
+.theme-light.smooth-hover:not(.low-power, .is-mobile) .tree-item-self:hover {
+  background-color: rgba(0, 0, 0, 0.075) !important;
+  transition: ease-out background-color 0.1s !important;
+}
+
 /* Sidebar → Smooth Hover → Desktop Selector */
 .smooth-hover .tree-item-self.is-active {
   background: rgba(var(--mono-rgb-100), 0.1) !important;
   box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.075) !important;
   border-radius: 15px !important;
+}
+
+/* Sidebar → Smooth Hover → Desktop Light Mode */
+.theme-light.smooth-hover .tree-item-self.is-active {
+  background: rgba(255, 255, 255, 0.1 ) !important;
+  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.045) !important;
 }
 
 /* Sidebar → Smooth Hover → Mobile Selector */
@@ -9136,7 +9175,7 @@ body.light-accents.theme-dark .markdown-preview-view h6 {
 /* Sidebar → Folder Highlight */
 .folder-highlight:not(.is-mobile) .tree-item-self.mod-collapsible {
   background-color: hsla(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 25%)), 0.125) !important;
-  border-radius: 100vh !important;
+  border-radius: 16px !important;
   transition: background-color ease-in 0.2s !important;
 }
 
