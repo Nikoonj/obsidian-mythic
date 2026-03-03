@@ -1,12 +1,12 @@
 # obsidian-mythic
 
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
-# What's New in 4.3.5
+# What's New in 4.3.6
 ### Features, Patches and Fixes
-- `Added` **Darker Header Colors:** Makes header colors darker to ensure legibility when using light accent colors. 
-- `Fixed` **Sidebar Issues:** Fixed selector and hover color issues in light mode .
-- `Fixed` **Additional Highlights Issues:** Fixed Highlight radius issues in the outline panel. 
-- `Fixed` **Heading Color Issues:** Fixed issues with missing heading color in light mode.
+- `Added` **Liquid Glass Buttons (BETA):** Added Liquid glass animation to buttons.
+- `Improved` **Updated Dim Toggles**: Settings which are not compatible/require another setting to be enabled are dimmed.
+- `Fixed` **Outline Hyperlink Highlight:** Updated Highlight color for hyperlinks from outlines/to PDFs. 
+- `Fixed` **Guardrails for Header Colors:** Prevents Darker and Lighter Header colors from being active at the same time.
 ## Appearance
 ### **Theme**
 - **Dark theme variants**: Choose between
@@ -16,9 +16,10 @@
     - **Pure Black** (AMOLED Mode)
 - **Fullscreen Theme Variant**: Choose which theme style to automatically apply when entering fullscreen mode.
 ### **Animations**
-- **Enhanced Animations (BETA)**: Enables fluid animations.
+- **Enhanced Animations**: Enables fluid animations.
 	- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
-- **Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (Currently only for Tabs).
+- **Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (For Tabs).
+- **Extended Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (For Buttons • Work in progress: May encounter unexpected glitches and visual bugs).
 - **Low Power Mode**: Disables specific high-intensity animations and features.
 ### **Design**
 - **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
