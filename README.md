@@ -1,12 +1,12 @@
 # obsidian-mythic
 
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
-# What's New in 4.3.6
+# What's New in 4.3.7
 ### Features, Patches and Fixes
-- `Added` **Liquid Glass Buttons (BETA):** Added Liquid glass animation to buttons.
-- `Improved` **Updated Dim Toggles**: Settings which are not compatible/require another setting to be enabled are dimmed.
-- `Fixed` **Outline Hyperlink Highlight:** Updated Highlight color for hyperlinks from outlines/to PDFs. 
-- `Fixed` **Guardrails for Header Colors:** Prevents Darker and Lighter Header colors from being active at the same time.
+- `Added` **Center Sidebar Tabs:** A new logic which improves window drag compatibility however only works with 3 tabs.
+- `Improved` **Center Sidebar Tabs (Legacy):** Older logic which works with any number of tabs however lacks window drag compatibility.
+- `Fixed` **Shadow Glass Markdown:** Fixed rendering issues on large callouts.
+- `Fixed` **Shadow Glass Buttons:** Fixed issues with Shadow glass buttons not activating.
 ## Appearance
 ### **Theme**
 - **Dark theme variants**: Choose between
@@ -50,3 +50,5 @@
 - **White icons in Dark Mode**: Forces tab and sidebar icons to be pure white in dark mode.
 ### **Settings Panels**
 - **Monochrome Settings Icons**: Forces settings menu icons to be black/white.
+## Additional Settings
+- **Center Sidebar Tabs**: Centers the sidebar tabs on top of the window (The toggle only meant to revert to the new logic for 3 tabs ).
