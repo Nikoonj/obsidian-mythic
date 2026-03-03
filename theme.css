@@ -2324,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.6 <br> Author: Nikoonj <br> Updated: 3rd March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.3.7 <br> Author: Nikoonj <br> Updated: 4th March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
 	-
@@ -2337,13 +2337,13 @@ settings:
 		id: readme
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.3.6 </h2>
+    <h2> What's New in 4.3.7 </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>Liquid Glass Buttons (BETA)</b>: Added Liquid glass animation to buttons.</li>
-    <li><b>Updated Dim Toggles</b>: Settings which are not compatible/require another setting to be enabled are dimmed.</li>
-    <li><b>Outline Hyperlink Highlight</b>: Updated Highlight color for hyperlinks from outlines/to PDFs.</li>
-    <li><b>Guardrails for Header Colors</b>: Prevents Darker and Lighter Header colors from being active at the same time.</li>
+    <li><b>Centered Sidebar Tabs</b>: Centers sidebar tab icons. Improves window drag compatibility (only works with 3 tabs).</li>
+    <li><b>Centered Sidebar Tabs (Legacy)</b>: Centers sidebar tab icons. Works with any number of tabs however lacks window drag compatibility.</li>
+    <li><b>Shadow Glass Markdown</b>: Fixes rendering issues on large callouts.</li>
+    <li><b>Shadow Glass Buttons</b>: Fixes issues with Shadow glass buttons not activating.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Appearance </h2>
@@ -2397,6 +2397,13 @@ settings:
     <ul>
     <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black/white.</li>
     <li><b>Larger Settings Icons</b>: Makes settings menu icons and text larger.</li>
+    </ul>
+    <br><b><hr></b><br>
+    <h2> Additional Settings </h2>
+    <b>Extra Miscellaneous Features</b><br><br><b><hr></b><br>
+    <ul>
+    <li><b>Centered Sidebar Tabs</b>: Centers sidebar tab icons. Improves window drag compatibility (only works with 3 tabs).</li>
+    <li><b>Centered Sidebar Tabs (Legacy)</b>: Centers sidebar tab icons. Works with any number of tabs however lacks window drag compatibility.</li>
     </ul>"
 		type: info-text
 		markdown: true
@@ -2535,7 +2542,7 @@ settings:
         type: class-toggle
         default: true
     -
-        id: shadow-glass
+        id: shadow-glass-buttons
         title: Active Button Glow
         description: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.
         type: class-toggle
@@ -2677,6 +2684,18 @@ settings:
         description: Makes settings menu icons and text larger.
         type: class-toggle
         default: false
+    -
+        id: Additional-settings-header
+        title: Additional Settings
+        type: heading
+        level: 2
+        default: hidden
+    -
+        id: centered-sidebar-tabs
+        title: Centered Sidebar Tabs
+        description: Centers sidebar tab icons. Improves window drag compatibility (only works with 3 tabs).
+        type: class-toggle
+        default: true
 */
 
 .view-content .style-settings-container .style-settings-container .setting-item {
@@ -3957,15 +3976,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container .sidebar-toggle-button {
   min-height: calc(var(--header-height) - 4px);
   max-height: calc(var(--header-height) - 4px);
-  overflow: visible !important
-}
-
-/* Center Sidebar Tabs & Fix Layout */
-.workspace-split.mod-left-split .workspace-tab-header-container-inner {
-  justify-content: center !important;
-  width: 100% !important;
-  background-color: transparent !important;
-  outline: none !important;
   overflow: visible !important
 }
 
@@ -9685,6 +9695,11 @@ body.theme-light {
   margin-top: 12px !important;
 }
 
+.shadow-glass-markdown:not(.low-power) .HyperMD-quote {
+  border-left: 1px solid var(--background-modifier-border) !important;
+  border-right: 1px solid var(--background-modifier-border) !important;
+}
+
 .shadow-glass-markdown:not(.low-power) .HyperMD-quote:first-child,
 .shadow-glass-markdown:not(.low-power) .cm-sizer>div>div>*:not(.HyperMD-quote)+.HyperMD-quote {
   margin-top: 12px !important;
@@ -9974,4 +9989,27 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer
 .inactive-tab-background:not(.low-power) .workspace-tab-header-container .workspace-tab-header:not(.is-active) .workspace-tab-header-inner {
   background-color: rgba(from var(--background-primary-alt) r g b / 0.55) !important;
   box-shadow: var(--shadow-tab) !important;
+}
+
+/* ---------------------
+   CENTER SIDEBAR TABS
+   -------------------- */
+
+/* Center Sidebar Tabs & Fix Layout (Legacy) */
+body:not(.centered-sidebar-tabs) .workspace-split.mod-left-split .workspace-tab-header-container-inner {
+  justify-content: center !important;
+  width: 100% !important;
+  background-color: transparent !important;
+  outline: none !important;
+  overflow: visible !important
+}
+
+/* Center Sidebar Tabs & Fix Layout */
+.centered-sidebar-tabs.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs.mod-top-left-space .workspace-tab-header-container-inner {
+  position: relative;
+  left: 50%;
+  transform: translateX(-67.5%);
+  background-color: transparent !important;
+  outline: none !important;
+  overflow: visible
 }
