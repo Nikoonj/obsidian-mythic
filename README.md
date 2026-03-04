@@ -1,54 +1,62 @@
 # obsidian-mythic
-
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
-# What's New in 4.3.7
+
+# What's New in 4.4.0 (Beta 1)
 ### Features, Patches and Fixes
-- `Added` **Center Sidebar Tabs:** A new logic which improves window drag compatibility however only works with 3 tabs.
-- `Improved` **Center Sidebar Tabs (Legacy):** Older logic which works with any number of tabs however lacks window drag compatibility.
-- `Fixed` **Shadow Glass Markdown:** Fixed rendering issues on large callouts.
-- `Fixed` **Shadow Glass Buttons:** Fixed issues with Shadow glass buttons not activating.
-## Appearance
-### **Theme**
-- **Dark theme variants**: Choose between
+- `Added` **More Customizability:** Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.
+- `Improved` **Redesigned Style Settings:** Split into further categories to accommodate the future 4.4.0 updates.
+- `Improved` **Improved READMEs:** New layout for both README files (Internal Style Settings and Github)
+
+# Appearance & Themes
+### Inbuilt Theme Styles & Community themes
+- **Dark Theme Variants**: Choose between
     - **Obsidian** (Default Cupertino)
     - **Mythic** (Default Mythic)
     - **Dark Grey** (Balanced Dark Mode)
     - **Pure Black** (AMOLED Mode)
-- **Fullscreen Theme Variant**: Choose which theme style to automatically apply when entering fullscreen mode.
-### **Animations**
-- **Enhanced Animations**: Enables fluid animations.
-	- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
-- **Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (For Tabs).
-- **Extended Liquid Glass Animations (BETA)**: Tries to achieve the same look as Liquid glass buttons on iOS (For Buttons • Work in progress: May encounter unexpected glitches and visual bugs).
-- **Low Power Mode**: Disables specific high-intensity animations and features.
-### **Design**
-- **Transparent Editor**: Makes the editor background transparent showing your wallpaper.
-    - **Smart Background**: Automatically darkens the background when sidebars are closed for focus.
-- **Lighter Headers**: Makes header colors lighter to ensure legibility when using dark accent colors.
-### **Shadow Glass**
-- **Shadow Glass Inputs**: Adds subtle shadow and specular rim to text fields.
-- **Active Button Glow**: Adds accent glow and shadow to active PDF sidebar and Editor toggle buttons.
-- **Shadow Glass Headers**: Adds shadow and rounded corners to the header bar in Transparent Editor mode. (Requires Transparent Editor)
-- **Shadow Glass Markdown (BETA)**: Adds shadow glass styling to quotes and callouts.
-## Workspace Layout
-### **Tabs**
-- **Compact Pinned Tabs**: Reduces width and hides title.
-- **Inactive Tab Background**: Adds a background color to inactive tabs for better visibility.
-### **Sidebar**
-- **Folder Highlight**: Highlights selected folders with accent color.
-- **Show sidebar guidelines**: Toggles the visibility of indentation guides in the file explorer.
-- **Show sidebar guidelines**: Toggles the visibility of indentation guides in the file explorer.
-### **Ribbon**
-- **Center Collapsed Ribbon**: Vertically centers icons when sidebar is closed.
-- **Center Open Ribbon**: Vertically centers icons when sidebar is open.
-## Icons
-### **Settings Icon**
-- **Enable Obsidian Settings Icon**: Replaces cog with Obsidian logo.
-- **Show Circle Background**: Circular dark background for icon.
-### **Iconize**
-- **Black icons in Light Mode**: Forces tab and sidebar icons to be pure black in light mode.
-- **White icons in Dark Mode**: Forces tab and sidebar icons to be pure white in dark mode.
-### **Settings Panels**
-- **Monochrome Settings Icons**: Forces settings menu icons to be black/white.
-## Additional Settings
-- **Center Sidebar Tabs**: Centers the sidebar tabs on top of the window (The toggle only meant to revert to the new logic for 3 tabs ).
+- **Fullscreen Theme Variant**: Theme style to automatically apply when in fullscreen mode.
+
+# Animations & Effects
+### Fluid Animations & Motion Control
+- **Enhanced Animations**: Enables fluid and bouncier animations.
+- **Dynamic Tab Animation**: Consistent intensity regardless of tab count.
+- **Liquid Glass (BETA)**: Dynamic pop-up animations and hover effects.
+- **Extended Liquid Glass (BETA)**: Dynamic pop-up animations and enhanced button effects.
+- **Low Power Mode**: Disables specifics high-intensity animations and features.
+
+# Shadow Glass
+### Specular UI Elements
+- **Shadow Glass Inputs**: Subtle shadow and specular rim.
+- **Active Button Glow**: Accent glow for active buttons.
+- **Shadow Glass Headers**: Rounded corners and shadow for headers.
+- **Shadow Glass Markdown (BETA)**: Styles quotes, code blocks, and callouts.
+
+# Typography & Interface
+### Sizing, Accents and Layout
+- `Typography` **Default Headings**: Reverts to Cupertino style headings.
+- `Typography` **Default Lists**: Reverts to Cupertino style lists.
+- `Typography` **Default Highlights**: Reverts to Cupertino style highlights.
+- `Typography` **Default Tables**: Reverts to Cupertino style tables.
+- `Typography` **Lighter Headers**: Ensures legibility on dark accents/dark backgrounds.
+- `Typography` **Darker Headers**: Ensures legibility on light accents/light backgrounds.
+- `Interface` **Transparent Editor**: Makes editor background transparent.
+- `Interface` **Centered Sidebar Tabs**: Centers sidebar tab icons. Improves window drag compatibility.
+
+# Workspace Layout
+### Tabs, Sidebar and Ribbon
+- `Tabs` **Compact Pinned Tabs**: Reduces width and hides title.
+- `Tabs` **Inactive Tab Background**: Background color over inactive tabs.
+- `Sidebar` **Folder Highlight**: Highlights selected folders with accent color.
+- `Sidebar` **Collapsed Folder Highlight**: Disable folder highlight for collapsed folders.
+- `Sidebar` **Sidebar Guidelines**: Shows indentation guides.
+- `Sidebar` **Smooth Hover**: Smooth fade effect on hover.
+- `Ribbon` **Center Collapsed Ribbon**: Vertically centers icons when sidebar is closed.
+- `Ribbon` **Center Open Ribbon**: Vertically centers icons when sidebar is open.
+
+# Icons
+### Settings Icon, Iconize and Panels
+- `Settings Icon` **Obsidian Settings Icon**: Custom logo.
+- `Settings Icon` **Show Circle Background**: Circular dark background for icon.
+- `Iconize` **Monochrome Icons**: Force black/white icons in Light/Dark mode.
+- `Iconize` **Monochrome Settings Icons**: Forces settings menu icons to be black/white.
+- `Settings Panel` **Larger Settings Icons**: Makes settings menu icons and text larger.
