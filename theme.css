@@ -2324,7 +2324,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 (Beta 1) <br> Author: Nikoonj <br> Updated: 5th March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 (Beta 2) <br> Author: Nikoonj <br> Updated: 11th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
     -
@@ -2336,20 +2336,25 @@ settings:
     -
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.4.0 (Beta 1) </h2>
+    <h2> What's New in 4.4.0 (Beta 2) </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>Centered Sidebar Tabs</b>: Centers sidebar tab icons. Improves window drag compatibility (only works with 3 tabs).</li>
-    <li><b>Centered Sidebar Tabs (Legacy)</b>: Centers sidebar tab icons. Works with any number of tabs however lacks window drag compatibility.</li>
-    <li><b>Shadow Glass Markdown</b>: Fixes rendering issues on large callouts.</li>
-    <li><b>Shadow Glass Buttons</b>: Fixes issues with Shadow glass buttons not activating.</li>
+    <li><b>More Customizability</b>: Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.</li>
+    <li><b>Light Themes</b>: Added 3 new light themes. Mythic (Default), Paper White (Cream) and Light Gray</li>
+    <li><b>Adaptive Accent Color</b>: Automatically adjusts accent lightness for optimal contrast in light and dark modes.</li>
+    <li><b>Adaptive Theme</b>: Adapts accent and interactive colors to match the active light theme variant.</li>
+    <li><b>Redesigned Style Settings</b>: Split into further categories to accommodate the future 4.4.0 updates.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Appearance & Themes </h2>
     <b>Primary Theme Styles</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Dark Theme Variants</b>: Choose between Obsidian, Mythic, Dark Grey, and Pure Black.</li>
+    <li><b>Light Theme Variants</b>: Choose between Obsidian, Mythic, Paper White, and Light Gray.</li>
     <li><b>Fullscreen Theme Variant</b>: Theme style to automatically apply when in fullscreen mode.</li>
+    <li><b>Transparent Editor</b>: Makes editor background transparent.</li>
+    <li><b>Adaptive Theme</b>: Adapts accent and interactive colors to match the active light theme variant.</li>
+    <li><b>Adaptive Accent Color</b>: Automatically adjusts accent lightness for optimal contrast in light and dark modes.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Animations & Effects </h2>
@@ -2371,16 +2376,13 @@ settings:
     <li><b>Shadow Glass Markdown (BETA)</b>: Styles quotes, code blocks, and callouts.</li>
     </ul>
     <br><b><hr></b><br>
-    <h2> Typography & Interface </h2>
-    <b>Sizing, Accents and Layout</b><br><br><b><hr></b><br>
+    <h2> Typography </h2>
+    <b>Sizing Customization</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Default Headings</b>: Reverts to Cupertino style headings.</li>
     <li><b>Default Lists</b>: Reverts to Cupertino style lists.</li>
     <li><b>Default Highlights</b>: Reverts to Cupertino style highlights.</li>
     <li><b>Default Tables</b>: Reverts to Cupertino style tables.</li>
-    <li><b>Transparent Editor</b>: Makes editor background transparent.</li>
-    <li><b>Lighter Headers</b>: Ensures legibility on dark accents/dark backgrounds.</li>
-    <li><b>Darker Headers</b>: Ensures legibility on light accents/light backgrounds.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Workspace Layout </h2>
@@ -2455,7 +2457,7 @@ settings:
                 value: pure-black-mode
     -
         id: fullscreen-theme-variant
-        title: Fullscreen Theme Variant
+        title: Fullscreen Dark Theme Variant
         description: Choose which theme style to automatically apply when in fullscreen mode.
         type: class-select
         allowEmpty: false
@@ -2473,6 +2475,69 @@ settings:
             -
                 label: Pure Black
                 value: fs-pure-black
+    -
+        id: light-theme-variant
+        title: Light theme variant
+        description: Choose which light theme style to use
+        type: class-select
+        allowEmpty: false
+        default: mythic-light
+        options:
+            -
+                label: Obsidian
+                value: default-light
+            -
+                label: Mythic
+                value: mythic-light
+            -
+                label: Paper White
+                value: paper-white
+            -
+                label: Light Gray
+                value: light-gray
+    -
+        id: fullscreen-light-theme-variant
+        title: Fullscreen Light Theme Variant
+        description: Choose which theme style to automatically apply when in fullscreen mode.
+        type: class-select
+        allowEmpty: false
+        default: fs-mythic
+        options:
+            -
+                label: Obsidian
+                value: fs-default-light
+            -
+                label: Mythic
+                value: fs-mythic
+            -
+                label: Paper White
+                value: fs-paper-white
+            -
+                label: Light Gray
+                value: fs-light-gray
+    -
+        id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paintbrush-icon lucide-paintbrush'><path d='m14.622 17.897-10.68-2.913'/><path d='M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z'/><path d='M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15'/></svg> <div class='settings-header-text-container'><h2> Design </h2> Customise the core design of the theme.</div>"
+        type: info-text
+        markdown: true
+    -
+        id: adaptive-theme
+        title: Adaptive Theme
+        description: "Adapts accent and interactive colors to match the active light theme variant."
+        type: class-toggle
+        default: true
+    -
+        id: transparent-editor
+        title: Transparent editor
+        description: Makes the editor background transparent while keeping the header bar visible.
+        type: class-toggle
+        default: true
+    -
+        id: adaptive-accent
+        title: Adaptive Accent Color
+        description: "Automatically adjusts accent lightness for optimal contrast in light and dark modes."
+        type: class-toggle
+        default: true
     -
         id: animations-settings-header
         title: Animations & Effects
@@ -2544,7 +2609,7 @@ settings:
         default: true
     -
         id: typography-settings-header
-        title: Typography and Interface Design
+        title: Typography and Interface
         type: heading
         level: 2
     -
@@ -2555,48 +2620,25 @@ settings:
     -
         id: default-headings
         title: Default Headings
-        description: "Disables Mythic's custom heading styles and reverts to the standard Cupertino typography for all heading levels (H1-H6)."
+        description: "Disables Mythic's custom heading styles and reverts to the standard Cupertino typography."
         type: class-toggle
         default: false
     -
         id: default-lists
         title: Default Lists
-        description: "Removes Mythic's custom list styling and restores the default Cupertino spacing and bullet markers."
+        description: "Removes Mythic's custom list styling and reverts to the standard Cupertino lists."
         type: class-toggle
         default: false
     -
         id: default-highlights
         title: Default Highlights
-        description: "Reverts highlight colors and border-radius to the standard Cupertino style, disabling Mythic's vibrant highlight variants."
+        description: "Removes Mythic's custom highlight styles and reverts to the standard Cupertino style."
         type: class-toggle
         default: false
     -
         id: default-tables
         title: Default Tables
-        description: "Disables Mythic's refined table borders and background colors, reverting to the original Cupertino table design."
-        type: class-toggle
-        default: false
-    -
-        id: description
-        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paintbrush-icon lucide-paintbrush'><path d='m14.622 17.897-10.68-2.913'/><path d='M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z'/><path d='M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15'/></svg> <div class='settings-header-text-container'><h2> Design </h2> Customise the core design of the theme.</div>"
-        type: info-text
-        markdown: true
-    -
-        id: transparent-editor
-        title: Transparent editor
-        description: Makes the editor background transparent while keeping the header bar visible.
-        type: class-toggle
-        default: true
-    -
-        id: light-accents
-        title: Lighter Headers
-        description: "Makes header colors lighter to ensure legibility when using dark accent colors."
-        type: class-toggle
-        default: false
-    -
-        id: dark-accents
-        title: Darker Headers
-        description: "Makes header colors darker to ensure legibility when using light accent colors."
+        description: "Removes Mythic's custom tables styles and reverts to the standard Cupertino tables."
         type: class-toggle
         default: false
     -
@@ -2638,7 +2680,7 @@ settings:
         title: Collapsed folder highlight
         description: Disable folder highlight for collapsed folders
         type: class-toggle
-        default: true
+        default: false
     -
         id: sidebar-guidelines
         title: Show sidebar guidelines
@@ -4107,7 +4149,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-phone).theme-light {
-  --shadow-tab: var(--shadow-base), 0 0 1px rgba(0, 0, 0, 0.2), inset 0 -8px 48px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.025), 0 2px 4px rgba(0, 0, 0, 0.025)
+  --shadow-tab: var(--shadow-base), 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -8px 48px rgba(0, 0, 0, 0.01), 0 2px 4px rgba(0, 0, 0, 0.015), 0 2px 4px rgba(0, 0, 0, 0.015)
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-phone).theme-dark {
@@ -4887,7 +4929,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-sidebar-layou
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item.is-active {
   --text-normal: var(--text-on-accent);
   color: var(--text-on-accent);
-  background-color: var(--interactive-accent)
+  background-color: var(--interactive-accent);
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item:not(.is-active):hover {
@@ -8885,26 +8927,6 @@ body:not(.default-headings) .HyperMD-header .cm-header-6 {
   font-weight: 525 !important;
 }
 
-/* Typography → Light Headers → Live Preview (Dark Mode) */
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-1,
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-2,
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-3,
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-4,
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-5,
-body.light-accents:not(.default-headings) .HyperMD-header .cm-header-6 {
-  color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 75%))) !important
-}
-
-/* Typography → Dark Headers → Live Preview */
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-1,
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-2,
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-3,
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-4,
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-5,
-body.dark-accents:not(.default-headings) .HyperMD-header .cm-header-6 {
-  color: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%))) !important
-}
-
 /* Typography → Headers → Reading View (Dark Mode) */
 body:not(.default-headings) .markdown-preview-view h1,
 body:not(.default-headings) .markdown-preview-view h2,
@@ -8914,26 +8936,6 @@ body:not(.default-headings) .markdown-preview-view h5,
 body:not(.default-headings) .markdown-preview-view h6 {
   color: var(--interactive-accent) !important;
   font-weight: 450 !important
-}
-
-/* Typography → Light Headers → Reading View (Dark Mode) */
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h1,
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h2,
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h3,
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h4,
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h5,
-body.light-accents:not(.dark-accents):not(.default-headings) .markdown-preview-view h6 {
-  color: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 65%))) !important 
-}
-
-/* Typography → Dark Headers → Reading View */
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h1,
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h2,
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h3,
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h4,
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h5,
-body.dark-accents:not(.light-accents):not(.default-headings) .markdown-preview-view h6 {
-  color: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%))) !important 
 }
 
 /* Typography → Spacing → Live Preview */
@@ -9139,10 +9141,17 @@ body:not(.default-tables) .markdown-source-view.mod-cm6 .cm-table-widget th:last
   animation: hoverButton var(--anim-duration-moderate) var(--Mythic-animation-curve) forwards !important;
 }
 
-/* Animations → Button Background */
-.enhanced-animations:not(.low-power, .extended-glass-animations) button:hover,
-.enhanced-animations:not(.low-power, .extended-glass-animations) .nav-action-button:hover {
+/* Animations → Button Background → Dark */
+.theme-dark.enhanced-animations:not(.low-power, .extended-glass-animations) button:hover,
+.theme-dark.enhanced-animations:not(.low-power, .extended-glass-animations) .nav-action-button:hover {
   background-color: var(--background-primary) !important;
+}
+
+/* Animations → Button Background → Light */
+.theme-light.enhanced-animations:not(.low-power, .extended-glass-animations) button:hover,
+.theme-light.enhanced-animations:not(.low-power, .extended-glass-animations) .nav-action-button:hover {
+  background-color: var(--interactive-normal) !important;
+  color: var(--text-accent) !important;
 }
 
 /* Animations → Tab Hover Effect */
@@ -9258,7 +9267,7 @@ body:not(.default-tables) .markdown-source-view.mod-cm6 .cm-table-widget th:last
 /* Sidebar → Smooth Hover → Desktop Light Mode */
 .theme-light.smooth-hover .tree-item-self.is-active {
   background: rgba(255, 255, 255, 0.1 ) !important;
-  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.045) !important;
+  box-shadow: var(--shadow-tab), 0 4px 16px rgba(0, 0, 0, 0.025) !important;
 }
 
 /* Sidebar → Smooth Hover → Mobile Selector */
@@ -9503,15 +9512,19 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
   opacity: 0.5
 }
 
-/* Icons → Accents → Disable Toggle (Community Code • Cupertino Archive) */
-body.dark-accents .setting-item[data-id="light-accents"],
-body.light-accents .setting-item[data-id="dark-accents"] {
-  pointer-events: none
+/* Adaptive Theme & Accent*/
+.theme-dark .setting-item[data-id="adaptive-theme"],
+.adaptive-accent .setting-item[data-id="adaptive-theme"],
+.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] {
+  pointer-events: none !important
 }
-body.dark-accents .setting-item[data-id="light-accents"] .setting-item-info,
-body.dark-accents .setting-item[data-id="light-accents"] .setting-item-control,
-body.light-accents .setting-item[data-id="dark-accents"] .setting-item-info,
-body.light-accents .setting-item[data-id="dark-accents"] .setting-item-control {
+
+.theme-dark .setting-item[data-id="adaptive-theme"] .setting-item-info,
+.theme-dark .setting-item[data-id="adaptive-theme"] .setting-item-control,
+.adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-info,
+.adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-control,
+.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] .setting-item-info,
+.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] .setting-item-control {
   opacity: 0.5
 }
 
@@ -9639,7 +9652,7 @@ body:is(.low-power) .setting-item[data-id="inactive-tab-background"] .setting-it
 }
 
 /* --------------------
-   USER INTERFACE (Border)
+   USER INTERFACE (Style Setting Background and Border)
    -------------------- */
 
 body.theme-dark {
@@ -9651,14 +9664,14 @@ body.theme-light {
 }
 
 .style-settings-container .setting-item[data-id="description"] {
-  border-top: 1px solid var(--setting-item-background);
-  border-bottom: 1px solid var(--setting-item-background);
-  background-color: var(--setting-item-background) !important;
+  border-top: 1px solid var(--settings-desc-background);
+  border-bottom: 1px solid var(--settings-desc-background);
+  background-color: var(--settings-desc-background) !important;
 }
 
 .style-settings-container .setting-item[data-id="description-initial"] {
-  border-bottom: 1px solid var(--setting-item-background); 
-  background-color: var(--setting-item-background) !important;
+  border-bottom: 1px solid var(--settings-desc-background); 
+  background-color: var(--settings-desc-background) !important;
 }
 
 /* ---------------------
@@ -9765,7 +9778,6 @@ body.theme-light {
 /* Shadow Glass → Markdown (Quotes) → Line */
 .shadow-glass-markdown:not(.is-mobile, .low-power) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:before {
   margin-left: -10px !important;
-  border-left: 2px solid var(--background-primary) !important
 }
 
 /* Code Blocks Shadow Glass is not yet ready */
@@ -9787,6 +9799,7 @@ body:not(.is-mobile).theme-dark.fs-mythic.is-fullscreen {
   --background-modifier-form-field: rgb(45, 45, 47);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
+  --settings-desc-background: rgb(40, 40, 42);
 
   /* Base color scale */
   --color-base-00: rgb(35, 35, 37);
@@ -9835,7 +9848,8 @@ body:not(.is-mobile).theme-dark.fs-dark-grey.is-fullscreen {
   --background-modifier-form-field: rgb(37, 37, 39);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
-
+  --settings-desc-background: rgb(32, 32, 34);
+  
   /* Base color scale */
   --color-base-00: rgb(27, 27, 29);
   --workspace-leaf-background: rgba(27, 27, 28, 0.75);
@@ -9882,6 +9896,7 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
   --background-modifier-form-field: rgb(25, 25, 27);
   --background-modifier-hover: rgba(255, 255, 255, 0.08);
   --background-modifier-active-hover: rgba(255, 255, 255, 0.12);
+  --settings-desc-background: rgb(23, 23, 24);
   /* Base color scale */
   --color-base-00: rgb(17, 17, 19);
   --workspace-leaf-background: rgba(17, 17, 18, 0.75);
@@ -9912,6 +9927,184 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
   --text-faint: rgb(119, 119, 122);
   --text-muted: rgb(153, 153, 156);
   --text-normal: rgb(212, 212, 215);
+}
+
+/* --------------------
+   APPEARANCE (Light Mode)
+   -------------------- */
+
+/* Mythic (Windowed and Fullscreen) */
+body:not(.is-mobile).theme-light.mythic-light:not(.is-fullscreen),
+body:not(.is-mobile).theme-light.fs-mythic.is-fullscreen {
+  
+  /* Backgrounds */
+  --background-primary: rgb(250, 250, 250);
+  --background-primary-alt: rgb(255, 255, 255);
+  --background-secondary: rgb(248, 248, 248);
+  --background-secondary-alt: rgb(233, 236, 239);
+  --background-modifier-border: rgb(217, 219, 222);
+  --background-modifier-form-field: rgb(255, 255, 255);
+  --background-modifier-hover: rgba(0, 0, 0, 0.05);
+  --background-modifier-active-hover: rgba(0, 0, 0, 0.1);
+
+  /* Component Backgrounds */
+  --setting-items-background: rgb(254, 254, 254);
+  --settings-desc-background: rgb(243, 243, 243);
+  --dropdown-background: rgb(245, 245, 245) !important;
+  --dropdown-background-hover: var(--dropdown-background);
+
+  /* Base color scale */
+  --color-base-00: rgb(255, 255, 255);
+  --workspace-leaf-background: rgb(255, 255, 255);
+  --color-base-10: rgb(248, 249, 250);
+  --color-base-20: rgb(241, 243, 245);
+  --color-base-25: rgb(233, 236, 239);
+  --color-base-30: rgb(222, 226, 230);
+  --color-base-35: rgb(206, 212, 218);
+  --color-base-40: rgb(173, 181, 189);
+  --color-base-50: rgb(134, 142, 150);
+
+  /* UI elements */
+  --titlebar-background: rgb(248, 249, 250);
+  --titlebar-background-focused: rgb(241, 243, 245);
+  --ribbon-background: transparent;
+  --modal-background: rgb(255, 255, 255);
+  --prompt-background: rgb(255, 255, 255);
+  --interactive-normal: rgba(0, 0, 0, 0.05);
+  --interactive-hover: rgba(0, 0, 0, 0.1);
+  --tab-background-active: rgb(255, 255, 255);
+  --nav-item-background-active: rgba(0, 0, 0, 0.08);
+  --divider-color: rgb(222, 226, 230);
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --raised-blur: blur(0px);
+  
+  /* Icons */
+  --icon-color: rgb(93, 99, 107); 
+  --icon-color-hover: rgb(33, 37, 41);
+  --icon-color-active: rgb(33, 37, 41);
+  --icon-color-focused: rgb(33, 37, 41);
+
+  /* Text */
+  --text-faint: rgb(173, 181, 189);
+  --text-muted: rgb(135, 135, 135);
+  --text-normal: rgb(46, 46, 46);
+  --text-error: rgb(224, 49, 49);
+}
+
+/* Paper White (Windowed and Fullscreen) */
+body:not(.is-mobile).theme-light.paper-white:not(.is-fullscreen),
+body:not(.is-mobile).theme-light.fs-paper-white.is-fullscreen {
+  
+  /* Backgrounds */
+  --background-primary: rgb(253, 253, 252);
+  --background-primary-alt: rgb(253, 253, 252);
+  --background-secondary: rgb(249, 249, 247);
+  --background-secondary-alt: rgb(242, 240, 237);
+  --background-modifier-border: rgb(225, 221, 210);
+  --background-modifier-form-field: rgb(253, 253, 252);
+  --background-modifier-hover: rgba(67, 63, 58, 0.04);
+  --background-modifier-active-hover: rgba(67, 63, 58, 0.08);
+
+  /* Component Backgrounds */
+  --setting-items-background: rgb(253, 253, 252);
+  --settings-desc-background: rgb(242, 240, 237);
+  --dropdown-background: rgb(242, 240, 237) !important;
+  --dropdown-background-hover: var(--dropdown-background);
+
+  /* Base color scale */
+  --color-base-00: rgb(253, 253, 252);
+  --workspace-leaf-background: rgb(253, 253, 252);
+  --color-base-10: rgb(249, 249, 247);
+  --color-base-20: rgb(242, 240, 237);
+  --color-base-25: rgb(235, 232, 227);
+  --color-base-30: rgb(213, 206, 194);
+  --color-base-35: rgb(197, 188, 172);
+  --color-base-40: rgb(173, 159, 139);
+  --color-base-50: rgb(141, 129, 112);
+
+  /* UI elements */
+  --titlebar-background: rgb(249, 249, 247);
+  --titlebar-background-focused: rgb(242, 240, 237);
+  --ribbon-background: transparent;
+  --modal-background: rgb(253, 253, 252);
+  --prompt-background: rgb(253, 253, 252);
+  --interactive-normal: rgba(67, 63, 58, 0.04);
+  --interactive-hover: rgba(67, 63, 58, 0.08);
+  --tab-background-active: rgb(253, 253, 252);
+  --nav-item-background-active: rgba(67, 63, 58, 0.08);
+  --divider-color: rgb(213, 206, 194);
+  --raised-shadow: 0 4px 12px rgba(67, 63, 58, 0.025);
+  --raised-blur: blur(0px);
+  
+  /* Icons */
+  --icon-color: rgb(99, 92, 82);
+  --icon-color-hover: rgb(67, 63, 58);
+  --icon-color-active: rgb(67, 63, 58);
+  --icon-color-focused: rgb(67, 63, 58);
+
+  /* Text */
+  --text-faint: rgb(173, 159, 139);
+  --text-muted: rgb(99, 92, 82);
+  --text-normal: rgb(67, 63, 58);
+  --text-error: rgb(200, 50, 50);
+}
+
+/* Light Gray (Windowed and Fullscreen) */
+body:not(.is-mobile).theme-light.light-gray:not(.is-fullscreen),
+body:not(.is-mobile).theme-light.fs-light-gray.is-fullscreen {
+  
+  /* Backgrounds */
+  --background-primary: rgb(240, 242, 244);
+  --background-primary-alt: rgb(240, 242, 244);
+  --background-secondary: rgb(234, 236, 239);
+  --background-secondary-alt: rgb(224, 227, 231);
+  --background-modifier-border: rgb(207, 211, 216);
+  --background-modifier-form-field: rgb(243, 245, 248);
+  --background-modifier-hover: rgba(0, 0, 0, 0.08);
+  --background-modifier-active-hover: rgba(0, 0, 0, 0.14);
+
+  /* Component Backgrounds */
+  --setting-items-background: rgb(240, 242, 244);
+  --settings-desc-background: rgb(228, 230, 234);
+  --dropdown-background: rgb(228, 230, 234) !important;
+  --dropdown-background-hover: var(--dropdown-background);
+
+  /* Base color scale */
+  --color-base-00: rgb(240, 242, 244);
+  --workspace-leaf-background: rgb(240, 242, 244);
+  --color-base-10: rgb(234, 236, 239);
+  --color-base-20: rgb(228, 230, 234);
+  --color-base-25: rgb(224, 227, 231);
+  --color-base-30: rgb(207, 211, 216);
+  --color-base-35: rgb(193, 198, 203);
+  --color-base-40: rgb(167, 173, 180);
+  --color-base-50: rgb(126, 134, 140);
+
+  /* UI elements */
+  --titlebar-background: rgb(234, 236, 239);
+  --titlebar-background-focused: rgb(228, 230, 234);
+  --ribbon-background: transparent;
+  --modal-background: rgb(240, 242, 244);
+  --prompt-background: rgb(243, 245, 248);
+  --interactive-normal: rgba(0, 0, 0, 0.08);
+  --interactive-hover: rgba(0, 0, 0, 0.14);
+  --tab-background-active: rgb(240, 242, 244);
+  --nav-item-background-active: rgba(0, 0, 0, 0.14);
+  --divider-color: rgb(207, 211, 216);
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --raised-blur: blur(0px);
+  
+  /* Icons */
+  --icon-color: rgb(104, 112, 118); 
+  --icon-color-hover: rgb(17, 24, 28);
+  --icon-color-active: rgb(17, 24, 28);
+  --icon-color-focused: rgb(17, 24, 28);
+
+  /* Text */
+  --text-faint: rgb(167, 173, 180);
+  --text-muted: rgb(104, 112, 118);
+  --text-normal: rgb(17, 24, 28);
+  --text-error: rgb(208, 33, 33);
 }
 
 .mod-macos.is-hidden-frameless:not(.is-popout-window) .sidebar-toggle-button.mod-right {
@@ -9969,6 +10162,7 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer
 /* ---------------------
    OTHER PATCHES
    -------------------- */
+
 .menu,
 .suggestion-container,
 .hover-popover,
@@ -10052,4 +10246,93 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
   background-color: transparent !important;
   outline: none !important;
   overflow: visible
+}
+
+/* --------------------
+   APPEARANCE (Adaptive Accent Color)
+   -------------------- */
+
+/* Adaptive Accent → Dark Mode */
+.adaptive-accent.theme-dark {
+  --color-accent: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 55%)));
+  --interactive-accent: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 55%)));
+  --text-accent: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 60%)));
+  --text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(max(var(--accent-l), 65%)));
+}
+
+/* Adaptive Accent → Light Mode */
+.adaptive-accent.theme-light {
+  --color-accent: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%)));
+  --interactive-accent: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 40%)));
+  --text-accent: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 35%)));
+  --text-accent-hover: hsl(var(--accent-h), var(--accent-s), calc(min(var(--accent-l), 30%)));
+}
+
+/* --------------------
+   APPEARANCE (Adaptive Theme — Light Mode • Community Code [Adapted for Mythic])
+   -------------------- */
+
+/* Adaptive Theme → Mythic */
+.adaptive-theme.theme-light.mythic-light,
+.adaptive-theme.theme-light.fs-mythic.is-fullscreen {
+  --accent-h: 220 !important;
+  --accent-s: 13% !important;
+  --accent-l: 45% !important;
+
+  --color-accent: rgb(100, 110, 130);
+  --interactive-accent: var(--color-accent);
+  --interactive-accent-hover: rgb(85, 95, 115);
+  --text-accent: rgb(80, 90, 110);
+  --text-accent-hover: rgb(65, 75, 95);
+  --interactive-normal: rgb(241, 243, 245);
+  --interactive-hover: rgb(233, 236, 239);
+  --background-modifier-hover: rgba(0, 0, 0, 0.04);
+  --background-modifier-active-hover: rgba(0, 0, 0, 0.08);
+  --nav-item-background-active: var(--interactive-hover);
+  --dropdown-background: var(--interactive-normal) !important;
+}
+
+/* Adaptive Theme → Paper White */
+.adaptive-theme.theme-light.paper-white,
+.adaptive-theme.theme-light.fs-paper-white.is-fullscreen {
+  --accent-h: 35 !important;
+  --accent-s: 40% !important;
+  --accent-l: 47% !important;
+
+  --color-accent: rgb(168, 128, 72);
+  --interactive-accent: var(--color-accent);
+  --interactive-accent-hover: rgb(148, 108, 52);
+  --text-accent: rgb(148, 108, 52);
+  --text-accent-hover: rgb(128, 88, 38);
+  --interactive-normal: rgb(242, 240, 237) !important;
+  --interactive-hover: rgb(235, 232, 227) !important;
+  --background-modifier-hover: rgba(67, 63, 58, 0.05) !important;
+  --background-modifier-active-hover: rgba(67, 63, 58, 0.1) !important;
+  --nav-item-background-active: var(--interactive-hover) !important;
+  --dropdown-background: var(--interactive-normal) !important;
+}
+
+/* Adaptive Theme → Light Gray */
+.adaptive-theme.theme-light.light-gray,
+.adaptive-theme.theme-light.fs-light-gray.is-fullscreen {
+  --accent-h: 215 !important;
+  --accent-s: 24% !important;
+  --accent-l: 46% !important;
+
+  --color-accent: rgb(88, 112, 145);
+  --interactive-accent: var(--color-accent);
+  --interactive-accent-hover: rgb(72, 96, 128);
+  --text-accent: rgb(68, 92, 125);
+  --text-accent-hover: rgb(52, 76, 108);
+  --interactive-normal: rgb(228, 230, 234);
+  --interactive-hover: rgb(224, 227, 231);
+  --background-modifier-hover: rgba(17, 24, 28, 0.06);
+  --background-modifier-active-hover: rgba(17, 24, 28, 0.12);
+  --nav-item-background-active: var(--interactive-hover);
+  --dropdown-background: var(--interactive-normal) !important;
+}
+
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
+  padding-left: 6px;
+  border-radius: 14px;
 }
