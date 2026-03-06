@@ -1,11 +1,13 @@
 # obsidian-mythic
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
 
-# What's New in 4.4.0 (Beta 1)
+# What's New in 4.4.0 (Beta 2)
 ### Features, Patches and Fixes
 - `Added` **More Customizability:** Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.
+- `Added` **Light Themes:** Added 3 new light themes. Mythic (Default), Paper White (Cream) and Light Gray
+- `Added` **Adaptive Accent Color:** Automatically adjusts accent lightness for optimal contrast in light and dark modes.
+- `Added` **Adaptive Theme:** Adapts accent and interactive colors to match the active light theme variant.
 - `Improved` **Redesigned Style Settings:** Split into further categories to accommodate the future 4.4.0 updates.
-- `Improved` **Improved READMEs:** New layout for both README files (Internal Style Settings and Github)
 
 # Appearance & Themes
 ### Inbuilt Theme Styles & Community themes
@@ -14,7 +16,14 @@
     - **Mythic** (Default Mythic)
     - **Dark Grey** (Balanced Dark Mode)
     - **Pure Black** (AMOLED Mode)
+- **Light Theme Variants**: Choose between
+    - **Obsidian** (Default Cupertino)
+    - **Mythic** (White)
+    - **Paper White** (Warm Sepia)
+    - **Light Gray** (Balanced Light Mode)
 - **Fullscreen Theme Variant**: Theme style to automatically apply when in fullscreen mode.
+- **Adaptive Theme**: Adapts accent and interactive colors to match the active light theme variant.
+
 
 # Animations & Effects
 ### Fluid Animations & Motion Control
@@ -37,10 +46,9 @@
 - `Typography` **Default Lists**: Reverts to Cupertino style lists.
 - `Typography` **Default Highlights**: Reverts to Cupertino style highlights.
 - `Typography` **Default Tables**: Reverts to Cupertino style tables.
-- `Typography` **Lighter Headers**: Ensures legibility on dark accents/dark backgrounds.
-- `Typography` **Darker Headers**: Ensures legibility on light accents/light backgrounds.
 - `Interface` **Transparent Editor**: Makes editor background transparent.
 - `Interface` **Centered Sidebar Tabs**: Centers sidebar tab icons. Improves window drag compatibility.
+- `Interface` **Adaptive Accent Color:** Automatically adjusts accent lightness for optimal contrast in light and dark modes.
 
 # Workspace Layout
 ### Tabs, Sidebar and Ribbon
