@@ -571,11 +571,6 @@ body.is-tablet .workspace .mod-root .workspace-tab-header-new-tab .clickable-ico
   gap: 8px
 }
 
-.workspace .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-inner-icon,
-.workspace .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-inner-title {
-  color: var(--icon-color-focused) !important
-}
-
 body:not(.tab-icon) .mod-sidedock .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
   height: calc-size(auto, size)
 }
@@ -893,6 +888,8 @@ body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explore
     transform: translateY(-8px)
   }
 }
+
+
 
 .menu,
 .suggestion-container {
@@ -2324,7 +2321,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 (Beta 2) <br> Author: Nikoonj <br> Updated: 11th February 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 (Release Candidate 1) <br> Author: Nikoonj <br> Updated: 7th March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
     -
@@ -2336,17 +2333,18 @@ settings:
     -
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.4.0 (Beta 2) </h2>
+    <h2> What's New in 4.4.0 (Release Candidate 1) </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
     <li><b>More Customizability</b>: Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.</li>
     <li><b>Light Themes</b>: Added 3 new light themes. Mythic (Default), Paper White (Cream) and Light Gray</li>
+    <li><b>Community Themes</b>: Added community themes. Ported themes optimized for Mythic.</li>
     <li><b>Adaptive Accent Color</b>: Automatically adjusts accent lightness for optimal contrast in light and dark modes.</li>
     <li><b>Adaptive Theme</b>: Adapts accent and interactive colors to match the active light theme variant.</li>
     <li><b>Redesigned Style Settings</b>: Split into further categories to accommodate the future 4.4.0 updates.</li>
     </ul>
     <br><b><hr></b><br>
-    <h2> Appearance & Themes </h2>
+    <h2> Themes & Appearance </h2>
     <b>Primary Theme Styles</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Dark Theme Variants</b>: Choose between Obsidian, Mythic, Dark Grey, and Pure Black.</li>
@@ -2427,12 +2425,12 @@ settings:
         markdown: true
     -
         id: appearance-settings-header
-        title: Appearance & Themes
+        title: Themes & Appearance
         type: heading
         level: 2
     -
         id: description-initial
-        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-palette-icon lucide-palette'><path d='M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></svg> <div class='settings-header-text-container'><h2> Appearance </h2> Change the colour palette the theme uses. </div>"
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-palette-icon lucide-palette'><path d='M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></svg> <div class='settings-header-text-container'><h2> Core Themes </h2> Change the colour palette the theme uses. </div>"
         type: info-text
         markdown: true
     -
@@ -2456,7 +2454,7 @@ settings:
                 label: Pure Black
                 value: pure-black-mode
     -
-        id: fullscreen-theme-variant
+        id: fullscreen-dark-theme-variant
         title: Fullscreen Dark Theme Variant
         description: Choose which theme style to automatically apply when in fullscreen mode.
         type: class-select
@@ -2517,6 +2515,57 @@ settings:
                 value: fs-light-gray
     -
         id: description
+        description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paint-roller-icon lucide-paint-roller'><rect width='16' height='6' x='2' y='2' rx='2'/><path d='M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2'/><rect width='4' height='6' x='8' y='16' rx='1'/></svg><div class='settings-header-text-container'><h2> Community Themes (BETA) </h2> Change the colour palette the theme uses. </div>"
+        type: info-text
+        markdown: true
+    -
+        id: community-theme
+        title: Community Themes
+        description: "Enables Community Themes (Ported from Baseline)"
+        type: class-toggle
+        default: false
+    -
+        id: community-themes-light
+        title: Light Community Theme
+        description: Overrides default Light Mode colors
+        type: class-select
+        allowEmpty: false
+        default: everforest-light
+        options:
+            -
+                label: Everforest
+                value: everforest-light
+            -
+                label: Flexoki
+                value: flexoki-light
+            -
+                label: Melange
+                value: melange-light
+            -
+                label: Tiniri
+                value: tiniri-light
+    -
+        id: community-themes-dark
+        title: Dark Community Theme
+        description: Overrides default Dark Mode colors
+        type: class-select
+        allowEmpty: false
+        default: everforest-dark
+        options:
+            -
+                label: Everforest
+                value: everforest-dark
+            -
+                label: Melange
+                value: melange-dark
+            -
+                label: Mocha
+                value: mocha-dark
+            -
+                label: Tiniri
+                value: tiniri-dark
+    -
+        id: description
         description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-paintbrush-icon lucide-paintbrush'><path d='m14.622 17.897-10.68-2.913'/><path d='M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z'/><path d='M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15'/></svg> <div class='settings-header-text-container'><h2> Design </h2> Customise the core design of the theme.</div>"
         type: info-text
         markdown: true
@@ -2537,7 +2586,7 @@ settings:
         title: Adaptive Accent Color
         description: "Automatically adjusts accent lightness for optimal contrast in light and dark modes."
         type: class-toggle
-        default: true
+        default: false
     -
         id: animations-settings-header
         title: Animations & Effects
@@ -9512,6 +9561,69 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
   opacity: 0.5
 }
 
+/* Community Theme */
+body:not(.community-theme) .setting-item[data-id="community-themes-light"],
+body:not(.community-theme) .setting-item[data-id="community-themes-dark"] {
+  pointer-events: none
+}
+
+body:not(.community-theme) .setting-item[data-id="community-themes-light"] .setting-item-info,
+body:not(.community-theme) .setting-item[data-id="community-themes-light"] .setting-item-control,
+body:not(.community-theme) .setting-item[data-id="community-themes-dark"] .setting-item-info,
+body:not(.community-theme) .setting-item[data-id="community-themes-dark"] .setting-item-control {
+  opacity: 0.5
+}
+
+body.community-theme .setting-item[data-id="dark-theme-variant"],
+body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"],
+body.community-theme .setting-item[data-id="light-theme-variant"],
+body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] {
+  pointer-events: none
+}
+
+body.community-theme .setting-item[data-id="dark-theme-variant"] .setting-item-info,
+body.community-theme .setting-item[data-id="dark-theme-variant"] .setting-item-control,
+body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"] .setting-item-info,
+body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"] .setting-item-control,
+body.community-theme .setting-item[data-id="light-theme-variant"] .setting-item-info,
+body.community-theme .setting-item[data-id="light-theme-variant"] .setting-item-control,
+body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] .setting-item-info,
+body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] .setting-item-control {
+  opacity: 0.5
+}
+
+body.everforest-light .style-settings-container .setting-item[data-id="community-themes-light"] .setting-item-control::before,
+body.everforest-dark .style-settings-container .setting-item[data-id="community-themes-dark"] .setting-item-control::before {
+	content: "Author: Sainnhe Park (sainnhe) Optimised for Mythic"
+}
+
+body.flexoki-light .style-settings-container .setting-item[data-id="community-themes-light"] .setting-item-control::before,
+body.flexoki-dark .style-settings-container .setting-item[data-id="community-themes-dark"] .setting-item-control::before {
+	content: "Author: Steph Ango (kepano) Optimised for Mythic"
+}
+
+body.melange-light .style-settings-container .setting-item[data-id="community-themes-light"] .setting-item-control::before,
+body.melange-dark .style-settings-container .setting-item[data-id="community-themes-dark"] .setting-item-control::before {
+	content: "Author: Sergio A. Vargas (savq) Optimised for Mythic"
+}
+
+body.mocha-dark .style-settings-container .setting-item[data-id="community-themes-dark"] .setting-item-control::before {
+	content: "Author: AnubisNekhet Optimised for Mythic";
+	max-width: 14em;
+}
+
+body.tiniri-light .style-settings-container .setting-item[data-id="community-themes-light"] .setting-item-control::before,
+body.tiniri-dark .style-settings-container .setting-item[data-id="community-themes-dark"] .setting-item-control::before {
+	content: "Author: Vlad Gerasimov (vladstudio) Optimised for Mythic"
+}
+
+body .style-settings-container .setting-item[data-id] .setting-item-control::before {
+	margin-inline-end: 4px;
+	max-width: 18em;
+	color: var(--text-faint);
+	font-size: var(--font-ui-smaller)
+}
+
 /* Adaptive Theme & Accent*/
 .theme-dark .setting-item[data-id="adaptive-theme"],
 .adaptive-accent .setting-item[data-id="adaptive-theme"],
@@ -9783,7 +9895,7 @@ body.theme-light {
 /* Code Blocks Shadow Glass is not yet ready */
 
 /* ---------------------
-   APPEARANCE (Mythic Mode)
+   CORE THEMES (Mythic Mode)
    -------------------- */
 
 /* Mythic Mode (Windowed and Fullscreen) */
@@ -9832,7 +9944,7 @@ body:not(.is-mobile).theme-dark.fs-mythic.is-fullscreen {
 }
 
 /* ---------------------
-   APPEARANCE (Dark grey Mode)
+   CORE THEMES (Dark grey Mode)
    -------------------- */
 
 /* Dark grey Mode (Windowed and Fullscreen) */
@@ -9881,7 +9993,7 @@ body:not(.is-mobile).theme-dark.fs-dark-grey.is-fullscreen {
 }
 
 /* ---------------------
-   APPEARANCE (Pure Black Mode)
+   CORE THEMES (Pure Black Mode)
    -------------------- */
 
 /* Pure Black Mode (Windowed and Fullscreen) */
@@ -9930,7 +10042,7 @@ body:not(.is-mobile).theme-dark.fs-pure-black.is-fullscreen {
 }
 
 /* --------------------
-   APPEARANCE (Light Mode)
+   CORE THEMES (Light Mode)
    -------------------- */
 
 /* Mythic (Windowed and Fullscreen) */
@@ -10274,7 +10386,8 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
 
 /* Adaptive Theme → Mythic */
 .adaptive-theme.theme-light.mythic-light,
-.adaptive-theme.theme-light.fs-mythic.is-fullscreen {
+.adaptive-theme.theme-light.fs-mythic.is-fullscreen,
+.adaptive-theme:not(.everforest-light, .flexoki-light, .melange-light, .tiniri-light) {
   --accent-h: 220 !important;
   --accent-s: 13% !important;
   --accent-l: 45% !important;
@@ -10294,7 +10407,11 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
 
 /* Adaptive Theme → Paper White */
 .adaptive-theme.theme-light.paper-white,
-.adaptive-theme.theme-light.fs-paper-white.is-fullscreen {
+.adaptive-theme.theme-light.fs-paper-white.is-fullscreen,
+body.adaptive-theme.theme-light.everforest-light,
+body.adaptive-theme.theme-light.flexoki-light,
+body.adaptive-theme.theme-light.melange-light,
+body.adaptive-theme.theme-light.tiniri-light {
   --accent-h: 35 !important;
   --accent-s: 40% !important;
   --accent-l: 47% !important;
@@ -10314,7 +10431,8 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
 
 /* Adaptive Theme → Light Gray */
 .adaptive-theme.theme-light.light-gray,
-.adaptive-theme.theme-light.fs-light-gray.is-fullscreen {
+.adaptive-theme.theme-light.fs-light-gray.is-fullscreen,
+.adaptive-theme:not(.everforest-light, .flexoki-light, .melange-light, .tiniri-light) {
   --accent-h: 215 !important;
   --accent-s: 24% !important;
   --accent-l: 46% !important;
@@ -10322,17 +10440,431 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
   --color-accent: rgb(88, 112, 145);
   --interactive-accent: var(--color-accent);
   --interactive-accent-hover: rgb(72, 96, 128);
-  --text-accent: rgb(68, 92, 125);
-  --text-accent-hover: rgb(52, 76, 108);
-  --interactive-normal: rgb(228, 230, 234);
-  --interactive-hover: rgb(224, 227, 231);
-  --background-modifier-hover: rgba(17, 24, 28, 0.06);
-  --background-modifier-active-hover: rgba(17, 24, 28, 0.12);
-  --nav-item-background-active: var(--interactive-hover);
-  --dropdown-background: var(--interactive-normal) !important;
 }
 
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
-  padding-left: 6px;
-  border-radius: 14px;
+/* --------------------
+   Community Themes Default Shared variables
+   -------------------- */
+
+body.community-theme {
+  --background-primary-alt: var(--background-primary) !important;
+  --background-secondary-alt: var(--background-secondary) !important;
+  --background-modifier-form-field: var(--background-primary) !important;
+  --setting-items-background: var(--background-primary) !important;
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--dropdown-background) !important;
+  --color-base-00: var(--background-primary) !important;
+  --workspace-leaf-background: var(--background-primary) !important;
+  --color-base-10: var(--background-secondary) !important;
+  --color-base-20: var(--background-primary) !important;
+  --color-base-25: var(--background-modifier-border) !important;
+  --titlebar-background: var(--background-primary) !important;
+  --titlebar-background-focused: var(--background-secondary) !important;
+  --ribbon-background: transparent !important;
+  --modal-background: var(--background-primary) !important;
+  --prompt-background: var(--background-primary) !important;
+  --tab-background-active: var(--background-primary) !important;
+  --nav-item-background-active: var(--background-modifier-active-hover) !important;
+  --divider-color: var(--background-modifier-border) !important;
+  --raised-blur: blur(0px);
+}
+
+/* --------------------
+   Everforest Light
+   -------------------- */
+
+body.community-theme.theme-light.everforest-light.color-scheme-accent {
+  --accent-h: 83;
+  --accent-s: 36%;
+  --accent-l: 53%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-light.everforest-light {
+  /* Backgrounds */
+  --background-primary: rgb(253, 246, 227);
+  --background-secondary: rgb(239, 235, 212);
+  --background-modifier-border: rgb(224, 220, 199);
+  --background-modifier-hover: rgba(92, 106, 114, 0.08);
+  --background-modifier-active-hover: rgba(92, 106, 114, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(248, 242, 221) !important;
+
+  /* Base color scale */
+  --color-base-30: rgb(190, 197, 178);
+  --color-base-35: rgb(190, 197, 178);
+  --color-base-40: rgb(166, 176, 160);
+  --color-base-50: rgb(130, 145, 129);
+
+  /* UI elements */
+  --interactive-normal: rgba(226, 222, 198, 0.5);
+  --interactive-hover: rgba(226, 222, 198, 1);
+  --raised-shadow: 0 4px 12px rgba(92, 106, 114, 0.05);
+
+  /* Icons */
+  --icon-color: rgb(130, 145, 129);
+  --icon-color-hover: rgb(92, 106, 114);
+  --icon-color-active: rgb(92, 106, 114);
+  --icon-color-focused: rgb(92, 106, 114);
+
+  /* Text */
+  --text-faint: rgb(166, 176, 160);
+  --text-muted: rgb(130, 145, 129);
+  --text-normal: rgb(76, 87, 94);
+
+  /* Overrides from Global */
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--background-secondary) !important;
+}
+
+/* --------------------
+   Everforest Dark
+   -------------------- */
+
+body.community-theme.theme-dark.everforest-dark.color-scheme-accent {
+  --accent-h: 81;
+  --accent-s: 34%;
+  --accent-l: 63%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-dark.everforest-dark {
+  /* Backgrounds */
+  --background-primary: rgb(45, 53, 59);
+  --background-secondary: rgb(35, 42, 46);
+  --background-modifier-border: rgb(71, 82, 88);
+  --background-modifier-hover: rgba(211, 198, 170, 0.08);
+  --background-modifier-active-hover: rgba(211, 198, 170, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(51, 59, 64);
+
+  /* Base color scale */
+  --color-base-30: rgb(79, 88, 94);
+  --color-base-35: rgb(82, 92, 98);
+  --color-base-40: rgb(122, 132, 120);
+  --color-base-50: rgb(157, 169, 160);
+
+  /* UI elements */
+  --interactive-normal: rgba(71, 82, 88, 0.5);
+  --interactive-hover: rgba(71, 82, 88, 1);
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Icons */
+  --icon-color: rgb(157, 169, 160);
+  --icon-color-hover: rgb(211, 198, 170);
+  --icon-color-active: rgb(211, 198, 170);
+  --icon-color-focused: rgb(211, 198, 170);
+
+  /* Text */
+  --text-faint: rgb(122, 132, 120);
+  --text-muted: rgb(157, 169, 160);
+  --text-normal: rgb(211, 198, 170);
+}
+
+/* --------------------
+   Flexoki Light
+   -------------------- */
+
+body.community-theme.theme-light.flexoki-light.color-scheme-accent {
+  --accent-h: 175;
+  --accent-s: 57%;
+  --accent-l: 33%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-light.flexoki-light {
+  /* Backgrounds */
+  --background-primary: rgb(255, 252, 240);
+  --background-secondary: rgb(242, 240, 229);
+  --background-modifier-border: rgb(230, 228, 217);
+  --background-modifier-hover: rgba(16, 15, 15, 0.08);
+  --background-modifier-active-hover: rgba(16, 15, 15, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(249, 246, 235) !important;
+
+  /* Base color scale */
+  --color-base-30: rgb(218, 216, 206);
+  --color-base-35: rgb(206, 205, 195);
+  --color-base-40: rgb(183, 181, 172);
+  --color-base-50: rgb(111, 110, 105);
+
+  /* UI elements */
+  --interactive-normal: rgba(16, 15, 15, 0.05);
+  --interactive-hover: rgba(16, 15, 15, 0.15);
+  --raised-shadow: 0 4px 12px rgba(16, 15, 15, 0.05);
+
+  /* Icons */
+  --icon-color: rgb(111, 110, 105);
+  --icon-color-hover: rgb(16, 15, 15);
+  --icon-color-active: rgb(16, 15, 15);
+  --icon-color-focused: rgb(16, 15, 15);
+
+  /* Text */
+  --text-faint: rgb(183, 181, 172);
+  --text-muted: rgb(111, 110, 105);
+  --text-normal: rgb(58, 57, 57);
+}
+
+/* --------------------
+   Melange Light
+   -------------------- */
+
+body.community-theme.theme-light.melange-light.color-scheme-accent {
+  --accent-h: 29;
+  --accent-s: 100%;
+  --accent-l: 37%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-light.melange-light {
+  /* Backgrounds */
+  --background-primary: rgb(240, 236, 234);
+  --background-secondary: rgb(233, 225, 219);
+  --background-modifier-border: rgb(214, 192, 179);
+  --background-modifier-hover: rgba(84, 67, 58, 0.08);
+  --background-modifier-active-hover: rgba(84, 67, 58, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(237, 231, 227) !important;
+
+  /* Base color scale */
+  --color-base-30: rgb(205, 184, 173);
+  --color-base-35: rgb(176, 155, 143);
+  --color-base-40: rgb(169, 138, 120);
+  --color-base-50: rgb(125, 102, 88);
+
+  /* UI elements */
+  --interactive-normal: rgb(240, 236, 234);
+  --interactive-hover: rgb(233, 225, 219);
+  --raised-shadow: 0 4px 12px rgba(84, 67, 58, 0.05);
+
+  /* Icons */
+  --icon-color: rgb(125, 102, 88);
+  --icon-color-hover: rgb(84, 67, 58);
+  --icon-color-active: rgb(84, 67, 58);
+  --icon-color-focused: rgb(84, 67, 58);
+
+  /* Text */
+  --text-faint: rgb(169, 138, 120);
+  --text-muted: rgb(125, 102, 88);
+  --text-normal: rgb(84, 67, 58);
+}
+
+/* --------------------
+   Melange Dark
+   -------------------- */
+
+body.community-theme.theme-dark.melange-dark.color-scheme-accent {
+  --accent-h: 28;
+  --accent-s: 71%;
+  --accent-l: 63%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-dark.melange-dark {
+  /* Backgrounds */
+  --background-primary: rgb(41, 37, 34);
+  --background-secondary: rgb(52, 48, 44);
+  --background-modifier-border: rgb(64, 58, 54);
+  --background-modifier-hover: rgba(236, 225, 215, 0.08);
+  --background-modifier-active-hover: rgba(236, 225, 215, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(47, 43, 40);
+
+  /* Base color scale */
+  --color-base-30: rgb(99, 88, 81);
+  --color-base-35: rgb(126, 116, 105);
+  --color-base-40: rgb(134, 116, 98);
+  --color-base-50: rgb(193, 167, 142);
+
+  /* UI elements */
+  --interactive-normal: rgb(41, 37, 34);
+  --interactive-hover: rgb(52, 48, 44);
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Icons */
+  --icon-color: rgb(193, 167, 142);
+  --icon-color-hover: rgb(236, 225, 215);
+  --icon-color-active: rgb(236, 225, 215);
+  --icon-color-focused: rgb(236, 225, 215);
+
+  /* Text */
+  --text-faint: rgb(134, 116, 98);
+  --text-muted: rgb(193, 167, 142);
+  --text-normal: rgb(236, 225, 215);
+}
+
+/* --------------------
+   Mocha Dark
+   -------------------- */
+
+body.community-theme.theme-dark.mocha-dark.color-scheme-accent {
+  --accent-h: 10;
+  --accent-s: 56%;
+  --accent-l: 91%;
+  --text-on-accent: var(--background-primary);
+  --text-on-accent-inverted: var(--background-primary);
+}
+
+body:not(.is-mobile).community-theme.theme-dark.mocha-dark {
+  /* Backgrounds */
+  --background-primary: rgb(30, 30, 46);
+  --background-secondary: rgb(24, 24, 37);
+  --background-modifier-border: rgb(49, 50, 68);
+  --background-modifier-hover: rgba(205, 214, 244, 0.08);
+  --background-modifier-active-hover: rgba(205, 214, 244, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(36, 36, 52);
+
+  /* Base color scale */
+  --color-base-30: rgb(67, 70, 90);
+  --color-base-35: rgb(86, 89, 112);
+  --color-base-40: rgb(105, 109, 134);
+  --color-base-50: rgb(142, 149, 179);
+
+  /* UI elements */
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Icons */
+  --icon-color: rgb(142, 149, 179);
+  --icon-color-hover: rgb(198, 208, 245);
+  --icon-color-active: rgb(198, 208, 245);
+  --icon-color-focused: rgb(198, 208, 245);
+
+  /* Text */
+  --text-faint: rgb(105, 109, 134);
+  --text-muted: rgb(142, 149, 179);
+  --text-normal: rgb(198, 208, 245);
+}
+
+/* --------------------
+   Tiniri Light
+   -------------------- */
+
+body.community-theme.theme-light.tiniri-light.color-scheme-accent {
+  --accent-h: 3;
+  --accent-s: 70%;
+  --accent-l: 54%;
+  --text-on-accent: 253, 252, 252;
+  --text-on-accent-inverted: 51, 50, 49;
+  --interactive-accent: rgb(83, 138, 138);
+  --interactive-accent-hover: rgb(92, 158, 158);
+  --text-success: rgb(83, 138, 138);
+  --text-warning: rgb(173, 81, 76);
+  --text-error: rgb(173, 81, 76);
+  --text-accent: rgb(173, 81, 76);
+  --text-accent-hover: rgb(204, 100, 94);
+  --text-selection: rgb(218, 229, 226);
+  --text-highlight-bg: #fab48588;
+}
+
+body:not(.is-mobile).community-theme.theme-light.tiniri-light {
+  /* Backgrounds */
+  --background-primary: rgb(253, 252, 252);
+  --background-secondary: rgb(247, 243, 240);
+  --background-modifier-border: rgb(218, 229, 226);
+  --background-modifier-hover: rgba(51, 50, 49, 0.08);
+  --background-modifier-active-hover: rgba(51, 50, 49, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(250, 248, 246) !important;
+
+  /* Base color scale */
+  --color-base-30: rgb(180, 201, 194);
+  --color-base-35: rgb(83, 138, 138);
+  --color-base-40: rgb(128, 121, 116);
+  --color-base-50: rgb(128, 121, 116);
+
+  /* UI elements */
+  --interactive-normal: rgb(247, 243, 240);
+  --interactive-hover: rgb(237, 233, 225);
+  --raised-shadow: 0 4px 12px rgba(51, 50, 49, 0.05);
+
+  /* Icons */
+  --icon-color: rgb(128, 121, 116);
+  --icon-color-hover: rgb(51, 50, 49);
+  --icon-color-active: rgb(51, 50, 49);
+  --icon-color-focused: rgb(51, 50, 49);
+
+  /* Text */
+  --text-faint: rgb(128, 121, 116);
+  --text-muted: rgb(128, 121, 116);
+  --text-normal: rgb(51, 50, 49);
+  --text-error: rgb(173, 81, 76);
+}
+
+/* --------------------
+   Tiniri Dark
+   -------------------- */
+
+body.community-theme.theme-dark.tiniri-dark.color-scheme-accent {
+  --accent-h: 0;
+  --accent-s: 77%;
+  --accent-l: 50%;
+  --text-on-accent: 219, 211, 202;
+  --text-on-accent-inverted: 31, 33, 34;
+  --interactive-accent: rgb(49, 79, 82);
+  --interactive-accent-hover: rgb(57, 89, 92);
+  --text-success: rgb(170, 194, 174);
+  --text-warning: rgb(245, 165, 113);
+  --text-error: rgb(245, 165, 113);
+  --text-accent: rgb(173, 81, 76);
+  --text-accent-hover: rgb(224, 117, 117);
+  --text-selection: rgb(53, 58, 66);
+  --text-highlight-bg: #ad514c44;
+}
+
+body:not(.is-mobile).community-theme.theme-dark.tiniri-dark {
+  /* Backgrounds */
+  --background-primary: rgb(31, 33, 34);
+  --background-secondary: rgb(27, 29, 30);
+  --background-modifier-border: rgb(53, 58, 66);
+  --background-modifier-hover: rgba(219, 211, 202, 0.08);
+  --background-modifier-active-hover: rgba(219, 211, 202, 0.14);
+
+  /* Component Backgrounds */
+  --settings-desc-background: rgb(37, 39, 40);
+
+  /* Base color scale */
+  --color-base-30: rgb(63, 68, 77);
+  --color-base-35: rgb(173, 81, 76);
+  --color-base-40: rgb(147, 138, 128);
+  --color-base-50: rgb(147, 138, 128);
+
+  /* UI elements */
+  --interactive-normal: rgb(53, 58, 66);
+  --interactive-hover: rgb(63, 68, 77);
+  --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* Icons */
+  --icon-color: rgb(147, 138, 128);
+  --icon-color-hover: rgb(219, 211, 202);
+  --icon-color-active: rgb(219, 211, 202);
+  --icon-color-focused: rgb(219, 211, 202);
+
+  /* Text */
+  --text-faint: rgb(147, 138, 128);
+  --text-muted: rgb(147, 138, 128);
+  --text-normal: rgb(219, 211, 202);
+  --text-error: rgb(245, 165, 113);
+}
+
+/* --------------------
+   Full Calendar Plugin Support
+   -------------------- */
+
+.fc .fc-button-primary {
+  margin: 3px;
+  padding-top: 1px !important;
+  border-radius: 8px;
 }
