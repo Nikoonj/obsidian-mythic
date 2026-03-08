@@ -2321,7 +2321,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 (Release Candidate 1) <br> Author: Nikoonj <br> Updated: 7th March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 <br> Author: Nikoonj <br> Updated: 7th March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
     -
@@ -2333,7 +2333,7 @@ settings:
     -
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.4.0 (Release Candidate 1) </h2>
+    <h2> What's New in 4.4.0 </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
     <li><b>More Customizability</b>: Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.</li>

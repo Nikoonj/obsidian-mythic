@@ -1,7 +1,7 @@
 # obsidian-mythic
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
 
-# What's New in 4.4.0 (Release Candidate 1)
+# What's New in 4.4.0
 ### Features, Patches and Fixes
 - `Added` **More Customizability:** Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.
 - `Added` **Light Themes:** Added 3 new light themes. Mythic (Default), Paper White (Cream) and Light Gray
