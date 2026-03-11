@@ -192,11 +192,11 @@ body.styled-scrollbars div:not(:hover)::-webkit-scrollbar-thumb {
 }
 
 body.reduce-motion {
-  --anim-speed-modifier: 0 !important
+    --anim-speed-modifier: 0 !important
 }
 
 body.reduce-motion.is-mobile {
-  --mobile-sidebar-width: 90vw
+    --mobile-sidebar-width: 90vw
 }
 
 body.reduce-motion.is-mobile .workspace-drawer,
@@ -207,42 +207,42 @@ body.reduce-motion.is-mobile .suggestion-bg,
 body.reduce-motion.is-mobile .modal,
 body.reduce-motion.is-mobile .modal-bg,
 body.reduce-motion.is-mobile .mobile-navbar {
-  transform: none !important;
-  transition: none !important
+    transform: none !important;
+    transition: none !important
 }
 
 @starting-style {
 
-  body.reduce-motion.is-mobile .workspace-drawer,
-  body.reduce-motion.is-mobile .workspace-split,
-  body.reduce-motion.is-mobile .mobile-tab-switcher,
-  body.reduce-motion.is-mobile .menu,
-  body.reduce-motion.is-mobile .suggestion-bg,
-  body.reduce-motion.is-mobile .modal,
-  body.reduce-motion.is-mobile .modal-bg,
-  body.reduce-motion.is-mobile .mobile-navbar {
-    opacity: 0 !important
-  }
+    body.reduce-motion.is-mobile .workspace-drawer,
+    body.reduce-motion.is-mobile .workspace-split,
+    body.reduce-motion.is-mobile .mobile-tab-switcher,
+    body.reduce-motion.is-mobile .menu,
+    body.reduce-motion.is-mobile .suggestion-bg,
+    body.reduce-motion.is-mobile .modal,
+    body.reduce-motion.is-mobile .modal-bg,
+    body.reduce-motion.is-mobile .mobile-navbar {
+        opacity: 0 !important
+    }
 }
 
 .lucide-folder-closed path[d="M2 10h20"] {
-  display: none
+    display: none
 }
 
 .lucide-arrow-left path[d="M19 12H5"] {
-  display: none
+    display: none
 }
 
 .lucide-arrow-left path[d="m12 19-7-7 7-7"] {
-  transform: translateX(2px)
+    transform: translateX(2px)
 }
 
 .lucide-arrow-right path[d="M5 12h14"] {
-  display: none
+    display: none
 }
 
 .lucide-edit-3 path[d="M13 21h8"] {
-  display: none
+    display: none
 }
 
 body:not(.reduce-motion) .workspace svg.svg-icon {
@@ -250,29 +250,29 @@ body:not(.reduce-motion) .workspace svg.svg-icon {
 }
 
 @starting-style {
-  body:not(.reduce-motion) .workspace .clickable-icon:not(.workspace-ribbon>.sidebar-toggle-button>.clickable-icon) svg.svg-icon {
-    filter: blur(4px);
-    scale: .75;
-    opacity: 0
-  }
+    body:not(.reduce-motion) .workspace .clickable-icon:not(.workspace-ribbon>.sidebar-toggle-button>.clickable-icon) svg.svg-icon {
+        filter: blur(4px);
+        scale: .75;
+        opacity: 0
+    }
 }
 
 body:not(.reduce-motion) .workspace .clickable-icon:not([aria-disabled=true]):active svg.svg-icon,
 body:not(.reduce-motion) .workspace .mod-sidedock .workspace-tab-header.tappable:active svg.svg-icon {
-  scale: .75;
-  opacity: .75
+    scale: .75;
+    opacity: .75
 }
 
 body:not(.reduce-motion) .workspace .workspace-tab-header-tab-list .clickable-icon:is(:hover, .has-active-menu) svg.svg-icon {
-  transform: translateY(1px)
+    transform: translateY(1px)
 }
 
 body:not(.reduce-motion) .workspace .view-header-nav-buttons .clickable-icon:not([aria-disabled=true]):first-child:hover svg.svg-icon {
-  transform: translateX(-1px)
+    transform: translateX(-1px)
 }
 
 body:not(.reduce-motion) .workspace .view-header-nav-buttons .clickable-icon:not([aria-disabled=true]):last-child:hover svg.svg-icon {
-  transform: translateX(1px)
+    transform: translateX(1px)
 }
 
 body {
@@ -303,272 +303,270 @@ body.is-tablet {
 }
 
 body:not(.is-phone) .workspace-tab-header-container {
-  transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: none
+    transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: none
 }
 
 .sidebar-toggle-button {
-  height: 100%;
-  padding-bottom: 8px;
-  align-items: center
+    height: 100%;
+    padding-bottom: 8px;
+    align-items: center
 }
 
 .sidebar-toggle-button .clickable-icon {
-  width: fit-content;
-  height: fit-content
+    width: fit-content;
+    height: fit-content
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-container-inner {
-  padding: 8px var(--tab-curve) 0;
-  margin: 0 -4px 0 0;
-  gap: 8px
+    padding: 8px var(--tab-curve) 0;
+    margin: 0 -4px 0 0;
+    gap: 8px
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header {
-  --tab-outline-width: 0px;
-  padding: 0
+    --tab-outline-width: 0px;
+    padding: 0
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner {
-  padding-inline-start: 8px;
-  padding-inline-end: 8px;
-  margin-bottom: 8px;
-  height: auto
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+    margin-bottom: 8px;
+    height: auto
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner::after {
-  content: none
+    content: none
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner-title {
-  line-height: normal;
-  text-align: var(--tab-text-align)
+    line-height: normal
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-new-tab,
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-tab-list {
-  display: block;
-  align-content: center;
-  padding: 4px 0;
-  margin: 0
+    display: block;
+    align-content: center;
+    padding: 4px 0;
+    margin: 0
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-new-tab .clickable-icon,
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-tab-list .clickable-icon {
-  height: auto;
-  padding: 8px
+    height: auto;
+    padding: 8px
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) {
-  --tab-radius-active: var(--tab-radius);
-  --tab-curve: 0
+    --tab-radius-active: var(--tab-radius);
+    --tab-curve: 0
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  padding-bottom: 8px;
-  gap: 4px;
-  margin: 0
+    padding-bottom: 8px;
+    gap: 4px;
+    margin: 0
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  padding: 0;
-  background-color: var(--background-modifier-hover)
+    padding: 0
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):not(:hover) {
-  opacity: .5
+    opacity: .5
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
-  padding-inline-start: 16px;
-  padding-inline-end: 12px;
-  margin-bottom: 0
+    padding-inline-start: 12px;
+    padding-inline-end: 6px;
+    margin-bottom: 0
 }
 
-body.is-tablet {
-  --header-height: 60px !important
+body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) {
+    --header-height: 60px !important
 }
 
 body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-  padding: 0 !important
+    padding: 0 !important
 }
 
 body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  margin: 8px
+    margin: 8px 0
 }
 
 body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) {
-  container-type: inline-size
+    --tab-max-width: var(--tab-width);
+    container-type: inline-size
 }
 
 @container (min-width: 560px) {
-  body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-    flex: 1;
-    justify-content: safe center;
-    transition: padding-left var(--anim-duration-moderate) var(--anim-motion-baseline), padding-right var(--anim-duration-moderate) var(--anim-motion-baseline)
-  }
+    body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
+        flex: 1;
+        justify-content: safe center;
+        transition: padding-left var(--anim-duration-moderate) var(--anim-motion-baseline), padding-right var(--anim-duration-moderate) var(--anim-motion-baseline)
+    }
 
-  body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-spacer {
-    display: none
-  }
+    body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-spacer {
+        display: none
+    }
 }
 
 @container (min-width: 560px) {
-  body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-    padding-right: calc(var(--frame-left-space) + --tab-action-width*2)
-  }
+    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+        padding-right: calc(var(--frame-left-space) + var(--tab-action-width)*2)
+    }
 
-  body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-right: calc(var(--frame-left-space) - var(--tab-action-width))
-  }
+    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-right: calc(var(--frame-left-space) - var(--tab-action-width))
+    }
 
-  body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*3)
-  }
+    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*3)
+    }
 
-  body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 }
 
 @container (min-width: 560px) {
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*2)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*2)
+    }
 
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*3)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*3)
+    }
 
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space).mod-top .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*3)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space).mod-top .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*3)
+    }
 
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: var(--tab-action-width)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: var(--tab-action-width)
+    }
 
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner,
-  body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top) .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner,
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top) .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 }
 
 @container (min-width: 560px) {
-  body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 
-  body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: var(--tab-action-width)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: var(--tab-action-width)
+    }
 
-  body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*3)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*3)
+    }
 
-  body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 }
 
 @container (min-width: 560px) {
-  body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*3)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*3)
+    }
 
-  body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 }
 
 @container (min-width: 560px) {
-  body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: var(--tab-action-width)
-  }
+    body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: var(--tab-action-width)
+    }
 
-  body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
-    padding-left: calc(var(--tab-action-width)*2)
-  }
-}
-
-.mod-root .workspace-tabs.mod-stacked .workspace-tab-header-container-inner {
-  display: none
+    body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+        padding-left: calc(var(--tab-action-width)*2)
+    }
 }
 
 body.is-tablet .workspace .mod-root .workspace-tab-header-container-inner {
-  padding-inline: var(--radius-s)
+  padding: 0 var(--radius-s)
 }
 
 body.is-tablet .workspace .mod-root .sidebar-toggle-button {
-  padding-left: 0
+    padding-left: 0
 }
 
 body.is-tablet .workspace .mod-root .sidebar-toggle-button .clickable-icon {
-  margin: auto 0
+    margin: auto 0
 }
 
 body.is-tablet .workspace .mod-root .workspace-tab-header-tab-list .clickable-icon,
 body.is-tablet .workspace .mod-root .workspace-tab-header-new-tab .clickable-icon {
-  --icon-size: var(--icon-l);
-  --icon-stroke: var(--icon-l-stroke-width)
+    --icon-size: var(--icon-l);
+    --icon-stroke: var(--icon-l-stroke-width)
 }
 
 .workspace .mod-sidedock .workspace-tab-header-container,
 .workspace .mod-sidedock .workspace-tab-header,
 .workspace .mod-sidedock .workspace-tab-header div {
-  transition: var(--anim-duration-moderate) var(--anim-motion-baseline)
+    transition: var(--anim-duration-moderate) var(--anim-motion-baseline)
 }
 
 .workspace .mod-sidedock .workspace-tab-header-container {
-  padding-block: 8px;
-  align-items: center;
-  margin-bottom: -6px;
+    padding-block: 8px;
+    align-items: center
 }
 
 .workspace .mod-sidedock .workspace-tab-header-container-inner {
-  -webkit-app-region: no-drag;
-  padding: 0 8px 0 0;
-  margin: 0;
-  gap: calc(8px*var(--density-modifier));
-  height: 100%
+    -webkit-app-region: no-drag;
+    padding: 0 8px 0 0;
+    margin: 0;
+    gap: 8px;
+    height: 100%
 }
 
 .workspace .mod-sidedock .sidebar-toggle-button {
-  position: relative !important;
-  padding: 0 !important;
-  height: fit-content
+    position: relative !important;
+    padding: 0 !important;
+    height: fit-content
 }
 
 .workspace .mod-sidedock .workspace-tab-header {
-  height: calc-size(auto, size);
-  line-height: normal
+    height: calc-size(auto, size);
+    line-height: normal
 }
 
 .workspace .mod-sidedock .workspace-tab-header.is-active {
-  background-color: inherit;
-  box-shadow: none
+    background-color: inherit;
+    box-shadow: none
 }
 
 .workspace .mod-sidedock .workspace-tab-header.is-active:hover {
-  background-color: inherit
+    background-color: inherit
 }
 
 .workspace .mod-sidedock .workspace-tab-header:not(.is-active):not(:hover) {
-  opacity: .5
+    opacity: .5
 }
 
 .workspace .mod-sidedock .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
-  background-color: inherit
+    background-color: inherit
 }
 
 .workspace .mod-sidedock .workspace-tab-header-inner {
-  gap: 8px
+    gap: 8px
+}
+
+.workspace .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
+    color: var(--icon-color-focused) !important
 }
 
 body:not(.tab-icon) .mod-sidedock .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
@@ -2321,7 +2319,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.0 <br> Author: Nikoonj <br> Updated: 7th March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.1 <br> Author: Nikoonj <br> Updated: 11th March 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
     -
@@ -2333,15 +2331,18 @@ settings:
     -
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.4.0 </h2>
+    <h2> What's New in 4.4.1 </h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
-    <li><b>More Customizability</b>: Added Toggles to disable Mythic Headers, Typography, lists and Table tweaks.</li>
-    <li><b>Light Themes</b>: Added 3 new light themes. Mythic (Default), Paper White (Cream) and Light Gray</li>
-    <li><b>Community Themes</b>: Added community themes. Ported themes optimized for Mythic.</li>
-    <li><b>Adaptive Accent Color</b>: Automatically adjusts accent lightness for optimal contrast in light and dark modes.</li>
-    <li><b>Adaptive Theme</b>: Adapts accent and interactive colors to match the active light theme variant.</li>
-    <li><b>Redesigned Style Settings</b>: Split into further categories to accommodate the future 4.4.0 updates.</li>
+    <li><b>Cupertino Backport 3.2.0</b>: Backporting New Cupertino 3.2.0 (Baseline Architecture) into legacy Mythic Architecture.
+		<ul>
+			<li><b>Modern CSS Layout:</b> Backported `@container` queries and `calc-size` for smooth height animations.</li>
+			<li><b>Smooth Entry Animations:</b> usage of `@starting-style` for mobile elements.</li>
+			<li><b>Visual Polish:</b> Updated Lucide icons to latest versions.</li>
+			<li><b>Reduce Motion:</b> Cleaner implementation using `--anim-speed-modifier`.</li>
+		</ul>
+	</li>
+	<li><b>Adaptive theme</b>: Fixed issue with Adaptive theme not working with Community Themes (light).</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Themes & Appearance </h2>
@@ -10287,6 +10288,10 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer
   background-color: var(--background-primary) !important
 }
 
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
+  border-radius: 12px;
+}
+
 /* ---------------------
    TRANSPARENT EDITOR
    -------------------- */
@@ -10385,9 +10390,8 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
    -------------------- */
 
 /* Adaptive Theme → Mythic */
-.adaptive-theme.theme-light.mythic-light,
-.adaptive-theme.theme-light.fs-mythic.is-fullscreen,
-.adaptive-theme:not(.everforest-light, .flexoki-light, .melange-light, .tiniri-light) {
+body.adaptive-theme.theme-light.mythic-light:not(.community-theme),
+body.adaptive-theme.theme-light.fs-mythic.is-fullscreen:not(.community-theme) {
   --accent-h: 220 !important;
   --accent-s: 13% !important;
   --accent-l: 45% !important;
@@ -10408,10 +10412,10 @@ body:not(.centered-sidebar-tabs) .mod-sidedock .workspace-tabs .workspace-tab-he
 /* Adaptive Theme → Paper White */
 .adaptive-theme.theme-light.paper-white,
 .adaptive-theme.theme-light.fs-paper-white.is-fullscreen,
-body.adaptive-theme.theme-light.everforest-light,
-body.adaptive-theme.theme-light.flexoki-light,
-body.adaptive-theme.theme-light.melange-light,
-body.adaptive-theme.theme-light.tiniri-light {
+.adaptive-theme.theme-light.everforest-light,
+.adaptive-theme.theme-light.flexoki-light,
+.adaptive-theme.theme-light.melange-light,
+.adaptive-theme.theme-light.tiniri-light {
   --accent-h: 35 !important;
   --accent-s: 40% !important;
   --accent-l: 47% !important;
@@ -10430,9 +10434,8 @@ body.adaptive-theme.theme-light.tiniri-light {
 }
 
 /* Adaptive Theme → Light Gray */
-.adaptive-theme.theme-light.light-gray,
-.adaptive-theme.theme-light.fs-light-gray.is-fullscreen,
-.adaptive-theme:not(.everforest-light, .flexoki-light, .melange-light, .tiniri-light) {
+body.adaptive-theme.theme-light.light-gray:not(.community-theme),
+body.adaptive-theme.theme-light.fs-light-gray.is-fullscreen:not(.community-theme) {
   --accent-h: 215 !important;
   --accent-s: 24% !important;
   --accent-l: 46% !important;
