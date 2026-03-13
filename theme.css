@@ -3,10 +3,6 @@ body,
 .theme-dark {
   --font-interface-theme: "SF Pro";
   --font-text-theme: "SF Pro";
-  --font-ui-smaller: calc(var(--font-text-size) * 0.75);
-  --font-ui-small: calc(var(--font-text-size) * 0.8125);
-  --font-ui-medium: calc(var(--font-text-size) * 0.9375);
-  --font-ui-large: calc(var(--font-text-size) * 1.0625);
   --titlebar-background: transparent;
   --titlebar-background-focused: transparent;
   --divider-color-hover: var(--color-base-50);
@@ -109,7 +105,7 @@ body:not(.is-mobile) .workspace {
 
 body:not(.is-mobile) .workspace-split {
   transition: var(--anim-duration-moderate);
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0)
 }
 
 @media(prefers-color-scheme: light) {
@@ -133,8 +129,7 @@ body:not(.is-mobile) .workspace-split {
 }
 
 body.is-frameless:not(.is-hidden-frameless, .is-fullscreen) .titlebar {
-  background-color: var(--background-secondary);
-  border-bottom: none
+  background-color: var(--background-secondary)
 }
 
 body.titlebar-text-off .titlebar-text {
@@ -281,7 +276,11 @@ body {
   --tab-radius: var(--radius-s);
   --tab-radius-active: var(--tab-radius) var(--tab-radius) 0 0;
   --tab-curve: calc(var(--tab-radius) + 4px);
-  --tab-text-align: left
+  --tab-outline-width: 0px;
+  --tab-divider-color: var(--background-modifier-border);
+  --tab-text-align: left;
+  --tab-text-color-focused-active: var(--text-normal);
+  --tab-text-color-focused-active-current: unset
 }
 
 body.mod-macos {
@@ -319,6 +318,10 @@ body:not(.is-phone) .workspace-tab-header-container {
     height: fit-content
 }
 
+.workspace-tab-header-inner-icon {
+    color: inherit !important
+}
+
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-container-inner {
     padding: 8px var(--tab-curve) 0;
     margin: 0 -4px 0 0;
@@ -331,18 +334,15 @@ body:not(.is-phone) .workspace .mod-root .workspace-tab-header {
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner {
-    padding-inline-start: 8px;
+    padding-inline-start: 12px;
     padding-inline-end: 8px;
     margin-bottom: 8px;
     height: auto
 }
 
-body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner::after {
-    content: none
-}
-
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-inner-title {
-    line-height: normal
+    line-height: normal;
+    text-align: var(--tab-text-align)
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tab-header-new-tab,
@@ -371,7 +371,8 @@ body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .work
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-    padding: 0
+    padding: 0;
+    background-color: var(--background-modifier-hover)
 }
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):not(:hover) {
@@ -380,124 +381,127 @@ body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .work
 
 body:not(.is-phone) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
     padding-inline-start: 12px;
-    padding-inline-end: 6px;
+    padding-inline-end: 8px;
     margin-bottom: 0
 }
 
-body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) {
+body.is-tablet {
     --header-height: 60px !important
 }
 
 body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
-    padding: 0 !important
+    padding-block: 0 !important
 }
 
 body.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-    margin: 8px 0
+    margin-block: 8px
 }
 
-body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) {
-    --tab-max-width: var(--tab-width);
+body:not(.is-phone):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked) {
     container-type: inline-size
 }
 
 @container (min-width: 560px) {
-    body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
+    body:not(.is-phone):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
         flex: 1;
         justify-content: safe center;
         transition: padding-left var(--anim-duration-moderate) var(--anim-motion-baseline), padding-right var(--anim-duration-moderate) var(--anim-motion-baseline)
     }
 
-    body:not(.is-phone):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-spacer {
+    body:not(.is-phone):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-spacer {
         display: none
     }
 }
 
 @container (min-width: 560px) {
-    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+    body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
         padding-right: calc(var(--frame-left-space) + var(--tab-action-width)*2)
     }
 
-    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-right: calc(var(--frame-left-space) - var(--tab-action-width))
     }
 
-    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+    body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*3)
     }
 
-    body.mod-macos:not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 }
 
 @container (min-width: 560px) {
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*2)
     }
 
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--frame-right-space) + var(--tab-action-width)*3)
     }
 
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space).mod-top .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space).mod-top .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*3)
     }
 
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: var(--tab-action-width)
     }
 
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner,
-    body:not(.mod-macos):not(.is-mobile):not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top) .workspace-tab-header-container-inner {
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):is(.mod-root>.workspace-tabs):not(:only-of-type):first-of-type:not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner,
+    body:not(.mod-macos):not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 }
 
 @container (min-width: 560px) {
-    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 
-    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: var(--tab-action-width)
     }
 
-    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*3)
     }
 
-    body.is-tablet:not(.tab-floating-center-off) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space):not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 }
 
 @container (min-width: 560px) {
-    body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*3)
     }
 
-    body.is-tablet:not(.tab-floating-center-off) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .workspace-drawer.is-pinned.mod-left+.mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 }
 
 @container (min-width: 560px) {
-    body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: var(--tab-action-width)
     }
 
-    body.is-tablet:not(.tab-floating-center-off) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
+    body.is-tablet:not(.tab-floating) .mod-root:has(+.workspace-drawer.is-pinned.mod-right) .workspace-tabs:not(.mod-stacked):not(.mod-top-left-space).mod-top-right-space .workspace-tab-header-container-inner {
         padding-left: calc(var(--tab-action-width)*2)
     }
 }
 
-body.is-tablet .workspace .mod-root .workspace-tab-header-container-inner {
-  padding: 0 var(--radius-s)
+.mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner::after {
+    content: none
+}
+
+.mod-root .workspace-tabs.mod-stacked .workspace-tab-header-container-inner {
+    display: none
 }
 
 body.is-tablet .workspace .mod-root .sidebar-toggle-button {
@@ -529,7 +533,7 @@ body.is-tablet .workspace .mod-root .workspace-tab-header-new-tab .clickable-ico
     -webkit-app-region: no-drag;
     padding: 0 8px 0 0;
     margin: 0;
-    gap: 8px;
+    gap: calc(8px*var(--density-modifier));
     height: 100%
 }
 
@@ -565,10 +569,6 @@ body.is-tablet .workspace .mod-root .workspace-tab-header-new-tab .clickable-ico
     gap: 8px
 }
 
-.workspace .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-inner-icon {
-    color: var(--icon-color-focused) !important
-}
-
 body:not(.tab-icon) .mod-sidedock .workspace-tabs:not(.mod-top) .workspace-tab-header-container:not(:hover) {
   height: calc-size(auto, size)
 }
@@ -597,7 +597,7 @@ body.mod-macos.is-frameless:not(.is-popout-window) .workspace .mod-root .sidebar
 }
 
 body {
-  --nav-item-padding: calc(8px * var(--density-modifier)) 8px calc(8px * var(--density-modifier)) 24px;
+  --nav-item-padding: calc(8px * var(--density-modifier)) 16px calc(8px * var(--density-modifier)) 24px;
   --nav-indentation-guide-width: 0px;
   --ribbon-background: transparent;
   --ribbon-background-collapsed: var(--ribbon-background);
@@ -699,6 +699,7 @@ body.mod-macos.is-hidden-frameless .workspace-ribbon.mod-left {
   justify-content: center
 }
 
+/* Ribbon Centered */
 .workspace-ribbon.mod-left.is-collapsed {
   margin-right: 5px !important;
   margin-left: 5px !important;
@@ -812,7 +813,7 @@ body:not(.is-mobile) .workspace-split.mod-left-split .workspace-drawer-vault-act
   display: none
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile {
   background-color: rgba(0, 0, 0, 0);
   border-top: none;
   position: absolute;
@@ -822,12 +823,10 @@ body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split 
   width: auto
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile::before {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile::before {
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -836,47 +835,34 @@ body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split 
   background-color: var(--background-secondary)
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile .workspace-drawer-vault-switcher.has-active-menu {
   background-color: var(--interactive-normal)
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover) {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover) {
   pointer-events: none
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover) .workspace-drawer-vault-switcher:not(.has-active-menu) {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover) .workspace-drawer-vault-switcher:not(.has-active-menu) {
   opacity: 0;
   filter: blur(4px);
   pointer-events: none;
   transform: scale(0.95)
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover)::before {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-sidedock-vault-profile:not(:hover)::before {
   opacity: 0
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-drawer-vault-switcher,
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-drawer-vault-actions .clickable-icon {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-drawer-vault-switcher,
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-drawer-vault-actions .clickable-icon {
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
   pointer-events: visible
 }
 
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-leaf-content>.node-insert-event,
-body:not(.is-mobile):not(.hide-vault-switcher-off) .mod-sidedock.mod-left-split .workspace-leaf-content>.view-content {
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-leaf-content>.node-insert-event,
+body:not(.is-mobile) .mod-sidedock.mod-left-split .workspace-leaf-content>.view-content {
   padding-bottom: 64px
-}
-
-body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explorer] .nav-header .nav-action-button:first-child {
-  flex: 1;
-  box-shadow: inset 0 0 0 1px var(--background-modifier-border)
-}
-
-body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explorer] .nav-header .nav-action-button:first-child::after {
-  content: attr(aria-label);
-  font-size: var(--font-ui-smaller);
-  color: var(--icon-color);
-  white-space: nowrap;
-  margin-left: 8px
 }
 
 @keyframes menuIn {
@@ -886,8 +872,6 @@ body.large-new-note .mod-sidedock .workspace-leaf-content[data-type=file-explore
     transform: translateY(-8px)
   }
 }
-
-
 
 .menu,
 .suggestion-container {
@@ -948,40 +932,43 @@ body.is-phone {
   --menu-padding: 32px 16px
 }
 
-body.is-phone .menu,
-body.is-phone .suggestion-container {
+body.is-phone .menu {
   border-radius: var(--radius-l) var(--radius-l) 0 0;
   overflow: hidden
 }
 
-body.is-phone .menu .menu-grabber,
-body.is-phone .suggestion-container .menu-grabber {
+body.is-phone .menu .menu-grabber {
   margin: 8px auto;
   position: absolute;
   inset: 0
 }
 
-body.is-phone .menu .menu-scroll,
-body.is-phone .suggestion-container .menu-scroll {
+body.is-phone .menu .menu-scroll {
   max-height: 80vh
 }
 
-body.is-phone .menu .menu-item,
-body.is-phone .suggestion-container .menu-item {
+body.is-phone .menu .menu-item {
   padding: calc(16px*var(--density-modifier)) 20px;
   font-size: var(--nav-item-size);
   gap: 16px;
   border-radius: 0
 }
 
-body.is-phone .menu .menu-item:only-child,
-body.is-phone .suggestion-container .menu-item:only-child {
+body.is-phone .menu .menu-item:only-child {
   border-radius: var(--radius-s)
 }
 
-body.is-phone .menu .menu-separator,
-body.is-phone .suggestion-container .menu-separator {
+body.is-phone .menu .menu-separator {
   margin: calc(12px*var(--density-modifier)) 16px
+}
+
+body.is-phone .suggestion-container {
+  border-radius: var(--radius-l)
+}
+
+body.is-phone .suggestion-container .suggestion-item {
+  border-radius: var(--radius-m);
+  padding: calc(8px*var(--density-modifier)) 16px
 }
 
 body.is-tablet .menu,
@@ -1016,19 +1003,9 @@ body .modal {
   corner-shape: var(--corner-smoothing)
 }
 
-body .modal:not(.mod-sidebar-layout) {
-  border-radius: var(--modal-radius)
-}
-
-body .modal:not(.mod-sidebar-layout) .modal-title {
-  font-size: var(--font-ui-large);
-  max-width: 100%
-}
-
 body .modal .modal-title {
   font-family: var(--h1-font);
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
-  max-width: 0;
   overflow: visible;
   text-align: left
 }
@@ -1041,7 +1018,6 @@ body .modal-close-button {
   height: unset;
   width: unset;
   padding: 8px;
-  color: var(--text-faint);
   line-height: 12px;
   z-index: 1
 }
@@ -1065,12 +1041,7 @@ body .modal-close-button:empty::before {
   }
 }
 
-body:not(.is-mobile) .modal-bg {
-  background-color: rgba(0, 0, 0, .35)
-}
-
 body:not(.is-mobile) .modal {
-  box-shadow: var(--shadow-s);
   animation: modalIn var(--anim-duration-moderate) var(--anim-motion-baseline) forwards
 }
 
@@ -1105,9 +1076,17 @@ body.is-tablet {
   --modal-radius: var(--radius-l)
 }
 
+.notice-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: visible
+}
+
 .notice {
-  overflow: hidden;
-  border: none
+    padding: calc(12px*var(--density-modifier)) 16px;
+    margin-bottom: 0;
+    border: none !important
 }
 
 body {
@@ -1159,14 +1138,6 @@ body.is-phone .prompt .suggestion-item {
   padding: calc(16px*var(--density-modifier)) 16px
 }
 
-body.is-phone .suggestion-container {
-  border-radius: var(--radius-m)
-}
-
-body.is-phone .suggestion-item {
-  padding: calc(8px*var(--density-modifier)) 16px
-}
-
 body.is-tablet {
   --prompt-input-height: 64px
 }
@@ -1215,50 +1186,50 @@ body:not(.is-phone) .installed-plugins-container .setting-item .setting-item-des
   margin-top: 4px
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items {
+body:not(.is-phone) .installed-plugins-container .setting-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-auto-rows: 1fr;
   gap: 8px
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item {
-  display: flex;
-  flex-direction: column;
-  margin: 0px !important;
-  border: none;
-  border-radius: var(--setting-items-radius) !important;
-  background-color: var(--background-modifier-hover);
-  padding: 16px !important;
-  overflow: hidden
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0px !important;
+    border: none;
+    border-radius: var(--setting-items-radius) !important;
+    background-color: var(--background-primary);
+    padding: 16px !important;
+    overflow: hidden
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item-info {
-  margin-inline-end: 0;
-  width: 100%
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item-info {
+    margin-inline-end: 0;
+    width: 100%
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item-description>div:last-child {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item-description>div:last-child {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item-control {
-  flex: none;
-  flex-wrap: wrap;
-  align-self: flex-end;
-  width: 100%
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item-control {
+    flex: none;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    width: 100%
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item-control button.mod-cta {
-  flex-grow: 1;
-  flex-basis: 100%
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item-control button.mod-cta {
+    flex-grow: 1;
+    flex-basis: 100%
 }
 
-body:not(.is-phone):not(.plugins-grid-off) .installed-plugins-container .setting-items .setting-item:has(button) {
-  order: -1
+body:not(.is-phone) .installed-plugins-container .setting-items .setting-item:has(button) {
+    order: -1
 }
 
 body:not(.is-phone) .modal.mod-community-modal .modal-sidebar {
@@ -1319,11 +1290,18 @@ body.is-phone .modal.mod-sidebar-layout .modal-header {
   z-index: 1
 }
 
+body.is-phone .modal.mod-sidebar-layout .modal-title {
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+    max-width: 0
+}
+
 body.is-phone .modal.mod-sidebar-layout .modal-title:not(:has(.modal-setting-back-button)) {
-  font-size: 1.5em;
-  font-weight: calc(var(--font-weight) + var(--bold-modifier));
-  max-width: 100%;
-  padding-left: 20px
+    font-size: 1.5rem;
+    font-weight: calc(var(--font-weight) + var(--bold-modifier));
+    max-width: 100%;
+    padding-left: 20px
 }
 
 body.is-phone .modal.mod-sidebar-layout .modal-setting-back-button {
@@ -1336,18 +1314,17 @@ body.is-phone .modal.mod-sidebar-layout .vertical-tab-header-group-title {
 }
 
 body.is-phone .modal.mod-settings .modal-title {
-  margin-top: var(--safe-area-inset-top);
-  height: var(--touch-size-m);
-  display: flex;
-  align-items: center;
-  min-width: fit-content
+    margin-top: var(--safe-area-inset-top);
+    height: var(--touch-size-m)
 }
 
 body.is-phone .modal.mod-community-modal .modal-title {
-  height: calc(var(--touch-size-m) + 16px);
-  display: flex;
-  align-items: center;
-  min-width: fit-content
+    height: calc(var(--touch-size-m) + 16px)
+}
+
+body.is-tablet.theme-dark {
+    --settings-background: var(--background-secondary);
+    --setting-items-background: var(--background-primary)
 }
 
 body.is-tablet .modal.mod-sidebar-layout .vertical-tab-header-group-title,
@@ -1575,12 +1552,16 @@ body.is-mobile {
   --touch-radius-m: var(--radius-m);
   --touch-radius-l: var(--radius-l);
   --touch-radius-xl: var(--radius-xl);
-  --radius-s: calc(8px * var(--radius-modifier));
+  --radius-s: calc(16px * var(--radius-modifier));
   --radius-m: calc(16px * var(--radius-modifier));
   --radius-l: calc(24px * var(--radius-modifier));
   --radius-xl: calc(32px * var(--radius-modifier));
   --tab-radius: var(--radius-s);
   --tab-curve: var(--tab-radius);
+  --font-ui-smaller: 12px;
+  --font-ui-small: 14px;
+  --font-ui-medium: 16px;
+  --font-ui-large: 24px;
   --interactive-normal: var(--background-primary);
   --mobile-sidebar-width: 100%;
   --view-header-height: var(--header-height);
@@ -1590,18 +1571,19 @@ body.is-mobile {
   --border-width: 1pt;
   --divider-width: 1pt;
   --tab-outline-width: 1pt;
-  --file-margins-block: 8px;
-  --file-margins-inline: 24px;
+  --file-margins-y: 8px;
+  --file-margins-x: 24px;
   --view-top-fade-opacity: 0;
   --view-bottom-fade-opacity: 0;
   --mobile-sidebar-background: var(--background-secondary);
-  --tab-switcher-menubar-background: var(--background-secondary);
+  --tab-switcher-menubar-background: transparent;
   --tab-switcher-preview-radius: var(--radius-m);
   --icon-opacity-hover: var(--icon-opacity);
   --input-border-width-focus: 0;
   --navbar-width: 100%;
   --navbar-max-width: unset;
-  --navbar-side-offset: var(--safe-area-inset-side);
+  --navbar-bottom-offset: max(var(--safe-area-inset-bottom), var(--safe-area-inset-side));
+  --navbar-side-offset: min(var(--navbar-bottom-offset), 32px);
   --safe-area-inset-side: 16px;
   --mobile-left-sidebar-width: 360px;
   --mobile-right-sidebar-width: 360px;
@@ -1649,28 +1631,15 @@ body.is-mobile:not(.mod-macos, .adaptive-mode-off).is-mobile .prompt {
 
 body.is-mobile.mod-macos {
   --navbar-bottom-offset: 28px;
-  --navbar-side-offset: var(--navbar-bottom-offset);
-  --font-ui-smaller: calc(var(--font-text-size) * 0.75);
-  --font-ui-small: calc(var(--font-text-size) * 0.9375);
-  --font-ui-medium: calc(var(--font-text-size) * 1.0625);
-  --font-ui-large: calc(var(--font-text-size) * 1.25)
+  --font-ui-smaller: 13px;
+  --font-ui-small: 15px;
+  --font-ui-medium: 17px;
+  --font-ui-large: 20px
 }
 
 body.is-mobile.mod-macos .markdown-preview-view,
 body.is-mobile.mod-macos .markdown-source-view {
   font-size: calc(var(--font-text-size)*1.0625)
-}
-
-body.is-mobile.is-android {
-  --font-ui-smaller: calc(var(--font-text-size) * 0.75);
-  --font-ui-small: calc(var(--font-text-size) * 0.875);
-  --font-ui-medium: var(--font-text-size);
-  --font-ui-large: calc(var(--font-text-size) * 1.375)
-}
-
-body.is-mobile.is-android .markdown-preview-view,
-body.is-mobile.is-android .markdown-source-view {
-  font-size: var(--font-text-size)
 }
 
 body.is-mobile .workspace-drawer .workspace-leaf-content>.node-insert-event,
@@ -1689,7 +1658,9 @@ body.is-mobile .workspace-drawer .workspace-drawer-inner {
 body.is-mobile .workspace-drawer .workspace-drawer-header {
   padding-top: 8px;
   padding-inline: var(--safe-area-inset-side);
-  z-index: 1
+  z-index: 1;
+  min-height: var(--touch-size-m);
+  box-sizing: content-box
 }
 
 body.is-mobile .workspace-drawer .workspace-drawer-header-name-text {
@@ -1722,6 +1693,10 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options-list {
 body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-tab-header-inner {
   padding: calc(12px*var(--density-modifier)) 16px;
   font-weight: var(--font-normal)
+}
+
+body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer-tab-select .workspace-tab-header-inner {
+  background-color: rgba(0, 0, 0, 0)
 }
 
 body.is-mobile .workspace-drawer .nav-header {
@@ -1912,25 +1887,6 @@ body.is-phone:not(.mode-switcher-off) .mod-root .view-actions {
   backdrop-filter: none
 }
 
-/* UI visibility while scrolling (Imported from another theme) */
-body.is-phone.is-hidden-nav .mod-root .view-header {
-  top: 0 !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
-
-body.is-phone.is-hidden-nav .mobile-navbar {
-  bottom: var(--navbar-bottom-offset) !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
-
-body.is-phone.is-hidden-nav:not(.mode-switcher-off) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
-  bottom: var(--navbar-bottom-offset) !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
-
 body.is-phone.auto-full-screen.is-hidden-nav .mod-root .view-header {
   transform: none;
   top: -32px
@@ -1947,27 +1903,27 @@ body.is-phone.auto-full-screen.is-hidden-nav .mod-root .workspace-leaf-content[d
   opacity: 0
 }
 
-body.is-phone:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::before,
-body.is-phone:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::after {
-  position: absolute;
-  z-index: 1;
-  backdrop-filter: blur(2px);
-  inset-inline: 0;
-  pointer-events: none;
-  content: "";
-  transition: var(--anim-duration-moderate)
+body.is-phone.is-floating-nav:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::before,
+body.is-phone.is-floating-nav:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::after {
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    inset-inline: 0;
+    pointer-events: none;
+    content: "";
+    transition: var(--anim-duration-moderate)
 }
 
-body.is-phone:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::before {
-  top: 0;
-  mask: linear-gradient(to bottom, black calc(var(--safe-area-inset-top) + var(--view-header-height) / 2), transparent);
-  height: var(--view-top-spacing-markdown)
+body.is-phone.is-floating-nav:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::before {
+    top: 0;
+    mask: linear-gradient(to bottom, black calc(var(--safe-area-inset-top) + var(--view-header-height) / 2), transparent);
+    height: var(--view-top-spacing-markdown)
 }
 
-body.is-phone:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::after {
-  bottom: 0;
-  mask: linear-gradient(to top, black var(--navbar-bottom-offset), transparent);
-  height: var(--view-bottom-spacing)
+body.is-phone.is-floating-nav:not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown]>.view-content::after {
+    bottom: 0;
+    mask: linear-gradient(to top, black var(--navbar-bottom-offset), transparent);
+    height: var(--view-bottom-spacing)
 }
 
 body.is-phone:not(html:where([style*="--keyboard-height: 0px"], :not([style*="--keyboard-height"])) body):not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
@@ -2003,9 +1959,19 @@ body.is-phone.mod-toolbar-open:not(.mode-switcher-off) .mod-root .workspace-leaf
   bottom: var(--keyboard-spacing)
 }
 
-body.is-phone.mode-switcher-off .mobile-navbar,
-body.is-phone>.app-container>.horizontal-main-container:has(.workspace>.mod-root>.workspace-tabs.mod-visible>.workspace-tab-container>.workspace-leaf.mod-active>.workspace-leaf-content:not([data-type=markdown]))~.mobile-navbar {
-  max-width: calc(100% - var(--navbar-side-offset)*2)
+body.is-phone:not(.is-floating-nav):not(.mode-switcher-off):not(.mod-toolbar-open) .mod-root .workspace-leaf-content[data-type=markdown] .view-actions button:nth-last-child(2) {
+    right: 16px;
+    bottom: calc(var(--navbar-height) + 16px)
+}
+
+body.is-phone>.app-container>.horizontal-main-container:has(.workspace>.mod-root>.workspace-tabs.mod-visible>.workspace-tab-container>.workspace-leaf.mod-active>.workspace-leaf-content:not([data-type=markdown])) .view-actions button:nth-last-child(2) {
+    opacity: 0;
+    pointer-events: none
+}
+
+body.is-phone.is-floating-nav.mode-switcher-off .mobile-navbar,
+body.is-phone.is-floating-nav>.app-container>.horizontal-main-container:has(.workspace>.mod-root>.workspace-tabs.mod-visible>.workspace-tab-container>.workspace-leaf.mod-active>.workspace-leaf-content:not([data-type=markdown]))~.mobile-navbar {
+    max-width: calc(100% - var(--navbar-side-offset)*2)
 }
 
 body.is-phone .mobile-navbar {
@@ -2013,7 +1979,7 @@ body.is-phone .mobile-navbar {
   max-width: calc(100% - 8px - var(--touch-size-l) - var(--navbar-side-offset)*2);
   inset: auto var(--navbar-side-offset) var(--navbar-bottom-offset);
   overflow: hidden;
-  padding: 4px;
+  padding: 8px;
   margin: 0;
   transition: var(--anim-duration-moderate) var(--anim-motion-baseline), background-color var(--anim-duration-moderate);
   will-change: bottom
@@ -2031,6 +1997,16 @@ body.is-phone .mobile-navbar-actions {
 
 body.is-phone .mobile-navbar-tabs-action {
   font-family: "Inter"
+}
+
+body.is-phone:not(.is-floating-nav) .mobile-navbar {
+    margin: 0 auto;
+    inset: auto 0 0;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: var(--background-primary) !important;
+    padding: 0 8px var(--navbar-bottom-offset);
+    max-width: var(--navbar-max-width)
 }
 
 body.is-phone.mode-switcher-off .mobile-toolbar {
@@ -2059,32 +2035,6 @@ body.is-phone .mobile-toolbar-options-container {
   width: 100%;
   margin: 0;
   border-radius: 0
-}
-
-body.is-phone .mobile-tab-switcher-menubar {
-  border-top: none
-}
-
-body.is-phone .mobile-tab-wrapper {
-  pointer-events: all
-}
-
-body.is-phone .mobile-tab-switcher-scroll {
-  pointer-events: none;
-  background-color: rgba(0, 0, 0, 0)
-}
-
-body.is-phone .mobile-tab-switcher-scroll,
-body.is-phone .mobile-tab-switcher-menu-button,
-body.is-phone .mobile-tab-switcher-menu-spacer:first-child {
-  z-index: 2
-}
-
-body.is-phone .mobile-tab-switcher-menu-spacer:last-child .clickable-icon::after {
-  position: fixed;
-  z-index: 1;
-  inset: 0;
-  content: ""
 }
 
 body.is-tablet {
@@ -2125,6 +2075,7 @@ body.is-tablet .workspace-split.mod-root .workspace-split {
   border-width: 0
 }
 
+/* Tablet Patch */
 body.is-tablet .workspace-drawer .workspace-drawer-ribbon .side-dock-actions {
   padding-block: 12px;
   scale: 0.85;
@@ -2136,7 +2087,7 @@ body.is-tablet .workspace-drawer .workspace-drawer-header-left {
 }
 
 body.is-tablet .workspace-drawer .workspace-leaf-content .nav-header~div:last-child {
-  mask: linear-gradient(to bottom, hsla(0, 0%, 0%, 0) 0px, hsla(0, 0%, 0%, 0.013) 5px, hsla(0, 0%, 0%, 0.049) 10px, hsla(0, 0%, 0%, 0.104) 14px, hsla(0, 0%, 0%, 0.175) 18px, hsla(0, 0%, 0%, 0.259) 22px, hsla(0, 0%, 0%, 0.352) 26px, hsla(0, 0%, 0%, 0.45) 30px, hsla(0, 0%, 0%, 0.55) 34px, hsla(0, 0%, 0%, 0.648) 38px, hsla(0, 0%, 0%, 0.741) 42px, hsla(0, 0%, 0%, 0.825) 46px, hsla(0, 0%, 0%, 0.896) 50px, hsla(0, 0%, 0%, 0.951) 54px, hsla(0, 0%, 0%, 0.987) 59px, hsl(0, 0%, 0%) 64px, black calc(100% - 64px), transparent)
+    mask: linear-gradient(to bottom, transparent, black 16px, black calc(100% - 16px), transparent)
 }
 
 body.is-tablet .workspace-drawer .workspace-drawer-tab-options-list {
@@ -2215,7 +2166,7 @@ settings:
         title: Disable active line highlight
         type: class-toggle
     -
-        id: tab-floating-center-off
+        id: tab-floating
         title: Disable centered tabs
         type: class-toggle
     -
@@ -2245,10 +2196,6 @@ settings:
     -
         id: nav-action-center
         title: Disable compact panel actions
-        type: class-toggle
-    -
-        id: tab-icon
-        title: Disable compact sidebar tabs
         type: class-toggle
     -
         id: status-bar-baseline
@@ -2319,7 +2266,7 @@ collapsed: false
 settings:
     -
         id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.1 <br> Author: Nikoonj <br> Updated: 11th March 2026 <br> Cupertino Base Version: 3.1.2"
+        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.2 <br> Author: Nikoonj <br> Updated: 11th February 2026 <br> Cupertino Base Version: 3.1.2"
         type: info-text
         markdown: true
     -
@@ -2331,18 +2278,18 @@ settings:
     -
         description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
     <br><br>
-    <h2> What's New in 4.4.1 </h2>
+    <h2> What's New in 4.4.2</h2>
     <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
     <ul>
     <li><b>Cupertino Backport 3.2.0</b>: Backporting New Cupertino 3.2.0 (Baseline Architecture) into legacy Mythic Architecture.
 		<ul>
-			<li><b>Modern CSS Layout:</b> Backported `@container` queries and `calc-size` for smooth height animations.</li>
-			<li><b>Smooth Entry Animations:</b> usage of `@starting-style` for mobile elements.</li>
-			<li><b>Visual Polish:</b> Updated Lucide icons to latest versions.</li>
-			<li><b>Reduce Motion:</b> Cleaner implementation using `--anim-speed-modifier`.</li>
+			<li><b>Mobile UI:</b> Backported Mobile UI from Cupertino 3.2.0 with Read/Editor View Button and other improvements.</li>
+			<li><b>Backported Code:</b> Replaced code with more efficient code from newer versions of Cupertino and deleted unused code.</li>
 		</ul>
 	</li>
-	<li><b>Adaptive theme</b>: Fixed issue with Adaptive theme not working with Community Themes (light).</li>
+    <li><b>Tab Animations:</b> Issues with Tab Animations while opening and closing tabs on desktop.</li>
+    <li><b>Dropdown and Buttons:</b> Fixed background color issues on drop-downs and buttons.</li>
+    <li><b>Inline-Title Hover:</b> Fixed the clipping of the inline-title container during hover.</li>
     </ul>
     <br><b><hr></b><br>
     <h2> Themes & Appearance </h2>
@@ -2922,8 +2869,6 @@ print {
 
   .workspace-split.mod-root .workspace-tab-container {
     border-radius: var(--tab-radius);
-    transition: var(--anim-duration-moderate);
-    overflow: hidden
   }
 
   .markdown-preview-view,
@@ -2991,7 +2936,7 @@ print {
     white-space: var(--code-white-space)
   }
 
-  .markdown-rendered pre {
+  body:is(.mod-macos, .adaptive-mode-off) .markdown-rendered pre {
     background: linear-gradient(var(--background-primary-alt), var(--background-secondary));
     box-shadow: var(--shadow-tactile)
   }
@@ -3121,8 +3066,9 @@ print {
     border-radius: var(--media-radius)
   }
 
-  .image-embed:not([width], .canvas-node-content, [alt=banner]) {
-    width: fit-content
+  .image-embed {
+    padding-bottom: 0px;
+    padding-inline-end: 0px
   }
 
   body:not(.full-width-media-off) .workspace-leaf-content[data-type=markdown] img:not([width], .cm-widgetBuffer, .link-favicon, .emoji, [alt=banner]),
@@ -3217,11 +3163,8 @@ print {
   }
 
   body.is-mobile .metadata-content {
-    transform: none;
-    border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
-    padding: 0;
-    width: auto
+    padding: 0
   }
 
   .metadata-container {
@@ -3229,7 +3172,16 @@ print {
   }
 
   .metadata-properties-heading {
+    padding-inline: 0px;
     width: 100%
+  }
+
+  .metadata-property-icon::before {
+    display: none
+  }
+
+  .metadata-property-key {
+    padding-inline: 8px
   }
 
   .metadata-property-key-input,
@@ -3248,6 +3200,15 @@ print {
     width: 100%
   }
 
+  .metadata-property-value[data-property-type=tags] .multi-select-container {
+    padding-block: 0;
+    gap: 4px
+  }
+
+  .multi-select-pill {
+    line-height: var(--line-height-tight) !important
+  }
+
   .workspace>.workspace-split:not(.mod-root) .metadata-container .metadata-properties {
     --metadata-divider-width: 0px;
     --metadata-gap: 8px
@@ -3256,9 +3217,23 @@ print {
   .mod-root .metadata-container .metadata-show-source-button,
   .mod-root .metadata-container .metadata-add-button {
     gap: 8px;
-    padding-inline-start: 8px;
-    margin-left: -4px;
-    margin-top: var(--metadata-gap)
+    transition: var(--anim-duration-moderate) var(--anim-motion-baseline);
+    margin-top: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-inline: 8px;
+    color: var(--text-faint);
+    font-weight: normal;
+    text-transform: lowercase
+  }
+
+  .mod-root .metadata-container .metadata-show-source-button:hover,
+  .mod-root .metadata-container .metadata-add-button:hover {
+    color: var(--text-muted)
+  }
+
+  .mod-root .metadata-content {
+    transform: translateX(-8px) !important;
+    width: calc(100% + 16px) !important
   }
 
   .markdown-source-view .metadata-container,
@@ -3966,8 +3941,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-root .workspace-tab
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).hover-sidedock .mod-sidedock.is-sidedock-collapsed[style*=display] {
   box-shadow: var(--shadow-s);
   border-radius: var(--radius-window, var(--radius-m));
-  background-color: var(--modal-background) !important;
-  backdrop-filter: var(--blur-m);
+  background-color: var(--background-primary-alt) !important;
   height: -webkit-fill-available
 }
 
@@ -4007,20 +3981,27 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).is-hidden-frameless .wor
   padding-right: var(--frame-right-space)
 }
 
-body:is(.mod-macos, .adaptive-mode-off).is-mobile .workspace-drawer .nav-buttons-container {
-  justify-self: center;
-  gap: 0;
-  backdrop-filter: var(--raised-blur);
-  border-radius: 100vh;
-  background-color: var(--background-modifier-border-hover);
-  padding-inline: 8px;
-  width: fit-content;
-  margin-bottom: 8px
+body:is(.mod-macos, .adaptive-mode-off):not(.is-phone) .workspace-split.mod-vertical {
+    gap: 8px
 }
 
-body:is(.mod-macos, .adaptive-mode-off).is-tablet .workspace-drawer.mod-left.is-pinned+.mod-root,
-body:is(.mod-macos, .adaptive-mode-off).is-tablet .mod-root:has(+.workspace-drawer.mod-right.is-pinned) {
-  padding-bottom: 8px
+body:is(.mod-macos, .adaptive-mode-off):not(.is-phone) .workspace-split:not(.mod-sidedock)>*>.workspace-leaf-resize-handle:not(:hover) {
+    border-color: rgba(0, 0, 0, 0)
+}
+
+body:is(.mod-macos, .adaptive-mode-off).is-mobile .workspace-drawer .nav-buttons-container {
+    justify-self: center;
+    gap: 0;
+    backdrop-filter: var(--raised-blur);
+    border-radius: 100vh;
+    background-color: var(--background-modifier-border-hover);
+    padding-inline: 8px;
+    width: fit-content;
+    margin-bottom: 8px
+}
+
+body:is(.mod-macos, .adaptive-mode-off).is-mobile:not(.is-floating-nav) .workspace-drawer .nav-buttons-container {
+    margin-bottom: 0
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-tablet .workspace-drawer.mod-left.is-pinned+.mod-root:has(+.workspace-drawer.mod-right:not(.is-pinned)) .workspace-tabs:last-of-type .workspace-tab-container {
@@ -4033,7 +4014,8 @@ body:is(.mod-macos, .adaptive-mode-off).is-tablet .workspace-drawer.mod-left:not
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
   --shadow-sidedock-spread: -32px 0 0 32px var(--background-primary);
-  --shadow-surface: 0 0 0 1px var(--background-modifier-hover)
+  --shadow-surface: 0 0 0 1px var(--background-modifier-hover);
+  --tab-outline-width: 1px
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) {
@@ -4050,7 +4032,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.re
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .modal.mod-settings .vertical-tab-header,
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .mod-sidedock.mod-left-split,
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile):not(.is-focused):not(.reduce-contrast-change) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
-  background-color: var(--color-base-25) !important;
+  background-color: var(--background-modifier-hover) !important;
   box-shadow: none !important;
   transition: none
 }
@@ -4084,15 +4066,13 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).show-ribbon:not(.hover-r
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock {
-  transition: var(--anim-duration-moderate), background-color 0s
+  transition: var(--anim-duration-moderate), background-color 0s, box-shadow 0s
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split {
   corner-shape: var(--corner-smoothing);
-  display: flex;
   z-index: var(--layer-sidedock);
   margin: 8px 0 8px 8px;
-  background-color: rgba(from var(--background-primary) r g b/50%) !important;
   box-shadow: var(--shadow-surface), var(--shadow-sidedock-spread);
   border-radius: var(--radius-window, var(--radius-m));
   height: -webkit-fill-available;
@@ -4106,8 +4086,10 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
   overflow: visible !important
 }
 
-body.is-fullscreen .workspace-split.mod-left-split .workspace-tab-header-container-inner {
-  margin-left: 33px !important;
+/* Sidebar Tabs */
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container div:is(.workspace-tab-header-inner, .clickable-icon),
+body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-split .mod-top-left-space .workspace-tab-header-container .sidebar-toggle-button div:is(.workspace-tab-header-inner, .clickable-icon) {
+  padding-block: 8px
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split>.workspace-leaf-resize-handle {
@@ -4119,10 +4101,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .ver
   box-shadow: var(--shadow-surface);
   border-radius: max(var(--modal-radius) - 8px, var(--radius-s));
   background-color: rgba(from var(--background-primary) r g b/75%)
-}
-
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile).hide-vault-switcher-off .workspace-sidedock-vault-profile {
-  background-color: inherit
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-tablet.theme-light {
@@ -4191,7 +4169,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-left-s
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split {
-  background-color: rgba(0, 0, 0, 0)
+  background-color: rgba(0, 0, 0, 0) !important
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock.mod-right-split>.workspace-leaf-resize-handle {
@@ -4551,6 +4529,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace
   padding: 0;
   outline: 2px solid rgba(0, 0, 0, 0);
   background-clip: content-box;
+  height: auto;
   z-index: 1
 }
 
@@ -4573,7 +4552,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace-tabs .workspace-tab-header-inner {
-  padding: 4px 8px
+  padding: 8px
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace-tabs .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
@@ -4584,6 +4563,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .mod-sidedock .workspace-tabs .workspace-tab-header-inner {
   border-radius: var(--clickable-icon-radius);
   width: var(--tab-action-width);
+  height: fit-content;
   z-index: 1
 }
 
@@ -4596,7 +4576,7 @@ body:is(.mod-macos, .adaptive-mode-off):not(.nav-action-center) .mod-sidedock .w
 
 body:is(.mod-macos, .adaptive-mode-off):not(.nav-action-center) .mod-sidedock .workspace-leaf-content .nav-header:first-child .nav-buttons-container .nav-action-button {
   position: relative;
-  padding: 4px 8px;
+  padding: 8px;
   border-radius: var(--clickable-icon-radius)
 }
 
@@ -4740,11 +4720,6 @@ body:is(.mod-macos, .adaptive-mode-off).is-mobile .suggestion-container .suggest
   --icon-stroke: var(--icon-m-stroke-width)
 }
 
-body:is(.mod-macos, .adaptive-mode-off).is-mobile .menu .suggestion-item,
-body:is(.mod-macos, .adaptive-mode-off).is-mobile .suggestion-container .suggestion-item {
-  border-radius: var(--radius-s)
-}
-
 body:is(.mod-macos, .adaptive-mode-off).is-phone {
   --menu-shadow: var(--shadow-s);
   --menu-padding: 32px var(--safe-area-inset-side)
@@ -4769,7 +4744,8 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .menu .menu-item:not(:last-chil
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .menu .menu-item:not(:last-child) .menu-item-title {
-  position: relative
+  position: relative;
+  overflow: visible
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .menu .menu-item:not(:last-child) .menu-item-title::after {
@@ -4789,6 +4765,9 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .menu-group .menu-item:first-ch
 body:is(.mod-macos, .adaptive-mode-off).is-phone .menu-group .menu-item:last-child {
   border-bottom-left-radius: var(--radius-m);
   border-bottom-right-radius: var(--radius-m)
+}
+body:is(.mod-macos, .adaptive-mode-off).is-phone .suggestion-container {
+    border-radius: var(--radius-m)
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-tablet {
@@ -4910,17 +4889,6 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .notice:last-child {
   }
 }
 
-body:is(.mod-macos, .adaptive-mode-off) .tooltip {
-  --background-modifier-message: var(--background-primary);
-  filter: drop-shadow(0 0 16px var(--background-modifier-box-shadow));
-  animation: none;
-  box-shadow: none;
-  border-radius: var(--radius-l);
-  padding: 8px 16px;
-  color: var(--text-muted);
-  font-weight: var(--font-normal)
-}
-
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) {
   --drag-ghost-background: var(--background-primary);
   --drag-ghost-text-color: var(--text-normal)
@@ -5040,14 +5008,6 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .modal.mod-sidebar-layout .moda
 body:is(.mod-macos, .adaptive-mode-off).is-phone .modal.mod-sidebar-layout .vertical-tab-header,
 body:is(.mod-macos, .adaptive-mode-off).is-phone .modal.mod-sidebar-layout .vertical-tab-content {
   padding-top: var(--modal-header-height)
-}
-
-.vertical-tab-content h1,
-.vertical-tab-content h2,
-.vertical-tab-content h3,
-.vertical-tab-content h4 {
-  margin: 0;
-  padding: 0;
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .modal.mod-sidebar-layout .vertical-tab-nav-item {
@@ -5216,7 +5176,8 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .prompt .suggestion-item {
 body:is(.mod-macos, .adaptive-mode-off).is-phone .prompt {
   transition: var(--anim-duration-moderate) !important;
   transform: none !important;
-  overflow: visible
+  overflow: visible;
+  box-shadow: none
 }
 
 @starting-style {
@@ -5334,11 +5295,13 @@ body:is(.mod-macos, .adaptive-mode-off).is-mobile .bases-cards-label {
   padding: 0
 }
 
+body:is(.mod-macos, .adaptive-mode-off).is-mobile .nav-files-container>div {
+    --nav-item-color: var(--text-normal)
+}
+
 body:is(.mod-macos, .adaptive-mode-off).is-phone {
-  --tab-switcher-background: transparent;
-  --tab-switcher-menubar-background: var(--tab-switcher-background);
-  --tab-switcher-preview-background-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  --tab-switcher-preview-radius: var(--radius-m)
+    --tab-switcher-background: transparent;
+    --tab-switcher-preview-background-shadow: 0 4px 16px rgba(0, 0, 0, 0.2)
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .mod-root .view-header-left,
@@ -5430,8 +5393,8 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .nav-files-container>div .tree-
   flex: 1
 }
 
-body:is(.mod-macos, .adaptive-mode-off).is-phone .nav-files-container>div .tree-item:has(>.tree-item-self.is-active)::before,
-body:is(.mod-macos, .adaptive-mode-off).is-phone .nav-files-container>div .tree-item:has(>.tree-item-self.is-active)+.tree-item::before {
+body:is(.mod-macos, .adaptive-mode-off).is-phone .nav-files-container>div .tree-item:has(>.tree-item-self.is-active, .tree-item-self.mobile-tap)::before,
+body:is(.mod-macos, .adaptive-mode-off).is-phone .nav-files-container>div .tree-item:has(>.tree-item-self.is-active, .tree-item-self.mobile-tap)+.tree-item::before {
   content: none !important
 }
 
@@ -5453,22 +5416,12 @@ body:is(.mod-macos, .adaptive-mode-off).is-phone .mobile-navbar {
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .mobile-tab-switcher {
-  background: linear-gradient(rgba(var(--mono-rgb-0), 0.5), var(--mobile-sidebar-background)) !important;
-  backdrop-filter: var(--blur-l);
-  justify-content: flex-end;
-  width: unset;
-  height: unset
-}
-
-body:is(.mod-macos, .adaptive-mode-off).is-phone .mobile-tab-switcher-scroll {
-  padding-top: 0;
-  height: unset
+    background: linear-gradient(rgba(var(--mono-rgb-0), 0.5), var(--mobile-sidebar-background)) !important;
+    backdrop-filter: var(--blur-l)
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .mobile-tab-switcher-menubar {
-  background-color: var(--mobile-sidebar-background);
-  padding: 0 var(--navbar-side-offset) var(--navbar-bottom-offset);
-  border: none
+    padding: 0 var(--navbar-side-offset) var(--navbar-bottom-offset)
 }
 
 body:is(.mod-macos, .adaptive-mode-off).is-phone .mobile-tab-switcher-menu-button {
@@ -5732,7 +5685,7 @@ body.mod-windows:not(.adaptive-mode-off):not(.is-mobile) .menu .suggestion-item,
 body.mod-windows:not(.adaptive-mode-off):not(.is-mobile) .suggestion-container .menu-item,
 body.mod-windows:not(.adaptive-mode-off):not(.is-mobile) .suggestion-container .suggestion-item {
   border-radius: var(--radius-m);
-  padding: 8px 10px
+  padding: 8px
 }
 
 body.mod-windows:not(.adaptive-mode-off):not(.is-mobile) .menu .menu-item-icon .svg-icon,
@@ -5844,8 +5797,8 @@ body.mod-windows:not(.adaptive-mode-off).is-phone .modal.mod-settings .vertical-
 }
 
 body.is-android:not(.adaptive-mode-off) {
-  --font-interface-theme: "Google Sans Flex", "Google Sans";
-  --font-text-theme: "Google Sans Flex", "Google Sans";
+  --font-interface-theme: "Google Sans System", "Google Sans Flex", "Google Sans";
+  --font-text-theme: "Google Sans System", "Google Sans Flex", "Google Sans";
   --clickable-icon-radius: 100vh;
   --button-radius: 100vh;
   --input-font-weight: var(--font-medium);
@@ -8135,7 +8088,7 @@ span[src$="#interface"] img {
 }
 
 body.focus-view:not(.is-mobile):not(.is-popout-window) .workspace:not(.is-left-sidedock-open):not(.is-right-sidedock-open) .mod-root {
-  --file-margins: calc(var(--file-margins-block) + var(--header-height)) var(--file-margins-block)
+  --file-margins: calc(var(--file-margins-y) + var(--header-height)) var(--file-margins-y)
 }
 
 body.focus-view:not(.is-mobile):not(.is-popout-window) .workspace:not(.is-left-sidedock-open):not(.is-right-sidedock-open) .mod-root .workspace-tab-header-container {
@@ -8323,26 +8276,26 @@ body.mod-windows:not(.adaptive-mode-off) .nav-files-container>div .tree-item-sel
 }
 
 body.is-android:not(.adaptive-mode-off) .nav-files-container>div {
-  --nav-item-background-active: var(--interactive-accent-active);
-  --nav-item-background-selected: var(--interactive-accent-active);
-  --nav-item-color-active: var(--text-accent-active)
+    --nav-item-background-active: var(--background-primary);
+    --nav-item-background-selected: var(--background-primary);
+    --nav-item-color-active: var(--text-normal)
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .nav-files-container>div {
-  --nav-item-background-hover: transparent;
-  --nav-item-background-active: var(--background-modifier-cover);
-  --nav-item-color: var(--text-normal);
-  --nav-item-color-hover: var(--text-normal);
-  --nav-item-color-active: var(--text-accent)
+    --nav-item-background-hover: transparent;
+    --nav-item-background-active: var(--background-modifier-hover);
+    --nav-item-color: var(--text-normal);
+    --nav-item-color-hover: var(--text-normal);
+    --nav-item-color-active: var(--text-accent)
 }
 
 body.mod-linux:not(.is-android):not(.adaptive-mode-off) {
-  --background-modifier-border: rgb(from var(--text-normal) r g b / 15%);
-  --interactive-normal: rgb(from var(--text-normal) r g b / 10%);
-  --interactive-hover: rgb(from var(--text-normal) r g b / 15%);
-  --menu-border-color: rgb(from var(--text-normal) r g b / 10%);
-  --modal-border-color: rgb(from var(--text-normal) r g b / 10%);
-  --prompt-border-color: rgb(from var(--text-normal) r g b / 10%)
+    --background-modifier-border: color-mix(in srgb, var(--background-secondary), var(--text-normal) 15%);
+    --interactive-normal: color-mix(in srgb, var(--background-secondary), var(--text-normal) 10%);
+    --interactive-hover: color-mix(in srgb, var(--background-secondary), var(--text-normal) 15%);
+    --menu-border-color: color-mix(in srgb, var(--background-secondary), var(--text-normal) 10%);
+    --modal-border-color: color-mix(in srgb, var(--background-secondary), var(--text-normal) 10%);
+    --prompt-border-color: color-mix(in srgb, var(--background-secondary), var(--text-normal) 10%)
 }
 
 body.mod-linux:not(.is-android):not(.adaptive-mode-off).theme-light {
@@ -9241,21 +9194,23 @@ body:not(.default-tables) .markdown-source-view.mod-cm6 .cm-table-widget th:last
    -------------------- */
 
 /* Animations → Liquid Glass Tab Press */
-.Liquid-glass-animations:not(.low-power) .workspace-tab-header {
-  transition: transform var(--anim-duration-moderate) var(--Mythic-animation-liquid) !important;
+.Liquid-glass-animations:not(.low-power) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-inner {
+  transition: transform var(--anim-duration-moderate) var(--Mythic-animation-spring) !important;
 }
 
-.Liquid-glass-animations:not(.low-power) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active {
+.Liquid-glass-animations:not(.low-power) .workspace .mod-root .workspace-tabs:not(.mod-stacked):not(:has(.workspace-tab-header-inner-close-button:hover)) .workspace-tab-header-inner:active {
   transform: scale(1.15) !important;
   background-color: var(--background-secondary) !important;
+  will-change: transform;
 }
 
 .Liquid-glass-animations:not(.low-power) .workspace-tab-header:not(:has(.workspace-tab-header-inner-close-button:hover)):active::after {
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.45), transparent 80%);
-  filter: blur(5px);
-  mix-blend-mode: overlay;
-  transition: ease-in-out 0.2s;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.75), transparent 80%) !important;
+  filter: blur(5px) !important;
+  mix-blend-mode: overlay !important;
+  transition: ease-out 0.2s !important;
+  will-change: transform;
 }
 
 .is-ios .lucide-more-vertical, .mod-macos .lucide-more-vertical {
@@ -9388,7 +9343,7 @@ body.sidebar-guidelines:not(.low-power, .is-mobile) .nav-folder-children:hover {
 }
 
 /* Tabs → Centered → macOS */
-body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
+body:not(.is-phone):not(.tab-floating) .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header-container-inner {
   padding-left: 20px !important; 
   padding-right: 20px !important
 }
@@ -9539,6 +9494,12 @@ body:not(.is-phone):not(.tab-floating-center-off) .workspace .mod-root .workspac
 
 .settings-header-text-container h2 {
   line-height: 1.2 !important;
+  padding-left: 0
+}
+
+.vertical-tab-content h1, .vertical-tab-content h2, .vertical-tab-content h3, .vertical-tab-content h4 {
+  margin: 0;
+  padding-left: 0
 }
 
 /* --------------------
@@ -9626,18 +9587,18 @@ body .style-settings-container .setting-item[data-id] .setting-item-control::bef
 }
 
 /* Adaptive Theme & Accent*/
-.theme-dark .setting-item[data-id="adaptive-theme"],
+.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"],
 .adaptive-accent .setting-item[data-id="adaptive-theme"],
-.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] {
+.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] {
   pointer-events: none !important
 }
 
-.theme-dark .setting-item[data-id="adaptive-theme"] .setting-item-info,
-.theme-dark .setting-item[data-id="adaptive-theme"] .setting-item-control,
+.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"] .setting-item-info,
+.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"] .setting-item-control,
 .adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-info,
 .adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-control,
-.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] .setting-item-info,
-.adaptive-theme:not(.theme-dark) .setting-item[data-id="adaptive-accent"] .setting-item-control {
+.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] .setting-item-info,
+.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] .setting-item-control {
   opacity: 0.5
 }
 
@@ -10235,13 +10196,6 @@ body:not(.is-mobile).theme-light.fs-light-gray.is-fullscreen {
 /* ---------------------
    MOBILE AND TABLET (Patches)
    -------------------- */
-/* Mobile → Mode Switcher Button Patch */
-.is-phone:not(.mode-switcher-off) .view-actions :nth-last-child(2) {
-  translate: 0 -5px !important;
-}
-.is-phone.is-keyboard-open:not(.mode-switcher-off) .view-actions :nth-last-child(2) {
-  translate: 0 0px !important;
-}
 
 /* Mobile → Overflow Patch */
 body.is-mobile .cm-scroller,
@@ -10454,8 +10408,6 @@ body.community-theme {
   --background-secondary-alt: var(--background-secondary) !important;
   --background-modifier-form-field: var(--background-primary) !important;
   --setting-items-background: var(--background-primary) !important;
-  --dropdown-background: var(--background-secondary) !important;
-  --dropdown-background-hover: var(--dropdown-background) !important;
   --color-base-00: var(--background-primary) !important;
   --workspace-leaf-background: var(--background-primary) !important;
   --color-base-10: var(--background-secondary) !important;
@@ -10475,14 +10427,6 @@ body.community-theme {
 /* --------------------
    Everforest Light
    -------------------- */
-
-body.community-theme.theme-light.everforest-light.color-scheme-accent {
-  --accent-h: 83;
-  --accent-s: 36%;
-  --accent-l: 53%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
 
 body:not(.is-mobile).community-theme.theme-light.everforest-light {
   /* Backgrounds */
@@ -10520,19 +10464,12 @@ body:not(.is-mobile).community-theme.theme-light.everforest-light {
   /* Overrides from Global */
   --dropdown-background: var(--background-secondary) !important;
   --dropdown-background-hover: var(--background-secondary) !important;
+  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
    Everforest Dark
    -------------------- */
-
-body.community-theme.theme-dark.everforest-dark.color-scheme-accent {
-  --accent-h: 81;
-  --accent-s: 34%;
-  --accent-l: 63%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
 
 body:not(.is-mobile).community-theme.theme-dark.everforest-dark {
   /* Backgrounds */
@@ -10572,14 +10509,6 @@ body:not(.is-mobile).community-theme.theme-dark.everforest-dark {
    Flexoki Light
    -------------------- */
 
-body.community-theme.theme-light.flexoki-light.color-scheme-accent {
-  --accent-h: 175;
-  --accent-s: 57%;
-  --accent-l: 33%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-light.flexoki-light {
   /* Backgrounds */
   --background-primary: rgb(255, 252, 240);
@@ -10612,19 +10541,16 @@ body:not(.is-mobile).community-theme.theme-light.flexoki-light {
   --text-faint: rgb(183, 181, 172);
   --text-muted: rgb(111, 110, 105);
   --text-normal: rgb(58, 57, 57);
+
+  /* Overrides from Global */
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--background-secondary) !important;
+  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
    Melange Light
    -------------------- */
-
-body.community-theme.theme-light.melange-light.color-scheme-accent {
-  --accent-h: 29;
-  --accent-s: 100%;
-  --accent-l: 37%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
 
 body:not(.is-mobile).community-theme.theme-light.melange-light {
   /* Backgrounds */
@@ -10658,19 +10584,16 @@ body:not(.is-mobile).community-theme.theme-light.melange-light {
   --text-faint: rgb(169, 138, 120);
   --text-muted: rgb(125, 102, 88);
   --text-normal: rgb(84, 67, 58);
+
+  /* Overrides from Global */
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--background-secondary) !important;
+  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
    Melange Dark
    -------------------- */
-
-body.community-theme.theme-dark.melange-dark.color-scheme-accent {
-  --accent-h: 28;
-  --accent-s: 71%;
-  --accent-l: 63%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
 
 body:not(.is-mobile).community-theme.theme-dark.melange-dark {
   /* Backgrounds */
@@ -10710,14 +10633,6 @@ body:not(.is-mobile).community-theme.theme-dark.melange-dark {
    Mocha Dark
    -------------------- */
 
-body.community-theme.theme-dark.mocha-dark.color-scheme-accent {
-  --accent-h: 10;
-  --accent-s: 56%;
-  --accent-l: 91%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-dark.mocha-dark {
   /* Backgrounds */
   --background-primary: rgb(30, 30, 46);
@@ -10754,12 +10669,12 @@ body:not(.is-mobile).community-theme.theme-dark.mocha-dark {
    Tiniri Light
    -------------------- */
 
-body.community-theme.theme-light.tiniri-light.color-scheme-accent {
+body.community-theme.theme-light.tiniri-light.adaptive-theme {
   --accent-h: 3;
   --accent-s: 70%;
   --accent-l: 54%;
-  --text-on-accent: 253, 252, 252;
-  --text-on-accent-inverted: 51, 50, 49;
+  --text-on-accent: rgb(253, 252, 252);
+  --text-on-accent-inverted: rgb(51, 50, 49);
   --interactive-accent: rgb(83, 138, 138);
   --interactive-accent-hover: rgb(92, 158, 158);
   --text-success: rgb(83, 138, 138);
@@ -10804,28 +10719,16 @@ body:not(.is-mobile).community-theme.theme-light.tiniri-light {
   --text-muted: rgb(128, 121, 116);
   --text-normal: rgb(51, 50, 49);
   --text-error: rgb(173, 81, 76);
+
+  /* Overrides from Global */
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--background-secondary) !important;
+  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
    Tiniri Dark
    -------------------- */
-
-body.community-theme.theme-dark.tiniri-dark.color-scheme-accent {
-  --accent-h: 0;
-  --accent-s: 77%;
-  --accent-l: 50%;
-  --text-on-accent: 219, 211, 202;
-  --text-on-accent-inverted: 31, 33, 34;
-  --interactive-accent: rgb(49, 79, 82);
-  --interactive-accent-hover: rgb(57, 89, 92);
-  --text-success: rgb(170, 194, 174);
-  --text-warning: rgb(245, 165, 113);
-  --text-error: rgb(245, 165, 113);
-  --text-accent: rgb(173, 81, 76);
-  --text-accent-hover: rgb(224, 117, 117);
-  --text-selection: rgb(53, 58, 66);
-  --text-highlight-bg: #ad514c44;
-}
 
 body:not(.is-mobile).community-theme.theme-dark.tiniri-dark {
   /* Backgrounds */
