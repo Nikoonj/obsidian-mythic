@@ -1,14 +1,14 @@
 # obsidian-mythic
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
 
-# What's New in 4.4.1
+# What's New in 4.4.2
 ### Features, Patches and Fixes
 - **Cupertino Backport 3.2.0:** Backporting New Cupertino 3.2.0 (Baseline Architecture) into legacy Mythic Architecture.
-	- `Added` **Modern CSS Layout:** Backported `@container` queries and `calc-size` for smooth height animations.
-	- `Added` **Smooth Entry Animations:** usage of `@starting-style` for mobile elements.
-	- `Improved` **Visual Polish:** Updated Lucide icons to latest versions.
-	- `Fixed` **Reduce Motion:** Cleaner implementation using `--anim-speed-modifier`.
-- `Fixed` **Adaptive theme:** Fixed issue with Adaptive theme not working with Community Themes (light).
+	- `Improved` **Mobile UI:** Backported Mobile UI from Cupertino 3.2.0 with Read/Editor View Button and other improvements.
+	- `Improved` **Backported Code:** Replaced code with more efficient code from newer versions of Cupertino and deleted unused code.
+- `Fixed` **Tab Animations:** Issues with Tab Animations while opening and closing tabs on desktop.
+- `Fixed` **Dropdown and Buttons:** Fixed background color issues on drop-downs and buttons.
+- `Fixed` **Inline-Title Hover:** Fixed the clipping of the inline-title container during hover.
 
 # Appearance & Themes
 ### Inbuilt Theme Styles & Community themes
