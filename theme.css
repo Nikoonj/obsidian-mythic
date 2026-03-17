@@ -415,7 +415,7 @@ body:not(.is-phone):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacke
 
 @container (min-width: 560px) {
     body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space.mod-top-right-space .workspace-tab-header-container-inner {
-        padding-right: calc(var(--frame-left-space) + var(--tab-action-width)*2)
+        padding-right: calc(var(--frame-left-space) + --tab-action-width*2)
     }
 
     body.mod-macos:not(.is-mobile):not(.tab-floating) .mod-root .workspace-tabs:not(.mod-stacked).mod-top-left-space:not(.mod-top-right-space) .workspace-tab-header-container-inner {
@@ -2145,9 +2145,7 @@ body.is-tablet .workspace-drawer-header-icon::after {
   content: none !important
 }
 
-/*!
 /* @settings
-
 name: Cupertino
 id: cupertino
 settings:
@@ -2264,113 +2262,52 @@ name: Mythic
 id: mythic
 collapsed: false
 settings:
-    -
-        id: about-desc
-        description: "<h2>About Mythic</h2><br> Mythic Version: 4.4.3 <br> Author: Nikoonj <br> Updated: 15th March 2026 <br> Cupertino Base Version: 3.1.2"
-        type: info-text
-        markdown: true
-    -
-        id: readme-header
-        title: README
-        type: heading
-        collapsed: true
-        level: 1
-    -
-        description: "Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino.
-    <br><br>
-    <h2> What's New in 4.4.3</h2>
-    <b>Features, Patches and Fixes</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Community Themes:</b> Added Nocturne, Material (Dark Aqua), Frost (Light Blue), Dune , Lavender (Light Purple).</li>
-    <li><b>Adaptive Theme:</b> Expanded Adaptive Theme support to all community themes (Including Dark themes).</li>
-    <li><b>Style Settings:</b> New logic for Adaptive Theme Dimming. Allows to be toggled in Dark mode community themes.</li>
-    <li><b>Code Optimization:</b> Restructured and optimized code for better performance and maintenance.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Themes & Appearance </h2>
-    <b>Primary Theme Styles</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Dark Theme Variants</b>: Choose between Obsidian, Mythic, Dark Grey, and Pure Black.</li>
-    <li><b>Light Theme Variants</b>: Choose between Obsidian, Mythic, Paper White, and Light Gray.</li>
-    <li><b>Fullscreen Theme Variant</b>: Theme style to automatically apply when in fullscreen mode.</li>
-    <li><b>Transparent Editor</b>: Makes editor background transparent.</li>
-    <li><b>Adaptive Theme</b>: Adapts accent and interactive colors to match the active light theme variant.</li>
-    <li><b>Adaptive Accent Color</b>: Automatically adjusts accent lightness for optimal contrast in light and dark modes.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Animations & Effects </h2>
-    <b>Fluid Motion & Visual Depth</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Enhanced Animations</b>: Enables fluid and bouncier animations.</li>
-    <li><b>Liquid Glass (BETA)</b>: Dynamic pop-up animations and hover effects.</li>
-    <li><b>Extended Liquid Glass (BETA)</b>: Dynamic pop-up animations and enhanced button effects.</li>
-    <li><b>Dynamic Tab Animation</b>: Consistent intensity regardless of tab count.</li>
-    <li><b>Low Power Mode</b>: Disables specifics high-intensity animations and features.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Shadow Glass </h2>
-    <b>Refractive UI Elements</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Shadow Glass Inputs</b>: Subtle shadow and specular rim.</li>
-    <li><b>Active Button Glow</b>: Accent glow for active buttons.</li>
-    <li><b>Shadow Glass Headers</b>: Rounded corners and shadow for headers.</li>
-    <li><b>Shadow Glass Markdown (BETA)</b>: Styles quotes, code blocks, and callouts.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Typography </h2>
-    <b>Sizing Customization</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Default Headings</b>: Reverts to Cupertino style headings.</li>
-    <li><b>Default Lists</b>: Reverts to Cupertino style lists.</li>
-    <li><b>Default Highlights</b>: Reverts to Cupertino style highlights.</li>
-    <li><b>Default Tables</b>: Reverts to Cupertino style tables.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Workspace Layout </h2>
-    <b>Tabs, Sidebar and Ribbon</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Compact Pinned Tabs</b>: Reduces width and hides title.</li>
-    <li><b>Inactive Tab Background</b>: Background color over inactive tabs.</li>
-    <li><b>Folder Highlight</b>: Highlights selected folders with accent color.</li>
-    <li><b>Collapsed Folder Highlight</b>: Disable folder highlight for collapsed folders.</li>
-    <li><b>Sidebar Guidelines</b>: Shows indentation guides.</li>
-    <li><b>Smooth Hover</b>: Smooth fade effect on hover.</li>
-    <li><b>Centered Sidebar Tabs</b>: Centers sidebar tab icons. Improves window drag compatibility.</li>
-    <li><b>Center Collapsed Ribbon</b>: Vertically centers icons when sidebar is closed.</li>
-    <li><b>Center Open Ribbon</b>: Vertically centers icons when sidebar is open.</li>
-    </ul>
-    <br><b><hr></b><br>
-    <h2> Icons </h2>
-    <b>Settings Icon, Iconize and Panels</b><br><br><b><hr></b><br>
-    <ul>
-    <li><b>Obsidian Settings Icon</b>: Custom logo.</li>
-    <li><b>Show Circle Background</b>: Circular dark background for icon.</li>
-    <li><b>Monochrome Icons</b>: Force black/white icons in Light/Dark mode.</li>
-    <li><b>Monochrome Settings Icons</b>: Forces settings menu icons to be black/white.</li>
-    <li><b>Larger Settings Icons</b>: Makes settings menu icons and text larger.</li>
-    </ul>"
-		type: info-text
-		markdown: true
 	-
-		id: readme-credits-desc
-		description: "Mythic is a derivative work built upon **Cupertino version 3.1.2** by **Alexis C**. Gratitude goes to the original author for this excellent groundwork."
+		id: mythic-info
+		title: Get started
+		type: heading
+		level: 1
+		collapsed: false
+	-
+		id: about
+		title: About Mythic
 		type: info-text
+		level: 1
 		markdown: true
-    -
-        id: mythic-header
-        title: General
-        type: heading
-        level: 1
-    -
-        id: general-desc
-        description: "Personalize your workspace with interface preferences, layout options, and visual styling."
-        type: info-text
-        markdown: true
+		description: "
+    <div>Author: <b>Nikoonj Patil</b></div>
+    <div>Mythic Version: <b>v4.4.4</b></div>
+    <div>Updated: <b>18th March 2026</b></div>
+    <div>Cupertino Base Version: <b>v3.1.2</b></div>
+    <div>Backport Source: <b>v3.2.0</b></div>
+    <a href='https://github.com/Nikoonj/obsidian-mythic' class='external-link'></a>"
+	-
+		id: new
+		title: What's New in Mythic 4.4.4
+		type: info-text
+		level: 0
+		markdown: true
+		description: "
+    <ul>
+        <li><b>Community Themes:</b> Removed unused code to improve efficiency.</li>
+        <li><b>Adaptive Theme:</b> Expanded support to all community themes.</li>
+        <li><b>Style Settings:</b> New UI for version information and changelog.</li>
+        <li><b>Code Optimization:</b> Refactored for better performance.</li>
+    </ul>
+    <center><p style='opacity: 0.65;'>Click to see the full changelog and README.</p></center>
+    <a href='https://github.com/Nikoonj/obsidian-mythic' class='external-link'></a>"
+	-
+		id: credits
+		title: Credits
+		type: info-text
+		level: 1
+		markdown: true
+		description: Mythic is a derivative work built upon **Cupertino version 3.1.2** by **Alexis C**. Gratitude goes to the original author for this excellent groundwork. This version includes select features backported from the **Cupertino 3.2.0 Baseline**. <a href='https://github.com/aaaaalexis/obsidian-cupertino' class='external-link'></a>
     -
         id: appearance-settings-header
         title: Themes & Appearance
         type: heading
-        level: 2
+        level: 1
     -
         id: description-initial
         description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-palette-icon lucide-palette'><path d='M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z'/><circle cx='13.5' cy='6.5' r='.5' fill='currentColor'/><circle cx='17.5' cy='10.5' r='.5' fill='currentColor'/><circle cx='6.5' cy='12.5' r='.5' fill='currentColor'/><circle cx='8.5' cy='7.5' r='.5' fill='currentColor'/></svg> <div class='settings-header-text-container'><h2> Core Themes </h2> Change the colour palette the theme uses. </div>"
@@ -2549,7 +2486,7 @@ settings:
         id: animations-settings-header
         title: Animations & Effects
         type: heading
-        level: 2
+        level: 1
     -
         id: description-initial
         description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-spline-pointer-icon lucide-spline-pointer'><path d='M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z'/><path d='M5 17A12 12 0 0 1 17 5'/><circle cx='19' cy='5' r='2'/><circle cx='5' cy='19' r='2'/></svg> <div class='settings-header-text-container'><h2> Animations </h2> Enable Animations for a fluid experience.</div>"
@@ -2618,7 +2555,7 @@ settings:
         id: typography-settings-header
         title: Typography and Interface
         type: heading
-        level: 2
+        level: 1
     -
         id: description-initial
         description: "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='settings-header-icon lucide lucide-type-icon lucide-type'><path d='M12 4v16'/><path d='M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2'/><path d='M9 20h6'/></svg> <div class='settings-header-text-container'><h2> Typography </h2> Disable various mythic design styles used (Headers, Tables, Lists). </div>"
@@ -2652,7 +2589,7 @@ settings:
         id: workspace-settings-header
         title: Workspace Layout
         type: heading
-        level: 2
+        level: 1
         collapsed: false
     -
         id: description-initial
@@ -2726,7 +2663,7 @@ settings:
         id: icons-settings-header
         title: Icons
         type: heading
-        level: 2
+        level: 1
         collapsed: false
     -
         id: description-initial
@@ -3182,7 +3119,7 @@ print {
   }
 
   .metadata-properties-heading {
-    padding-inline: 0px;
+    padding-inline: 0;
     width: 100%
   }
 
@@ -3263,11 +3200,6 @@ print {
     --input-padding: 8px
   }
 
-  body .workspace-split .metadata-container .metadata-content {
-    transform: translateX(-8px);
-    width: calc(100% + 16px)
-  }
-
   body .workspace-split .metadata-container .metadata-properties-heading {
     padding-inline: 0px
   }
@@ -3329,7 +3261,7 @@ print {
 print {
   body {
     --blockquote-background-color: var(--background-primary-alt);
-    --blockquote-border-color: var(--color-base-50);
+    --blockquote-border-color: var(--list-marker-color);
     --blockquote-border-thickness: 2px;
     --blockquote-size: var(--font-text-size)
   }
@@ -8974,7 +8906,6 @@ body:not(.default-lists) .markdown-preview-view ul li {
   padding-bottom: 1.5px;
 }
 
-
 /* Typography → Lists → Indentation */
 body:not(.default-lists) .markdown-source-view.mod-cm6 .cm-indent,
 body:not(.default-lists) .markdown-preview-view ul ul,
@@ -9502,11 +9433,6 @@ body:not(.is-phone):not(.tab-floating) .workspace .mod-root .workspace-tabs:not(
   box-shadow: var(--shadow-tab), rgba(from var(--interactive-accent) r g b / 0.2) 0px 0px 7px 0px;
 }
 
-.settings-header-text-container h2 {
-  line-height: 1.2 !important;
-  padding-left: 0
-}
-
 .vertical-tab-content h1, .vertical-tab-content h2, .vertical-tab-content h3, .vertical-tab-content h4 {
   margin: 0;
   padding-left: 0
@@ -9526,10 +9452,8 @@ body:not(.is-phone):not(.tab-floating) .workspace .mod-root .workspace-tabs:not(
 .theme-light .setting-item[data-id="monochrome-icons-dark"] {
   pointer-events: none
 }
-.theme-dark .setting-item[data-id="monochrome-icons-light"] .setting-item-info,
-.theme-dark .setting-item[data-id="monochrome-icons-light"] .setting-item-control,
-.theme-light .setting-item[data-id="monochrome-icons-dark"] .setting-item-info,
-.theme-light .setting-item[data-id="monochrome-icons-dark"] .setting-item-control {
+.theme-dark .setting-item[data-id="monochrome-icons-light"] :is(.setting-item-info, .setting-item-control),
+.theme-light .setting-item[data-id="monochrome-icons-dark"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5
 }
 
@@ -9539,10 +9463,8 @@ body:not(.community-theme) .setting-item[data-id="community-themes-dark"] {
   pointer-events: none
 }
 
-body:not(.community-theme) .setting-item[data-id="community-themes-light"] .setting-item-info,
-body:not(.community-theme) .setting-item[data-id="community-themes-light"] .setting-item-control,
-body:not(.community-theme) .setting-item[data-id="community-themes-dark"] .setting-item-info,
-body:not(.community-theme) .setting-item[data-id="community-themes-dark"] .setting-item-control {
+body:not(.community-theme) .setting-item[data-id="community-themes-light"] :is(.setting-item-info, .setting-item-control),
+body:not(.community-theme) .setting-item[data-id="community-themes-dark"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5
 }
 
@@ -9553,14 +9475,10 @@ body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] {
   pointer-events: none
 }
 
-body.community-theme .setting-item[data-id="dark-theme-variant"] .setting-item-info,
-body.community-theme .setting-item[data-id="dark-theme-variant"] .setting-item-control,
-body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"] .setting-item-info,
-body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"] .setting-item-control,
-body.community-theme .setting-item[data-id="light-theme-variant"] .setting-item-info,
-body.community-theme .setting-item[data-id="light-theme-variant"] .setting-item-control,
-body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] .setting-item-info,
-body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] .setting-item-control {
+body.community-theme .setting-item[data-id="dark-theme-variant"] :is(.setting-item-info, .setting-item-control),
+body.community-theme .setting-item[data-id="fullscreen-dark-theme-variant"] :is(.setting-item-info, .setting-item-control),
+body.community-theme .setting-item[data-id="light-theme-variant"] :is(.setting-item-info, .setting-item-control),
+body.community-theme .setting-item[data-id="fullscreen-light-theme-variant"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5
 }
 
@@ -9603,12 +9521,9 @@ body .style-settings-container .setting-item[data-id] .setting-item-control::bef
   pointer-events: none !important
 }
 
-.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"] .setting-item-info,
-.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"] .setting-item-control,
-.adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-info,
-.adaptive-accent .setting-item[data-id="adaptive-theme"] .setting-item-control,
-.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] .setting-item-info,
-.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] .setting-item-control {
+.theme-dark:not(.community-theme) .setting-item[data-id="adaptive-theme"] :is(.setting-item-info, .setting-item-control),
+.adaptive-accent .setting-item[data-id="adaptive-theme"] :is(.setting-item-info, .setting-item-control),
+.adaptive-theme:not(.theme-dark:not(.community-theme)) .setting-item[data-id="adaptive-accent"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5
 }
 
@@ -9617,8 +9532,7 @@ body:not(.obsidian-settings-icon-circle) .setting-item[data-id="obsidian-setting
   pointer-events: none
 }
 
-body:not(.obsidian-settings-icon-circle) .setting-item[data-id="obsidian-settings-icon"] .setting-item-info,
-body:not(.obsidian-settings-icon-circle) .setting-item[data-id="obsidian-settings-icon"] .setting-item-control {
+body:not(.obsidian-settings-icon-circle) .setting-item[data-id="obsidian-settings-icon"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5
 }
 
@@ -9627,8 +9541,7 @@ body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] {
   pointer-events: none
 }
 
-body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
-body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] .setting-item-control {
+body:not(.transparent-editor) .setting-item[data-id="shadow-glass-headers"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5;
 }
 
@@ -9645,24 +9558,15 @@ body:is(.low-power) .setting-item[data-id="inactive-tab-background"] {
   pointer-events: none
 }
 
-body:is(.low-power) .setting-item[data-id="dynamic-tab-animation"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="dynamic-tab-animation"] .setting-item-control,
-body:is(.low-power) .setting-item[data-id="enhanced-animations"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="enhanced-animations"] .setting-item-control,
-body:is(.low-power) .setting-item[data-id="extended-glass-animations"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="extended-glass-animations"] .setting-item-control,
-body:is(.low-power) .setting-item[data-id="Liquid-glass-animations"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="Liquid-glass-animations"] .setting-item-control,
-body:is(.low-power) .setting-item[data-id="smooth-hover"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="smooth-hover"] .setting-item-control, 
-body:is(.low-power) .setting-item[data-id="shadow-glass"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="shadow-glass"] .setting-item-control, 
-body:is(.low-power) .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="shadow-glass-headers"] .setting-item-control, 
-body:is(.low-power) .setting-item[data-id="shadow-glass-markdown"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="shadow-glass-markdown"] .setting-item-control, 
-body:is(.low-power) .setting-item[data-id="inactive-tab-background"] .setting-item-info,
-body:is(.low-power) .setting-item[data-id="inactive-tab-background"] .setting-item-control {
+body:is(.low-power) .setting-item[data-id="dynamic-tab-animation"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="enhanced-animations"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="extended-glass-animations"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="Liquid-glass-animations"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="smooth-hover"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="shadow-glass"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="shadow-glass-headers"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="shadow-glass-markdown"] :is(.setting-item-info, .setting-item-control),
+body:is(.low-power) .setting-item[data-id="inactive-tab-background"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5 
 }
 
@@ -9686,38 +9590,22 @@ body:is(.low-power) .setting-item[data-id="inactive-tab-background"] .setting-it
   pointer-events: none;
 }
 
-.is-mobile .setting-item[data-id="dark-theme-variant"] .setting-item-info,
-.is-mobile .setting-item[data-id="dark-theme-variant"] .setting-item-control,
-.is-mobile .setting-item[data-id="fullscreen-theme-variant"] .setting-item-info,
-.is-mobile .setting-item[data-id="fullscreen-theme-variant"] .setting-item-control,
-.is-phone .setting-item[data-id="transparent-editor"] .setting-item-info,
-.is-phone .setting-item[data-id="transparent-editor"] .setting-item-control,
-.is-mobile .setting-item[data-id="shadow-glass-buttons"] .setting-item-info,
-.is-mobile .setting-item[data-id="shadow-glass-buttons"] .setting-item-control,
-.is-phone .setting-item[data-id="shadow-glass"] .setting-item-info,
-.is-phone .setting-item[data-id="shadow-glass"] .setting-item-control,
-.is-phone .setting-item[data-id="shadow-glass-headers"] .setting-item-info,
-.is-phone .setting-item[data-id="shadow-glass-headers"] .setting-item-control,
-.is-phone .setting-item[data-id="shadow-glass-markdown"] .setting-item-info,
-.is-phone .setting-item[data-id="shadow-glass-markdown"] .setting-item-control,
-.is-mobile .setting-item[data-id="smooth-hover"] .setting-item-info,
-.is-mobile .setting-item[data-id="smooth-hover"] .setting-item-control,
-.is-mobile .setting-item[data-id="center-collapsed-ribbon"] .setting-item-info,
-.is-mobile .setting-item[data-id="center-collapsed-ribbon"] .setting-item-control,
-.is-mobile .setting-item[data-id="center-open-ribbon"] .setting-item-info,
-.is-mobile .setting-item[data-id="center-open-ribbon"] .setting-item-control,
-.is-mobile .setting-item[data-id="obsidian-settings-icon"] .setting-item-info,
-.is-mobile .setting-item[data-id="obsidian-settings-icon"] .setting-item-control,
-.is-phone .setting-item[data-id="monochrome-settings-icons"] .setting-item-info,
-.is-phone .setting-item[data-id="monochrome-settings-icons"] .setting-item-control,
-.is-phone .setting-item[data-id="larger-settings-icons"] .setting-item-info,
-.is-phone .setting-item[data-id="larger-settings-icons"] .setting-item-control,
-.is-phone .setting-item[data-id="dynamic-tab-animation"] .setting-item-info,
-.is-phone .setting-item[data-id="dynamic-tab-animation"] .setting-item-control,
-.is-phone .setting-item[data-id="enhanced-animations"] .setting-item-info,
-.is-phone .setting-item[data-id="enhanced-animations"] .setting-item-control,
-.is-mobile .setting-item[data-id="Liquid-glass-animations"] .setting-item-info,
-.is-mobile .setting-item[data-id="Liquid-glass-animations"] .setting-item-control {
+.is-mobile .setting-item[data-id="dark-theme-variant"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="fullscreen-theme-variant"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="transparent-editor"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="shadow-glass-buttons"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="shadow-glass"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="shadow-glass-headers"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="shadow-glass-markdown"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="smooth-hover"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="center-collapsed-ribbon"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="center-open-ribbon"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="obsidian-settings-icon"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="monochrome-settings-icons"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="larger-settings-icons"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="dynamic-tab-animation"] :is(.setting-item-info, .setting-item-control),
+.is-phone .setting-item[data-id="enhanced-animations"] :is(.setting-item-info, .setting-item-control),
+.is-mobile .setting-item[data-id="Liquid-glass-animations"] :is(.setting-item-info, .setting-item-control) {
   opacity: 0.5;
 }
 
@@ -10213,7 +10101,7 @@ body.is-mobile .pdf-container {
   overflow-x: hidden !important;
 }
 
-/* Tablet → Sidebar Width Patch */
+  /* Tablet → Sidebar Width Patch */
 body.is-tablet {
   --mobile-left-sidebar-width: 435px; 
   --mobile-right-sidebar-width: 360px;
@@ -10280,15 +10168,14 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .ver
   margin-right: 0  !important
 }
 
-.transparent-editor:not(.focus-view) .workspace-leaf:has([data-type="pdf"]) {
-  background-color: var(--background-primary-alt) !important;
-}
-
 /* Transparent Editor - Disable Transparent Editor for PDF */
 .transparent-editor:not(.focus-view) .workspace-leaf:has([data-type="pdf"]) .view-header {
   box-shadow: none !important;
   background-color: var(--background-primary-alt) !important;
-  border-radius: 0 !important;
+  border-top-right-radius: 15px !important;
+  border-top-left-radius: 15px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 /* Transparent Editor - Ribbon Right Margin Clipping */
@@ -10479,9 +10366,8 @@ body.adaptive-theme.theme-light.fs-light-gray.is-fullscreen:not(.community-theme
   --nav-item-background-active: var(--interactive-hover) !important;
 }
 
-/* Community Light Purple (Lavender, Tiniri) */
-.adaptive-theme.community-theme.theme-light.lavender-light,
-.adaptive-theme.community-theme.theme-light.tiniri-light {
+/* Community Light Purple (Lavender) */
+.adaptive-theme.community-theme.theme-light.lavender-light {
   --accent-h: 270 !important;
   --accent-s: 48% !important;
   --accent-l: 52% !important;
@@ -10591,8 +10477,8 @@ body.community-theme {
   --background-secondary-alt: var(--background-secondary) !important;
   --background-modifier-form-field: var(--background-primary) !important;
   --setting-items-background: var(--background-primary) !important;
-  --color-base-00: var(--background-primary) !important;
   --workspace-leaf-background: var(--background-primary) !important;
+  --color-base-00: var(--background-primary) !important;
   --color-base-10: var(--background-secondary) !important;
   --color-base-20: var(--background-primary) !important;
   --color-base-25: var(--background-modifier-border) !important;
@@ -10605,6 +10491,9 @@ body.community-theme {
   --nav-item-background-active: var(--background-modifier-active-hover) !important;
   --divider-color: var(--background-modifier-border) !important;
   --raised-blur: blur(0px);
+  --dropdown-background: var(--background-secondary) !important;
+  --dropdown-background-hover: var(--background-secondary) !important;
+  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
@@ -10618,15 +10507,7 @@ body:not(.is-mobile).community-theme.theme-light.everforest-light {
   --background-modifier-border: rgb(224, 220, 199);
   --background-modifier-hover: rgba(92, 106, 114, 0.08);
   --background-modifier-active-hover: rgba(92, 106, 114, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(248, 242, 221) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(190, 197, 178);
-  --color-base-35: rgb(190, 197, 178);
-  --color-base-40: rgb(166, 176, 160);
-  --color-base-50: rgb(130, 145, 129);
 
   /* UI elements */
   --interactive-normal: rgba(226, 222, 198, 0.5);
@@ -10643,11 +10524,6 @@ body:not(.is-mobile).community-theme.theme-light.everforest-light {
   --text-faint: rgb(166, 176, 160);
   --text-muted: rgb(130, 145, 129);
   --text-normal: rgb(76, 87, 94);
-
-  /* Overrides from Global */
-  --dropdown-background: var(--background-secondary) !important;
-  --dropdown-background-hover: var(--background-secondary) !important;
-  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
@@ -10661,15 +10537,7 @@ body:not(.is-mobile).community-theme.theme-dark.everforest-dark {
   --background-modifier-border: rgb(71, 82, 88);
   --background-modifier-hover: rgba(211, 198, 170, 0.08);
   --background-modifier-active-hover: rgba(211, 198, 170, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(51, 59, 64);
-
-  /* Base color scale */
-  --color-base-30: rgb(79, 88, 94);
-  --color-base-35: rgb(82, 92, 98);
-  --color-base-40: rgb(122, 132, 120);
-  --color-base-50: rgb(157, 169, 160);
 
   /* UI elements */
   --interactive-normal: rgba(71, 82, 88, 0.5);
@@ -10699,15 +10567,7 @@ body:not(.is-mobile).community-theme.theme-light.flexoki-light {
   --background-modifier-border: rgb(230, 228, 217);
   --background-modifier-hover: rgba(16, 15, 15, 0.08);
   --background-modifier-active-hover: rgba(16, 15, 15, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(249, 246, 235) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(218, 216, 206);
-  --color-base-35: rgb(206, 205, 195);
-  --color-base-40: rgb(183, 181, 172);
-  --color-base-50: rgb(111, 110, 105);
 
   /* UI elements */
   --interactive-normal: rgba(16, 15, 15, 0.05);
@@ -10724,11 +10584,6 @@ body:not(.is-mobile).community-theme.theme-light.flexoki-light {
   --text-faint: rgb(183, 181, 172);
   --text-muted: rgb(111, 110, 105);
   --text-normal: rgb(58, 57, 57);
-
-  /* Overrides from Global */
-  --dropdown-background: var(--background-secondary) !important;
-  --dropdown-background-hover: var(--background-secondary) !important;
-  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
@@ -10742,15 +10597,7 @@ body:not(.is-mobile).community-theme.theme-light.melange-light {
   --background-modifier-border: rgb(214, 192, 179);
   --background-modifier-hover: rgba(84, 67, 58, 0.08);
   --background-modifier-active-hover: rgba(84, 67, 58, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(237, 231, 227) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(205, 184, 173);
-  --color-base-35: rgb(176, 155, 143);
-  --color-base-40: rgb(169, 138, 120);
-  --color-base-50: rgb(125, 102, 88);
 
   /* UI elements */
   --interactive-normal: rgb(240, 236, 234);
@@ -10767,11 +10614,6 @@ body:not(.is-mobile).community-theme.theme-light.melange-light {
   --text-faint: rgb(169, 138, 120);
   --text-muted: rgb(125, 102, 88);
   --text-normal: rgb(84, 67, 58);
-
-  /* Overrides from Global */
-  --dropdown-background: var(--background-secondary) !important;
-  --dropdown-background-hover: var(--background-secondary) !important;
-  --interactive-normal: var(--background-secondary) !important;
 }
 
 /* --------------------
@@ -10785,15 +10627,7 @@ body:not(.is-mobile).community-theme.theme-dark.melange-dark {
   --background-modifier-border: rgb(64, 58, 54);
   --background-modifier-hover: rgba(236, 225, 215, 0.08);
   --background-modifier-active-hover: rgba(236, 225, 215, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(47, 43, 40);
-
-  /* Base color scale */
-  --color-base-30: rgb(99, 88, 81);
-  --color-base-35: rgb(126, 116, 105);
-  --color-base-40: rgb(134, 116, 98);
-  --color-base-50: rgb(193, 167, 142);
 
   /* UI elements */
   --interactive-normal: rgb(41, 37, 34);
@@ -10823,15 +10657,7 @@ body:not(.is-mobile).community-theme.theme-dark.mocha-dark {
   --background-modifier-border: rgb(49, 50, 68);
   --background-modifier-hover: rgba(205, 214, 244, 0.08);
   --background-modifier-active-hover: rgba(205, 214, 244, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(36, 36, 52);
-
-  /* Base color scale */
-  --color-base-30: rgb(67, 70, 90);
-  --color-base-35: rgb(86, 89, 112);
-  --color-base-40: rgb(105, 109, 134);
-  --color-base-50: rgb(142, 149, 179);
 
   /* UI elements */
   --raised-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -10863,7 +10689,6 @@ body.community-theme.theme-light.tiniri-light.adaptive-theme {
   --text-success: rgb(83, 138, 138);
   --text-warning: rgb(173, 81, 76);
   --text-error: rgb(173, 81, 76);
-  --text-accent: rgb(173, 81, 76);
   --text-accent-hover: rgb(204, 100, 94);
   --text-selection: rgb(218, 229, 226);
   --text-highlight-bg: #fab48588;
@@ -10876,26 +10701,12 @@ body:not(.is-mobile).community-theme.theme-light.tiniri-light {
   --background-modifier-border: rgb(218, 229, 226);
   --background-modifier-hover: rgba(51, 50, 49, 0.08);
   --background-modifier-active-hover: rgba(51, 50, 49, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(250, 248, 246) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(180, 201, 194);
-  --color-base-35: rgb(83, 138, 138);
-  --color-base-40: rgb(128, 121, 116);
-  --color-base-50: rgb(128, 121, 116);
 
   /* UI elements */
   --interactive-normal: rgb(247, 243, 240);
   --interactive-hover: rgb(237, 233, 225);
   --raised-shadow: 0 4px 12px rgba(51, 50, 49, 0.05);
-
-  /* Icons */
-  --icon-color: rgb(128, 121, 116);
-  --icon-color-hover: rgb(51, 50, 49);
-  --icon-color-active: rgb(51, 50, 49);
-  --icon-color-focused: rgb(51, 50, 49);
 
   /* Text */
   --text-faint: rgb(128, 121, 116);
@@ -10920,15 +10731,7 @@ body:not(.is-mobile).community-theme.theme-dark.tiniri-dark {
   --background-modifier-border: rgb(53, 58, 66);
   --background-modifier-hover: rgba(219, 211, 202, 0.08);
   --background-modifier-active-hover: rgba(219, 211, 202, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(37, 39, 40);
-
-  /* Base color scale */
-  --color-base-30: rgb(63, 68, 77);
-  --color-base-35: rgb(173, 81, 76);
-  --color-base-40: rgb(147, 138, 128);
-  --color-base-50: rgb(147, 138, 128);
 
   /* UI elements */
   --interactive-normal: rgb(53, 58, 66);
@@ -10952,14 +10755,6 @@ body:not(.is-mobile).community-theme.theme-dark.tiniri-dark {
    Nocturne Dark
    -------------------- */
 
-body.community-theme.theme-dark.nocturne-dark.color-scheme-accent {
-  --accent-h: 215;
-  --accent-s: 28%;
-  --accent-l: 68%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-dark.nocturne-dark {
   /* Backgrounds */
   --background-primary: rgb(26, 31, 38);
@@ -10967,15 +10762,7 @@ body:not(.is-mobile).community-theme.theme-dark.nocturne-dark {
   --background-modifier-border: rgb(49, 57, 68);
   --background-modifier-hover: rgba(192, 204, 220, 0.08);
   --background-modifier-active-hover: rgba(192, 204, 220, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(29, 35, 42) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(65, 74, 86);
-  --color-base-35: rgb(82, 93, 107);
-  --color-base-40: rgb(115, 127, 143);
-  --color-base-50: rgb(151, 162, 177);
 
   /* UI elements */
   --interactive-normal: rgba(49, 57, 68, 0.5);
@@ -10998,14 +10785,6 @@ body:not(.is-mobile).community-theme.theme-dark.nocturne-dark {
    Dune Light
    -------------------- */
 
-body.community-theme.theme-light.dune-light.color-scheme-accent {
-  --accent-h: 35;
-  --accent-s: 42%;
-  --accent-l: 48%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-light.dune-light {
   /* Backgrounds */
   --background-primary: rgb(252, 248, 242);
@@ -11013,15 +10792,7 @@ body:not(.is-mobile).community-theme.theme-light.dune-light {
   --background-modifier-border: rgb(227, 218, 204);
   --background-modifier-hover: rgba(87, 72, 57, 0.08);
   --background-modifier-active-hover: rgba(87, 72, 57, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(248, 243, 235) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(207, 195, 179);
-  --color-base-35: rgb(181, 167, 150);
-  --color-base-40: rgb(155, 140, 122);
-  --color-base-50: rgb(122, 106, 88);
 
   /* UI elements */
   --interactive-normal: rgba(87, 72, 57, 0.05);
@@ -11044,14 +10815,6 @@ body:not(.is-mobile).community-theme.theme-light.dune-light {
    Frost Light
    -------------------- */
 
-body.community-theme.theme-light.frost-light.color-scheme-accent {
-  --accent-h: 205;
-  --accent-s: 48%;
-  --accent-l: 45%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-light.frost-light {
   /* Backgrounds */
   --background-primary: rgb(250, 252, 254);
@@ -11059,15 +10822,7 @@ body:not(.is-mobile).community-theme.theme-light.frost-light {
   --background-modifier-border: rgb(220, 230, 238);
   --background-modifier-hover: rgba(55, 78, 100, 0.08);
   --background-modifier-active-hover: rgba(55, 78, 100, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(245, 249, 252) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(192, 207, 220);
-  --color-base-35: rgb(165, 184, 200);
-  --color-base-40: rgb(136, 157, 176);
-  --color-base-50: rgb(99, 120, 139);
 
   /* UI elements */
   --interactive-normal: rgba(55, 78, 100, 0.05);
@@ -11090,14 +10845,6 @@ body:not(.is-mobile).community-theme.theme-light.frost-light {
    Aqua Dark
    -------------------- */
 
-body.community-theme.theme-dark.aqua-dark.color-scheme-accent {
-  --accent-h: 180;
-  --accent-s: 55%;
-  --accent-l: 65%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-dark.aqua-dark {
   /* Backgrounds */
   --background-primary: rgb(24, 35, 38);
@@ -11105,15 +10852,7 @@ body:not(.is-mobile).community-theme.theme-dark.aqua-dark {
   --background-modifier-border: rgb(46, 62, 67);
   --background-modifier-hover: rgba(140, 210, 215, 0.08);
   --background-modifier-active-hover: rgba(140, 210, 215, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(27, 39, 42) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(62, 80, 85);
-  --color-base-35: rgb(78, 99, 105);
-  --color-base-40: rgb(105, 128, 133);
-  --color-base-50: rgb(140, 164, 168);
 
   /* UI elements */
   --interactive-normal: rgba(46, 62, 67, 0.5);
@@ -11136,14 +10875,6 @@ body:not(.is-mobile).community-theme.theme-dark.aqua-dark {
    Lavender Light
    -------------------- */
 
-body.community-theme.theme-light.lavender-light.color-scheme-accent {
-  --accent-h: 270;
-  --accent-s: 48%;
-  --accent-l: 52%;
-  --text-on-accent: var(--background-primary);
-  --text-on-accent-inverted: var(--background-primary);
-}
-
 body:not(.is-mobile).community-theme.theme-light.lavender-light {
   /* Backgrounds */
   --background-primary: rgb(252, 250, 254);
@@ -11151,15 +10882,7 @@ body:not(.is-mobile).community-theme.theme-light.lavender-light {
   --background-modifier-border: rgb(228, 221, 239);
   --background-modifier-hover: rgba(88, 67, 118, 0.08);
   --background-modifier-active-hover: rgba(88, 67, 118, 0.14);
-
-  /* Component Backgrounds */
   --settings-desc-background: rgb(248, 245, 252) !important;
-
-  /* Base color scale */
-  --color-base-30: rgb(208, 196, 224);
-  --color-base-35: rgb(186, 171, 206);
-  --color-base-40: rgb(158, 140, 181);
-  --color-base-50: rgb(122, 101, 150);
 
   /* UI elements */
   --interactive-normal: rgba(88, 67, 118, 0.05);
@@ -11186,4 +10909,70 @@ body:not(.is-mobile).community-theme.theme-light.lavender-light {
   margin: 3px;
   padding-top: 1px !important;
   border-radius: 8px;
+}
+
+/* --------------------
+   Mythic Info (Style Settings • Community Code [From Baseline])
+   -------------------- */
+
+body.hide-mythic-info .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container+.style-settings-container,
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	padding-bottom: 0;
+	padding-left: 0
+}
+
+body.hide-mythic-info .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container+.style-settings-container .setting-item,
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item {
+	position: relative;
+  border: 1px dashed var(--interactive-normal);
+	transition: var(--anim-duration-fast);
+	background-color: var(--setting-items-background) !important;
+	padding: 19px calc(20px*var(--density-modifier)) !important;
+	border-radius: var(--setting-items-radius) !important;
+}
+
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item:nth-child(1) {
+	flex: 1 1 calc(33% - 4px);
+}
+
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item:nth-child(2){
+	flex: 3 1 calc(67% - 4px);
+}
+
+body.hide-mythic-info .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container+.style-settings-container .setting-item:nth-child(1)::before,
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item:nth-child(1)::before {
+	content: none !important;
+	display: none !important;
+}
+
+body.hide-mythic-info .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container+.style-settings-container .setting-item a.external-link,
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item a.external-link {
+	position: absolute;
+	inset: 0;
+	background-image: none
+}
+
+body .style-settings-container .setting-item-heading[data-id=mythic-info]+.style-settings-container .setting-item:nth-child(3) {
+	flex-basis: 100%;
+}
+
+.setting-item-description ul {
+  padding-inline-start: 16px;
+}
+
+.setting-item-description ul > li::marker {
+  color: rgb(from var(--text-normal) r g b / 85%) !important;
+}
+
+.style-settings-container .setting-item:is([data-id="about"], [data-id="new"], [data-id="credits"]) b,
+.style-settings-container .setting-item:is([data-id="about"], [data-id="new"], [data-id="credits"]) strong {
+  color: rgb(from var(--text-normal) r g b / 85%) !important;
+  font-weight: 575;
+}
+
+.style-settings-container .setting-item[data-id=mythic-info] {
+  display: none 
 }
