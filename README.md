@@ -1,12 +1,12 @@
 # obsidian-mythic
 > Mythic is a dark, modern, and highly customizable theme for Obsidian built on top of Cupertino. Requires Style Settings and Iconize plugin for the best experience.
 
-# What's New in 4.4.4
+# What's New in 4.4.5
 ### Features, Patches and Fixes
-- `Improved` **Community Themes:** Removed Unused code to make themes more efficient.
-- `Improved` **Adaptive Theme:** Expanded Adaptive Theme support to all community themes (Including Dark themes).
-- `Fixed` **Style Settings:** A new way to see the version information of mythic along with What's New.
-- `Optimization` **Code Optimization**: Restructured, shortened and optimized code for better performance and maintenance.
+- `Improved` **Mobile Themes:** Revised the theme colors for Mobile Devices with a new color Palette
+- `Fixed` **Mobile Editor:** Fixed Inline Padding on phones being larger causing content to shift to the right.
+- `Fixed` **Fixed PDF:** Fixed the Header alignment when both the sidebars are closed.
+- `Fixed` **Adaptive Themes**: Fixed Adaptive accents affecting mobile devices as well.
 
 # Appearance & Themes
 ### Inbuilt Theme Styles & Community themes
