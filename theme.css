@@ -120,7 +120,7 @@ body:not(.is-mobile) .workspace-split {
   }
 }
 
-.is-translucent {
+.is-translucent, .low-power {
   --blur-s: none !important;
   --blur-m: none !important;
   --blur-l: none !important;
@@ -2276,23 +2276,23 @@ settings:
 		markdown: true
 		description: "
     <div>Author: <b>Nikoonj Patil</b></div>
-    <div>Mythic Version: <b>v4.4.6</b></div>
+    <div>Mythic Version: <b>v4.4.7</b></div>
     <div>Updated: <b>15th February 2026</b></div>
     <div>Cupertino Base Version: <b>v3.1.2</b></div>
     <div>Backport Source: <b>v3.2.0</b></div>
     <a href='https://github.com/Nikoonj/obsidian-mythic' class='external-link'></a>"
 	-
 		id: new
-		title: What's New in Mythic 4.4.6
+		title: What's New in Mythic 4.4.7
 		type: info-text
 		level: 0
 		markdown: true
 		description: "
     <ul>
-        <li><b>Adaptive Themes:</b> Added Adaptive Theme support for phones.</li>
-        <li><b>Community Themes:</b> Improved Accent Colors for Tiniri (Dark Theme).</li>
-        <li><b>Shadow Glass:</b> Fixed Shadow glass not appearing on button hover.</li>
-        <li><b>Code Optimization:</b> Shortened and optimized code.</li>
+        <li><b>Low Power Mode:</b> Disables Backdrop Blur to save power.</li>
+        <li><b>Animation:</b> The Settings Open animation has been reworked.</li>
+        <li><b>Backdrop Blur:</b> Modals and Prompts are now have a blurred back.</li>
+        <li><b>Button Hover:</b> Hovering over CTA buttons did not change text color.</li>
     </ul>
     <center><p style='opacity: 0.65;'>Click to see the full changelog and README.</p></center>
     <a href='https://github.com/Nikoonj/obsidian-mythic' class='external-link'></a>"
@@ -4260,7 +4260,7 @@ body:is(.mod-macos, .adaptive-mode-off) {
   --input-shadow-hover: none;
   --blur-s: blur(2px) saturate(1.5) brightness(1.025);
   --blur-m: blur(4px) saturate(1.5) brightness(1.025);
-  --blur-l: blur(8px) saturate(1.5) brightness(1.025);
+  --blur-l: blur(6px) saturate(1.5) brightness(1.025);
   --clickable-icon-radius: 100vh;
   --button-radius: var(--input-radius);
   --input-radius: var(--radius-s);
@@ -4568,7 +4568,12 @@ body:is(.mod-macos, .adaptive-mode-off).is-translucent {
   --modal-background: var(--background-primary)
 }
 
-body:is(.mod-macos, .adaptive-mode-off) .menu,
+body:is(.mod-macos, .adaptive-mode-off) .menu {
+  backdrop-filter: var(--blur-s);
+  border: none;
+  background-color: var(--modal-background)
+}
+
 body:is(.mod-macos, .adaptive-mode-off) .prompt,
 body:is(.mod-macos, .adaptive-mode-off) .modal:not(.mod-sidebar-layout) {
   backdrop-filter: var(--blur-l);
@@ -4617,11 +4622,6 @@ body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .suggestion-container .s
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .menu .menu-separator,
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .suggestion-container .menu-separator {
   margin: 6px 8px
-}
-
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .menu:hover,
-body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .suggestion-container:hover {
-  backdrop-filter: var(--blur-m)
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .menu:hover .menu-item.selected:not(.is-label):not(.is-disabled),
@@ -4735,14 +4735,19 @@ body:is(.mod-macos, .adaptive-mode-off).is-tablet .suggestion-container {
 
 @keyframes modalInCupertino {
   from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.96);
+  }
+  to {
     opacity: 1;
-    filter: none;
-    transform: scale(0.99)
+    filter: blur(0px);
+    transform: scale(1);
   }
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal {
-  animation: modalInCupertino var(--anim-duration-moderate) var(--anim-motion-baseline) forwards
+  animation: modalInCupertino 100ms cubic-bezier(0.34, 1.46, 0.63, 1.00) both
 }
 
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal:not(.mod-sidebar-layout) .modal-title {
@@ -9387,7 +9392,7 @@ body:not(.is-phone):not(.tab-floating) .workspace .mod-root .workspace-tabs:not(
 
 /* Settings Icon */
 .workspace-drawer-vault-actions .clickable-icon:last-child {
-  background-color: rgba(from var(--background-primary) r g b/75%) !important;
+  background-color: rgba(from var(--background-primary) r g b / 75%) !important;
   box-shadow: var(--shadow-tab) !important 
 }
 
@@ -10139,20 +10144,12 @@ body.is-mobile .workspace-drawer .workspace-drawer-tab-options .workspace-drawer
    OTHER PATCHES
    -------------------- */
 
-.menu,
-.suggestion-container,
-.hover-popover,
-.modal:not(.mod-settings):not(.mod-community-modal):not(.mod-plugin-settings) {
-  backdrop-filter: blur(8px);
-  background-color: rgba(from var(--background-secondary) r g b / 0.75) !important
-}
-
-.is-translucent :is(.menu, .suggestion-container, .hover-popover) {
-  background-color: var(--background-primary) !important
-}
-
 body:is(.mod-macos, .adaptive-mode-off):not(.is-mobile) .modal.mod-settings .vertical-tab-nav-item {
   border-radius: 12px;
+}
+
+button.mod-cta:hover {
+  color: var(--text-accent) !important;
 }
 
 /* ---------------------
@@ -10445,11 +10442,11 @@ body.community-theme {
   --color-base-10: var(--background-secondary) !important;
   --color-base-20: var(--background-primary) !important;
   --color-base-25: var(--background-modifier-border) !important;
+  --modal-background: rgb(from var(--background-primary) r g b / 60%) !important;
+  --prompt-background: rgb(from var(--background-primary) r g b / 60%) !important;
   --titlebar-background: var(--background-primary) !important;
   --titlebar-background-focused: var(--background-secondary) !important;
   --ribbon-background: transparent !important;
-  --modal-background: var(--background-primary) !important;
-  --prompt-background: var(--background-primary) !important;
   --tab-background-active: var(--background-primary) !important;
   --nav-item-background-active: var(--background-modifier-active-hover) !important;
   --divider-color: var(--background-modifier-border) !important;
@@ -10457,6 +10454,11 @@ body.community-theme {
   --dropdown-background: var(--background-secondary) !important;
   --dropdown-background-hover: var(--background-secondary) !important;
   --interactive-normal: var(--background-secondary) !important;
+}
+
+body.community-theme.low-power {
+  --modal-background: var(--background-primary) !important;
+  --prompt-background: var(--background-primary) !important;
 }
 
 /* Everforest Light */
